@@ -6,6 +6,9 @@
                 sublist: [
                     {
                         name: '复式',
+                        title: {
+                            N: ['万位', '千位', '百位', '十位', '个位']
+                        },
                         se: [0, 9],
                         line: 5,
                         func(Nlist) {
@@ -1117,6 +1120,57 @@
                         }
                     }
                 ]
+            },
+            {
+                subname: '前後二/三',
+                sublist: [
+                    {
+                        name: '前二',
+                        se: [0, 0],
+                        line: 0,
+                        Clist: ['大', '小', '单', '双'],
+                        Cline: 2,
+                        func(Nlist, Clist) {
+                            let result = 0;
+                            result = Clist.map(x => x.length).reduce((a, b) => a * b);
+                            return result;
+                        }
+                    },
+                    {
+                        name: '後二',
+                        se: [0, 0],
+                        line: 0,
+                        Clist: ['大', '小', '单', '双'],
+                        Cline: 2,
+                        func(Nlist, Clist) {
+                            let result = 0;
+                            result = Clist.map(x => x.length).reduce((a, b) => a * b);
+                            return result;
+                        }
+                    },
+                    {
+                        name: '前三',
+                        se: [0, 0],
+                        line: 0,
+                        Clist: ['大', '小', '单', '双'],
+                        Cline: 3,
+                        func(Nlist, Clist) {
+                            return Clist[0].length * Clist[1].length * Clist[2].length;
+                        }
+                    },
+                    {
+                        name: '後三',
+                        se: [0, 0],
+                        line: 0,
+                        Clist: ['大', '小', '单', '双'],
+                        Cline: 3,
+                        func(Nlist, Clist) {
+                            let result = 0;
+                            result = Clist.map(x => x.length).reduce((a, b) => a * b);
+                            return result;
+                        }
+                    }
+                ]
             }
         ],
         '特殊号': [
@@ -1943,6 +1997,32 @@
                             result = Clist.length;
                             return result;
                         }
+                    },
+                    {
+                        name: '冠亚军',
+                        se: [0, 0],
+                        line: 0,
+                        Clist: ['龙', '虎'],
+                        Cline: 1,
+                        func(Nlist, Clist) {
+                            let result = 0;
+                            Clist = Clist[0];
+                            result = Clist.length;
+                            return result;
+                        }
+                    },
+                    {
+                        name: '冠亚季军',
+                        se: [0, 0],
+                        line: 0,
+                        Clist: ['龙', '虎'],
+                        Cline: 1,
+                        func(Nlist, Clist) {
+                            let result = 0;
+                            Clist = Clist[0];
+                            result = Clist.length;
+                            return result;
+                        }
                     }
                 ]
             }
@@ -1995,13 +2075,13 @@
         ],
         '大小单双': [
             {
-                subname: '大小',
+                subname: '大小单双',
                 sublist: [
                     {
                         name: '冠军',
                         se: [0, 0],
                         line: 0,
-                        Clist: ['大', '小'],
+                        Clist: ['大', '小', '单', '双'],
                         Cline: 1,
                         func(Nlist, Clist) {
                             let result = 0;
@@ -2014,7 +2094,7 @@
                         name: '亚军',
                         se: [0, 0],
                         line: 0,
-                        Clist: ['大', '小'],
+                        Clist: ['大', '小', '单', '双'],
                         Cline: 1,
                         func(Nlist, Clist) {
                             let result = 0;
@@ -2027,25 +2107,7 @@
                         name: '季军',
                         se: [0, 0],
                         line: 0,
-                        Clist: ['大', '小'],
-                        Cline: 1,
-                        func(Nlist, Clist) {
-                            let result = 0;
-                            Clist = Clist[0];
-                            result = Clist.length;
-                            return result;
-                        }
-                    }
-                ]
-            },
-            {
-                subname: '单双',
-                sublist: [
-                    {
-                        name: '冠军',
-                        se: [0, 0],
-                        line: 0,
-                        Clist: ['单', '双'],
+                        Clist: ['大', '小', '单', '双'],
                         Cline: 1,
                         func(Nlist, Clist) {
                             let result = 0;
@@ -2055,10 +2117,10 @@
                         }
                     },
                     {
-                        name: '亚军',
+                        name: '第四名',
                         se: [0, 0],
                         line: 0,
-                        Clist: ['单', '双'],
+                        Clist: ['大', '小', '单', '双'],
                         Cline: 1,
                         func(Nlist, Clist) {
                             let result = 0;
@@ -2068,10 +2130,88 @@
                         }
                     },
                     {
-                        name: '季军',
+                        name: '第五名',
                         se: [0, 0],
                         line: 0,
-                        Clist: ['单', '双'],
+                        Clist: ['大', '小', '单', '双'],
+                        Cline: 1,
+                        func(Nlist, Clist) {
+                            let result = 0;
+                            Clist = Clist[0];
+                            result = Clist.length;
+                            return result;
+                        }
+                    },
+                    {
+                        name: '第六名',
+                        se: [0, 0],
+                        line: 0,
+                        Clist: ['大', '小', '单', '双'],
+                        Cline: 1,
+                        func(Nlist, Clist) {
+                            let result = 0;
+                            Clist = Clist[0];
+                            result = Clist.length;
+                            return result;
+                        }
+                    },
+                    {
+                        name: '第七名',
+                        se: [0, 0],
+                        line: 0,
+                        Clist: ['大', '小', '单', '双'],
+                        Cline: 1,
+                        func(Nlist, Clist) {
+                            let result = 0;
+                            Clist = Clist[0];
+                            result = Clist.length;
+                            return result;
+                        }
+                    },
+                    {
+                        name: '第八名',
+                        se: [0, 0],
+                        line: 0,
+                        Clist: ['大', '小', '单', '双'],
+                        Cline: 1,
+                        func(Nlist, Clist) {
+                            let result = 0;
+                            Clist = Clist[0];
+                            result = Clist.length;
+                            return result;
+                        }
+                    },
+                    {
+                        name: '第九名',
+                        se: [0, 0],
+                        line: 0,
+                        Clist: ['大', '小', '单', '双'],
+                        Cline: 1,
+                        func(Nlist, Clist) {
+                            let result = 0;
+                            Clist = Clist[0];
+                            result = Clist.length;
+                            return result;
+                        }
+                    },
+                    {
+                        name: '第十名',
+                        se: [0, 0],
+                        line: 0,
+                        Clist: ['大', '小', '单', '双'],
+                        Cline: 1,
+                        func(Nlist, Clist) {
+                            let result = 0;
+                            Clist = Clist[0];
+                            result = Clist.length;
+                            return result;
+                        }
+                    },
+                    {
+                        name: '冠亚季',
+                        se: [0, 0],
+                        line: 0,
+                        Clist: ['大', '小', '单', '双'],
                         Cline: 1,
                         func(Nlist, Clist) {
                             let result = 0;
@@ -2100,7 +2240,25 @@
                     }
                 ]
             }
-        ]
+        ],
+        '冠亚季选一': [
+            {
+                subname: '冠亚季选一',
+                sublist: [
+                    {
+                        name: '冠亚季',
+                        se: [1, 10],
+                        line: 0,
+                        func(Nlist, Clist) {
+                            let result = 0;
+                            Nlist = Nlist[0];
+                            result = Nlist.length;
+                            return result;
+                        }
+                    }
+                ]
+            }
+        ],
     },
     '山东11选5': {
         '三码': [
