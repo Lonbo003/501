@@ -46,7 +46,7 @@ var app = new Vue({
             for (let i in this.baseData) {
                 this.czlist.push(i);
             }
-            this.selectMode('cz', this.czlist[0]);
+            this.selectMode('cz', this.czlist[4]);
         },
         selectMode(atb, val) {
             if (atb == 'cz') {

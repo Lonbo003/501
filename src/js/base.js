@@ -2703,6 +2703,7 @@
                         line: 3,
                         func(Nlist) {
                             let result = 0;
+                            result = Nlist.map(x => x.length).reduce((a, b) => a * b);
                             return result;
                         }
                     },
@@ -2721,6 +2722,16 @@
                         line: 1,
                         func(Nlist) {
                             let result = 0;
+                            Nlist = Nlist[0];
+                            if (Nlist.length > 0) {
+                                let resultArr = [1, 3, 6, 10, 15,
+                                    21, 28, 36, 45, 55,
+                                    63, 69, 73, 75, 75,
+                                    73, 69, 63, 55, 45,
+                                    36, 28, 21, 15, 10,
+                                    6, 3, 1];
+                                result = Nlist.map(x => resultArr[x]).reduce((a, b) => a + b);
+                            }
                             return result;
                         }
                     }
@@ -2735,6 +2746,10 @@
                         line: 1,
                         func(Nlist) {
                             let result = 0;
+                            Nlist = Nlist[0];
+                            if (Nlist.length > 0) {
+                                result = Nlist.length * (Nlist.length - 1);
+                            }
                             return result;
                         }
                     },
@@ -2744,6 +2759,12 @@
                         line: 1,
                         func(Nlist) {
                             let result = 0;
+                            Nlist = Nlist[0];
+                            if (Nlist.length >= 3) {
+                                let resultArr = [0, 0, 1, 4, 10,
+                                    20, 35, 56, 84, 120];
+                                result = resultArr[Nlist.length - 1];
+                            }
                             return result;
                         }
                     },
@@ -2769,6 +2790,7 @@
                         line: 2,
                         func(Nlist) {
                             let result = 0;
+                            result = Nlist.map(x => x.length).reduce((a, b) => a * b);
                             return result;
                         }
                     },
@@ -2787,6 +2809,11 @@
                         line: 1,
                         func(Nlist) {
                             let result = 0;
+                            Nlist = Nlist[0];
+                            if (Nlist.length > 0) {
+                                let resultArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
+                                result = Nlist.map(x => resultArr[x]).reduce((a, b) => a + b);
+                            }
                             return result;
                         }
                     }
@@ -2801,6 +2828,10 @@
                         line: 1,
                         func(Nlist) {
                             let result = 0;
+                            Nlist = Nlist[0];
+                            if (Nlist.length > 0) {
+                                result = (Nlist.length * (Nlist.length - 1)) / 2;
+                            }
                             return result;
                         }
                     },
@@ -2824,6 +2855,7 @@
                         line: 2,
                         func(Nlist) {
                             let result = 0;
+                            result = Nlist.map(x => x.length).reduce((a, b) => a * b);
                             return result;
                         }
                     },
@@ -2842,6 +2874,11 @@
                         line: 1,
                         func(Nlist) {
                             let result = 0;
+                            Nlist = Nlist[0];
+                            if (Nlist.length > 0) {
+                                let resultArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
+                                result = Nlist.map(x => resultArr[x]).reduce((a, b) => a + b);
+                            }
                             return result;
                         }
                     }
@@ -2856,6 +2893,10 @@
                         line: 1,
                         func(Nlist) {
                             let result = 0;
+                            Nlist = Nlist[0];
+                            if (Nlist.length > 0) {
+                                result = (Nlist.length * (Nlist.length - 1)) / 2;
+                            }
                             return result;
                         }
                     },
@@ -2881,6 +2922,7 @@
                         line: 3,
                         func(Nlist) {
                             let result = 0;
+                            result = Nlist.map(x => x.length).reduce((a, b) => a + b);
                             return result;
                         }
                     }
@@ -2897,6 +2939,10 @@
                         line: 1,
                         func(Nlist) {
                             let result = 0;
+                            Nlist = Nlist[0];
+                            if (Nlist.length > 0) {
+                                result = Nlist.length;
+                            }
                             return result;
                         }
                     }
