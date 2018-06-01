@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link href="./src/css/style.min.css" rel="stylesheet" />
+    <script src="./src/js/vue.js"></script>
+    <script src="./src/js/base.js"></script>
+    <script type="module" src="./src/js/main.es5.min.js">
+    </script>
+</head>
+<body>
+    <div id="app" v-cloak>
+        <div class="main_frame">
+            <!--czlist-->
+            <div class="top_box">
+                <select v-model="select.cz" v-on:change="selectMode('cz', select.cz)">
+                    <option v-for="item in czlist" :value="item">{{item}}</option>
+                </select>
+            </div>
+            <div class="chs_frame">
+                <!--typelist-->
+                <div class="title_frame">
+                    <div v-for="item in typelist" v-bind:class="{active: item == select.type}" @click="selectMode('type', item)">
+                        {{item}}
+                    </div>
+                </div>
+                <div class="sub_frame" v-if="ready">
+                    <!--subtype-->
+                    <div class="sub_box" v-for="(subitem, index) in baseData[select.cz][select.type]">
+                        <label class="subname">{{subitem.subname}}</label>
+                        <div class="sublist" v-for="(item, idx) in subitem.sublist" @click="selectMode('subtype', [index, idx])">
+                            <div class="subicon" v-bind:class="{active: item == subDetail}"></div>
+                            <label class="subtxt">{{item.name}}</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="result_frame">
+                <span>共</span>
+                <span style="color: #E94335">{{totalBet}}</span>
+                <span>注</span>
+            </div>
+            <div class="num_frame">
+                <!--WZlist-->
+                <div v-show="WZlist.length > 0">
+                    <div class="num_box">
+                        <div class="WZ_item"
+                             v-for="item in WZlist"
+                             @click="selectWZ(item)"
+                             v-bind:class="{active: sd_WZlist.indexOf(item) > -1 }">
+                            {{item}}
+                        </div>
+                    </div>
+                </div>
+                <!--Clist-->
+                <div v-show="Clist.length > 0">
+                    <div class="num_box" v-for="(list, idx) in Clist">
+                        <div class="num_item num_item_C"
+                             v-for="item in list"
+                             @click="selectC(item, idx)"
+                             v-bind:class="{active: sd_Clist[idx].indexOf(item) > -1 }">
+                            {{item}}
+                        </div>
+                    </div>
+                </div>
+                <!--normal number-->
+                <div v-show="Numlist.length > 0">
+                    <div class="num_box" v-for="(num, idx) in Numlist">
+                        <div class="num_item"
+                             v-for="(num2, idx2) in num"
+                             @click="selectNum(num2, idx, true)"
+                             v-bind:class="{active: sd_Numlist[idx].indexOf(num2) > -1 }">
+                            {{num2}}
+                        </div>
+                        <div class="num_item num_item_btn" @click="sp_Numlist('all', idx)">全</div>
+                        <div class="num_item num_item_btn" @click="sp_Numlist('da', idx)">大</div>
+                        <div class="num_item num_item_btn" @click="sp_Numlist('sio', idx)">小</div>
+                        <div class="num_item num_item_btn" @click="sp_Numlist('den', idx)">單</div>
+                        <div class="num_item num_item_btn" @click="sp_Numlist('dab', idx)">雙</div>
+                        <div class="num_item num_item_btn" @click="sp_Numlist('clear', idx)">清</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
