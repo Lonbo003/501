@@ -44,6 +44,13 @@
             <div class="num_frame">
                 <!--WZlist-->
                 <div v-show="WZlist.length > 0">
+                    <div v-if="typeof(subDetail.title) != 'undefined'">
+                        <div v-if="typeof(subDetail.title.WZ) != 'undefined'">
+                            <label class="num_title" v-if="typeof(subDetail.title.WZ) != 'undefined'">
+                                {{subDetail.title.WZ[0]}}
+                            </label>
+                        </div>
+                    </div>
                     <div class="num_box">
                         <div class="WZ_item"
                              v-for="item in WZlist"
@@ -56,6 +63,13 @@
                 <!--Clist-->
                 <div v-show="Clist.length > 0">
                     <div class="num_box" v-for="(list, idx) in Clist">
+                        <div v-if="typeof(subDetail.title) != 'undefined'">
+                            <div v-if="typeof(subDetail.title.C) != 'undefined'">
+                                <label class="num_title" v-if="typeof(subDetail.title.C) != 'undefined'">
+                                    {{subDetail.title.C[idx]}}
+                                </label>
+                            </div>
+                        </div>
                         <div class="num_item num_item_C"
                              v-for="item in list"
                              @click="selectC(item, idx)"
@@ -67,6 +81,13 @@
                 <!--normal number-->
                 <div v-show="Numlist.length > 0">
                     <div class="num_box" v-for="(num, idx) in Numlist">
+                        <div v-if="typeof(subDetail.title) != 'undefined'">
+                            <div v-if="typeof(subDetail.title.N) != 'undefined'">
+                                <label class="num_title" v-if="subDetail.title.N.length > 0">
+                                    <span>{{subDetail.title.N[idx]}}</span>
+                                </label>
+                            </div>
+                        </div>
                         <div class="num_item"
                              v-for="(num2, idx2) in num"
                              @click="selectNum(num2, idx, true)"

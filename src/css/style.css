@@ -78,11 +78,22 @@ body {
   text-align: center;
 }
 .num_frame .num_box {
+  display: flex;
   background-color: #F7F7F7;
   border-radius: 100px;
-  padding: 20px;
-  padding-bottom: 10px;
-  margin: 30px 20px;
+  padding: 10px 20px;
+  margin: 10px 20px;
+  align-items: center;
+}
+.num_frame .num_box .num_title {
+  cursor: default;
+  border: 1px solid #CCCCCC;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  font-size: 14px;
+  text-align: center;
+  padding: 5px 10px;
+  margin-right: 20px;
 }
 .num_frame .num_box .WZ_item {
   display: inline-block;
@@ -111,20 +122,17 @@ body {
   text-align: center;
 }
 .num_frame .num_box .num_item {
-  display: inline-block;
   cursor: pointer;
   margin-right: 15px;
-  margin-bottom: 10px;
-  height: 40px;
   width: 40px;
+  height: 40px;
   border: 1px solid #CCCCCC;
   border-radius: 50%;
   background-color: #FFFFFF;
-  font-size: 1.75rem;
+  font-size: 30px;
   box-shadow: 1px 1px 2px #ccc;
   transition: all .1s linear;
   text-align: center;
-  line-height: 40px;
 }
 .num_frame .num_box .num_item.active {
   background-color: #D73021;
@@ -148,4 +156,10 @@ body {
 .num_frame .num_box .num_item_C {
   width: 80px;
   border-radius: 50px;
+}
+.fx {
+  display: flex;
+}
+.fw {
+  flex-wrap: wrap;
 }
