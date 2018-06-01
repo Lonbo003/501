@@ -4101,5 +4101,3 @@
         ]
     }
 }
-
-export default baseData;

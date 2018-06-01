@@ -1,6 +1,4 @@
-﻿import baseData from './base.js';
-
-function DeepClone(obj) {
+﻿function DeepClone(obj) {
     return JSON.parse(JSON.stringify(obj));
 }
 
