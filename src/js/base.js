@@ -1,5 +1,5 @@
 ﻿var baseData = {
-    '重庆时时彩': {
+    '时时彩': {
         '五星': [
             {
                 subname: '五星直选',
@@ -19,6 +19,9 @@
                             }
                             result = t_Nlist.reduce((a, b) => a * b);
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, true);
                         }
                     },
                     {
@@ -45,6 +48,9 @@
                             }
                             result = t_Nlist.reduce((a, b) => a * b) * 5;
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, true);
                         }
                     }
                 ],
@@ -68,6 +74,9 @@
                                 result = resultArr[Nlist.length - 1];
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 5, true);
                         }
                     },
                     {
@@ -90,6 +99,9 @@
                                 }
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, [1, 3], false);
                         }
                     },
                     {
@@ -112,6 +124,9 @@
                                 }
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, [2, 1], false);
                         }
                     },
                     {
@@ -134,6 +149,9 @@
                                 }
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, [1, 2], false);
                         }
                     },
                     {
@@ -154,6 +172,9 @@
                                 }
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     },
                     {
@@ -174,6 +195,9 @@
                                 }
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     }
                 ],
@@ -198,6 +222,9 @@
                                 result = Arr_1.length * Arr_2.length;
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, true);
                         }
                     },
                     {
@@ -224,6 +251,9 @@
                                 result = resultArr[Nlist.length - 1];
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, true);
                         }
                     },
                     {
@@ -242,6 +272,9 @@
                                 result = resultArr[Nlist.length - 1];
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, true);
                         }
                     },
                     {
@@ -255,6 +288,9 @@
                                 result = Nlist.length;
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, true);
                         }
                     },
                 ],
@@ -278,6 +314,9 @@
                                 result = resultArr[Nlist.length - 1];
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, true);
                         }
                     },
                     {
@@ -309,6 +348,9 @@
                                 result = Arr_1.length * Arr_2.length;
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, true);
                         }
                     },
                     {
@@ -335,6 +377,9 @@
                                 result = resultArr[Nlist.length - 1];
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, true);
                         }
                     },
                     {
@@ -353,6 +398,9 @@
                                 result = resultArr[Nlist.length - 1];
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, true);
                         }
                     },
                     {
@@ -366,6 +414,9 @@
                                 result = Nlist.length;
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, true);
                         }
                     },
                 ],
@@ -389,6 +440,9 @@
                                 result = resultArr[Nlist.length - 1];
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, true);
                         }
                     },
                     {
@@ -423,6 +477,9 @@
                             let Arr_5 = Nlist[4];
                             result = Arr_1.length + Arr_2.length + Arr_3.length + Arr_4.length + Arr_5.length;
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, '1_1', true);
                         }
                     },
                 ],
@@ -760,6 +817,7 @@
                     {
                         name: '组选',
                         title: {
+                            WZ: ['位置'],
                             N: ['号码']
                         },
                         se: [0, 9],
@@ -776,6 +834,9 @@
                                 result = (WZ * (WZ + 1) / 2) * resultArr[Nlist.length - 1];
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 2, true);
                         }
                     },
 
@@ -828,6 +889,7 @@
                     {
                         name: '组三',
                         title: {
+                            WZ: ['位置'],
                             N: ['号码']
                         },
                         se: [0, 9],
@@ -849,6 +911,7 @@
                     {
                         name: '组六',
                         title: {
+                            WZ: ['位置'],
                             N: ['号码']
                         },
                         se: [0, 9],
@@ -997,7 +1060,7 @@
                     {
                         name: '万千',
                         title: {
-                            N: ['龙虎']
+                            C: ['龙虎']
                         },
                         se: [0, 0],
                         line: 0,
@@ -1008,12 +1071,16 @@
                             Clist = Clist[0];
                             result = Clist.length;
                             return result;
+                        },
+                        func_fate() {
+                            ////////
+                            return sp_fate(this, 1, true);
                         }
                     },
                     {
                         name: '万百',
                         title: {
-                            N: ['龙虎']
+                            C: ['龙虎']
                         },
                         se: [0, 0],
                         line: 0,
@@ -1029,7 +1096,7 @@
                     {
                         name: '万十',
                         title: {
-                            N: ['龙虎']
+                            C: ['龙虎']
                         },
                         se: [0, 0],
                         line: 0,
@@ -1045,7 +1112,7 @@
                     {
                         name: '万个',
                         title: {
-                            N: ['龙虎']
+                            C: ['龙虎']
                         },
                         se: [0, 0],
                         line: 0,
@@ -1061,7 +1128,7 @@
                     {
                         name: '千百',
                         title: {
-                            N: ['龙虎']
+                            C: ['龙虎']
                         },
                         se: [0, 0],
                         line: 0,
@@ -1077,7 +1144,7 @@
                     {
                         name: '千十',
                         title: {
-                            N: ['龙虎']
+                            C: ['龙虎']
                         },
                         se: [0, 0],
                         line: 0,
@@ -1093,7 +1160,7 @@
                     {
                         name: '千个',
                         title: {
-                            N: ['龙虎']
+                            C: ['龙虎']
                         },
                         se: [0, 0],
                         line: 0,
@@ -1109,7 +1176,7 @@
                     {
                         name: '百十',
                         title: {
-                            N: ['龙虎']
+                            C: ['龙虎']
                         },
                         se: [0, 0],
                         line: 0,
@@ -1125,7 +1192,7 @@
                     {
                         name: '百个',
                         title: {
-                            N: ['龙虎']
+                            C: ['龙虎']
                         },
                         se: [0, 0],
                         line: 0,
@@ -1141,7 +1208,7 @@
                     {
                         name: '十个',
                         title: {
-                            N: ['龙虎']
+                            C: ['龙虎']
                         },
                         se: [0, 0],
                         line: 0,
@@ -2045,11 +2112,7 @@
             }
         ]
     },
-    //'重庆时时彩': {},
-    //'分分时时彩': {},
-    //'新疆时时彩': {},
-    //'天津时时彩': {},
-    '北京PK拾': {
+    'PK拾': {
         '前一': [
             {
                 subname: '前一',
@@ -2207,7 +2270,7 @@
                     {
                         name: '冠 军',
                         title: {
-                            N: ['龙虎']
+                            C: ['龙虎']
                         },
                         se: [0, 0],
                         line: 0,
@@ -2223,7 +2286,7 @@
                     {
                         name: '亚 军',
                         title: {
-                            N: ['龙虎']
+                            C: ['龙虎']
                         },
                         se: [0, 0],
                         line: 0,
@@ -2239,7 +2302,7 @@
                     {
                         name: '季 军',
                         title: {
-                            N: ['龙虎']
+                            C: ['龙虎']
                         },
                         se: [0, 0],
                         line: 0,
@@ -2255,7 +2318,7 @@
                     {
                         name: '第四名',
                         title: {
-                            N: ['龙虎']
+                            C: ['龙虎']
                         },
                         se: [0, 0],
                         line: 0,
@@ -2271,7 +2334,7 @@
                     {
                         name: '第五名',
                         title: {
-                            N: ['龙虎']
+                            C: ['龙虎']
                         },
                         se: [0, 0],
                         line: 0,
@@ -2336,7 +2399,7 @@
                     {
                         name: '亚 军',
                         title: {
-                            N: ['龙虎']
+                            C: ['龙虎']
                         },
                         se: [0, 0],
                         line: 0,
@@ -2352,7 +2415,7 @@
                     {
                         name: '季 军',
                         title: {
-                            N: ['龙虎']
+                            C: ['龙虎']
                         },
                         se: [0, 0],
                         line: 0,
@@ -2564,13 +2627,14 @@
             }
         ],
     },
-    '山东11选5': {
+    '11选5': {
         '三码': [
             {
                 subname: '前三直选',
                 sublist: [
                     {
                         name: '复式',
+                        title: { N: ['第一位', '第二位', '第三位'] },
                         se: [1, 11],
                         line: 3,
                         func(Nlist) {
@@ -2604,6 +2668,7 @@
                 sublist: [
                     {
                         name: '复式',
+                        title: { N: ['选号'] },
                         se: [1, 11],
                         line: 1,
                         func(Nlist) {
@@ -2635,6 +2700,7 @@
                 sublist: [
                     {
                         name: '复式',
+                        title: { N: ['第一位', '第二位'] },
                         se: [1, 11],
                         line: 2,
                         func(Nlist) {
@@ -2664,6 +2730,7 @@
                 sublist: [
                     {
                         name: '复式',
+                        title: { N: ['选号'] },
                         se: [1, 11],
                         line: 1,
                         func(Nlist) {
@@ -2695,6 +2762,7 @@
                 sublist: [
                     {
                         name: '前三位',
+                        title: { N: ['选号'] },
                         se: [1, 11],
                         line: 1,
                         func(Nlist) {
@@ -2713,6 +2781,7 @@
                 sublist: [
                     {
                         name: '定位胆',
+                        title: { N: ['第一位', '第二位', '第三位', '第四位', '第五位'] },
                         se: [1, 11],
                         line: 5,
                         func(Nlist) {
@@ -2732,6 +2801,7 @@
                 sublist: [
                     {
                         name: '一中一',
+                        title: { N: ['一中一'] },
                         se: [1, 11],
                         line: 1,
                         func(Nlist) {
@@ -2748,6 +2818,7 @@
                     },
                     {
                         name: '二中二',
+                        title: { N: ['二中二'] },
                         se: [1, 11],
                         line: 1,
                         func(Nlist) {
@@ -2764,6 +2835,7 @@
                     },
                     {
                         name: '三中三',
+                        title: { N: ['三中三'] },
                         se: [1, 11],
                         line: 1,
                         func(Nlist) {
@@ -2780,6 +2852,7 @@
                     },
                     {
                         name: '四中四',
+                        title: { N: ['四中四'] },
                         se: [1, 11],
                         line: 1,
                         func(Nlist) {
@@ -2796,6 +2869,7 @@
                     },
                     {
                         name: '五中五',
+                        title: { N: ['五中五'] },
                         se: [1, 11],
                         line: 1,
                         func(Nlist) {
@@ -2812,6 +2886,7 @@
                     },
                     {
                         name: '六中五',
+                        title: { N: ['六中五'] },
                         se: [1, 11],
                         line: 1,
                         func(Nlist) {
@@ -2828,6 +2903,7 @@
                     },
                     {
                         name: '七中五',
+                        title: { N: ['七中五'] },
                         se: [1, 11],
                         line: 1,
                         func(Nlist) {
@@ -2844,6 +2920,7 @@
                     },
                     {
                         name: '八中五',
+                        title: { N: ['八中五'] },
                         se: [1, 11],
                         line: 1,
                         func(Nlist) {
@@ -2937,13 +3014,41 @@
                     }
                 ]
             }
+        ],
+        '前一': [
+            {
+                subname: '直选',
+                sublist: [
+                    {
+                        name: '复式',
+                        se: [1, 11],
+                        line: 1,
+                        func(Nlist) {
+                            let result = Nlist[0].length;
+                            return result;
+                        }
+                    },
+                ]
+            }
+        ],
+        '趣味': [
+            {
+                subname: '趣味',
+                sublist: [
+                    {
+                        name: '猜中位',
+                        se: [3, 9],
+                        line: 1,
+                        func(Nlist) {
+                            let result = Nlist[0].length;
+                            return result;
+                        }
+                    },
+                ]
+            }
         ]
     },
-    //'广东11选5': {},
-    //'上海11选5': {},
-    //'江西11选5': {},
-    //'安徽11选5': {},
-    '广西快3': {
+    '快3': {
         '二不同号': [
             {
                 subname: '二不同号',
@@ -3153,7 +3258,6 @@
             }
         ]
     },
-    //'湖北快3': {},
     '福彩3D': {
         '三码': [
             {
@@ -3422,7 +3526,7 @@
                     {
                         name: '一码不定胆',
                         title: {
-                            N: ['百位', '十位', '个位']
+                            N: ['不定胆']
                         },
                         se: [0, 9],
                         line: 1,
@@ -3434,14 +3538,62 @@
                             }
                             return result;
                         }
+                    },
+                    {
+                        name: '二码不定胆',
+                        title: {
+                            N: ['不定胆']
+                        },
+                        se: [0, 9],
+                        line: 1,
+                        func(Nlist) {
+                            let result = 0;
+                            Nlist = Nlist[0];
+                            if (Nlist.length > 1) {
+                                let resultArr = [
+                                    0, 1, 3, 6, 10,
+                                    15, 21, 28, 36, 45
+                                ];
+                                result = resultArr[Nlist.length - 1];
+                            }
+                            return result;
+                        }
                     }
                 ]
             }
-        ]
+        ],
+        '大小单双': [
+            {
+                subname: '大小单双',
+                sublist: [
+                    {
+                        name: '前二',
+                        se: [0, 0],
+                        line: 0,
+                        Clist: ['大', '小', '单', '双'],
+                        Cline: 2,
+                        func(Nlist, Clist) {
+                            let result = 0;
+                            result = Clist.map(x => x.length).reduce((a, b) => a + b);
+                            return result;
+                        }
+                    },
+                    {
+                        name: '后二',
+                        se: [0, 0],
+                        line: 0,
+                        Clist: ['大', '小', '单', '双'],
+                        Cline: 2,
+                        func(Nlist, Clist) {
+                            let result = 0;
+                            result = Clist.map(x => x.length).reduce((a, b) => a + b);
+                            return result;
+                        }
+                    }
+                ]
+            },
+        ],
     },
-    //'排列三': {},
-    //'北京28': {},
-    //'幸运28': {},
     '三分彩': {
         '五星': [
             {
@@ -4635,4 +4787,120 @@
             }
         ]
     }
+}
+
+function fateObj() {
+    //index
+    return {
+        sd_Numlist: [],
+        sd_WZlist: [],
+        sd_Clist: []
+    }
+}
+//Math.floor(Math.random() * (max - min + 1) + min);
+function sp_fate(_this, _rule, rp) {
+    let result = new fateObj();
+    if (_this.line > 0) {
+        if (typeof (_rule) === "string") {
+            let rule = _rule.split('_');
+            let lineArr = new Array(_this.line).fill(0).map((v, i) => i);
+            let t_lineArr = [];
+            let min = 0;
+            while (t_lineArr.length < rule[0]) {
+                let max = lineArr.length - 1;
+                t_lineArr.push(lineArr.splice(Math.floor(Math.random() * (max - min + 1) + min), 1)[0]);
+            }
+
+            let Arr = new Array(_this.se[1] - _this.se[0] + 1).fill(0).map((v, i) => i + _this.se[0]);
+            for (let a = 0; a < _this.line; a++) {
+                if (rp) {//重複=>刷新
+                    Arr = new Array(_this.se[1] - _this.se[0] + 1).fill(0).map((v, i) => i + _this.se[0]);
+                }
+                let sd_N = [];
+                if (t_lineArr.indexOf(a) > -1) {
+                    for (let b = 0; b < rule[1]; b++) {
+                        let max = Arr.length - 1;
+                        sd_N.push(Arr.splice(Math.floor(Math.random() * (max - min + 1) + min), 1)[0]);
+                    }
+                }
+                result.sd_Numlist.push(sd_N);
+            }
+        }
+        else {
+            let rule = Array.isArray(_rule) ? _rule : new Array(_this.line).fill(_rule);
+            let min = 0;
+            let Arr = new Array(_this.se[1] - _this.se[0] + 1).fill(0).map((v, i) => i + _this.se[0]);
+            for (let a = 0; a < _this.line; a++) {
+                if (rp) {//重複=>刷新
+                    Arr = new Array(_this.se[1] - _this.se[0] + 1).fill(0).map((v, i) => i + _this.se[0]);
+                }
+                let sd_item = [];
+                for (let b = 0; b < rule[a]; b++) {
+                    let max = Arr.length - 1;
+                    sd_item.push(Arr.splice(Math.floor(Math.random() * (max - min + 1) + min), 1)[0]);
+                }
+                result.sd_Numlist.push(sd_item);
+            }
+        }
+    }
+    if (_this.hasOwnProperty('Cline')) {
+        if (_this.Cline > 0) {
+            if (typeof (rule) === "string") {
+                rule = rule.split('_');
+                let lineArr = new Array(_this.Cline).fill(0).map((v, i) => i);
+                let t_lineArr = [];
+                let min = 0;
+                while (t_lineArr.length < rule[0]) {
+                    let max = lineArr.length - 1;
+                    t_lineArr.push(lineArr.splice(Math.floor(Math.random() * (max - min + 1) + min), 1)[0]);
+                }
+
+                let Arr = new Array(_this.Clist.length).fill(0).map((v, i) => i);
+                for (let a = 0; a < _this.Cline; a++) {
+                    if (rp) {//重複=>刷新
+                        Arr = new Array(_this.Clist.length).fill(0).map((v, i) => i);
+                    }
+                    let sd_item = [];
+                    if (t_lineArr.indexOf(a) > -1) {
+                        for (let b = 0; b < rule[1]; b++) {
+                            let max = Arr.length - 1;
+                            sd_item.push(Arr.splice(Math.floor(Math.random() * (max - min + 1) + min), 1)[0]);
+                        }
+                    }
+                    result.sd_Clist.push(sd_item);
+                }
+            }
+            else {
+                rule = Array.isArray(rule) ? rule : new Array(_this.Cline).fill(rule);
+                let min = 0;
+                let Arr = new Array(_this.Clist.length).fill(0).map((v, i) => i);
+                for (let a = 0; a < _this.Cline; a++) {
+                    if (rp) {//重複=>刷新
+                        Arr = new Array(_this.Clist.length).fill(0).map((v, i) => i);
+                    }
+                    let sd_item = [];
+                    for (let b = 0; b < rule[a]; b++) {
+                        let max = Arr.length - 1;
+                        sd_item.push(Arr.splice(Math.floor(Math.random() * (max - min + 1) + min), 1)[0]);
+                    }
+                    result.sd_Clist.push(sd_item);
+                }
+            }
+        }
+    }
+    if (_this.hasOwnProperty('WZlist')) {
+        if (_this.WZlist.length > 0) {
+            if (Number.isInteger(_rule)) {
+                let min = 0;
+                let rule = _rule;
+                let Arr = new Array(_this.WZlist.length).fill(0).map((v, i) => i);
+                console.log(2222, Arr);
+                for (let a = 0; a < rule; a++) {
+                    let max = Arr.length - 1;
+                    result.sd_WZlist.push(Arr.splice(Math.floor(Math.random() * (max - min + 1) + min), 1)[0]);
+                }
+            }
+        }
+    }
+    return result;
 }

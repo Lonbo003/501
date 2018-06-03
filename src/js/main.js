@@ -85,13 +85,13 @@ var app = new Vue({
             //位置
             this.WZlist = [];
             this.sd_WZlist = [];
-            if (typeof (this.subDetail.WZlist) != 'undefined') {
+            if (this.subDetail.hasOwnProperty('WZlist')) {
                 this.WZlist = DeepClone(this.subDetail.WZlist);
             }
             //中文
             this.Clist = [];
             this.sd_Clist = [];
-            if (typeof (this.subDetail.Clist) != 'undefined') {
+            if (this.subDetail.hasOwnProperty('Clist')) {
                 for (let a = 0; a < this.subDetail.Cline; a++) {
                     this.Clist.push(DeepClone(this.subDetail.Clist));
                     this.sd_Clist.push([]);
@@ -127,11 +127,14 @@ var app = new Vue({
             else {
                 this.sd_Clist[idx].push(c);
             }
-            this.totalBet = this.subDetail.func(this.sd_Numlist, this.sd_Clist);
+            this.sp_totalBet();
         },
         sp_totalBet() {
-            if (typeof (this.subDetail.WZlist) != 'undefined') {
+            if (this.subDetail.hasOwnProperty('WZlist')) {
                 this.totalBet = this.subDetail.func(this.sd_Numlist, this.sd_WZlist);
+            }
+            else if (this.subDetail.hasOwnProperty('Clist')) {
+                this.totalBet = this.subDetail.func(this.sd_Numlist, this.sd_Clist);
             }
             else {
                 this.totalBet = this.subDetail.func(this.sd_Numlist);
@@ -175,11 +178,30 @@ var app = new Vue({
                 }
             }
         },
+        sp_Clist(type, idx) {
+            if (idx > -1) {
+                if (type == 'clear') {
+                    this.sd_Clist[idx].splice(0, this.sd_Clist[idx].length);
+                    this.sp_totalBet();
+                }
+            }
+            else {
+                for (let a = 0; a < this.subDetail.Cline; a++) {
+                    this.sp_Clist(type, a);
+                }
+            }
+        },
+        sp_WZlist(type, idx) {
+            if (type == 'clear') {
+                this.sd_WZlist.splice(0, this.sd_WZlist.length);
+                this.sp_totalBet();
+            }
+        },
         sp_Betlist(type, idx) {
             if (type == 'add') {
                 if (this.totalBet > 0) {
                     let r_data = [];
-                    [this.sd_WZlist, this.sd_Clist, this.sd_Numlist].forEach((item) => {
+                    [this.sd_WZlist, this.sd_Clist, this.sd_Numlist.map(x => x.length > 0 ? x : '_')].forEach((item) => {
                         if (item.length > 0) {
                             item.forEach((item2) => {
                                 r_data.push(item2.toString());
@@ -188,10 +210,12 @@ var app = new Vue({
                     })
                     this.sd_Betlist.push({
                         name: [this.select.cz, this.baseData[this.select.cz][this.select.type][this.select.subtype[0]].subname, this.subDetail.name].join('_'),
-                        data: r_data.join(' | '),
+                        data: r_data.join('|'),
                         zhu: this.totalBet
                     });
                     this.sp_Numlist('clear', -1);
+                    this.sp_Clist('clear', -1);
+                    this.sp_WZlist('clear');
                 }
                 else {
                     alert('下注');
@@ -203,6 +227,50 @@ var app = new Vue({
                 }
                 else {
                     this.sd_Betlist.splice(0, this.sd_Betlist.length);
+                }
+            }
+            else if (type == 'fate') {
+                let times = idx;
+                if (times == 1) {
+                    if (this.Numlist.length > 0)
+                        this.sp_Numlist('clear', -1);
+                    if (this.Clist.length > 0)
+                        this.sp_Clist('clear', -1);
+                    if (this.WZlist.length > 0)
+                        this.sp_WZlist('clear');
+
+                    let data = this.subDetail.func_fate();
+                    if (data.sd_Numlist.length > 0) {
+                        for (let a in data.sd_Numlist) {
+                            let N = data.sd_Numlist[a];
+                            if (N.length > 0) {
+                                for (let b in N) {
+                                    this.selectNum(this.Numlist[a][N[b]], a, true);
+                                }
+                            }
+                        }
+                    }
+                    if (data.sd_WZlist.length > 0) {
+                        for (let a in data.sd_WZlist) {
+                            this.selectWZ(this.WZlist[data.sd_WZlist[a]], a, a == data.sd_WZlist.length - 1);
+                        }
+                    }
+                    if (data.sd_Clist.length > 0) {
+                        for (let a in data.sd_Clist) {
+                            let C = data.sd_Clist[a];
+                            if (C.length > 0) {
+                                for (let b in C) {
+                                    this.selectC(this.Clist[a][C[b]], a, a == data.sd_Clist.length - 1);
+                                }
+                            }
+                        }
+                    }
+                    this.sp_Betlist('add');
+                }
+                else {
+                    for (let a = 0; a < times; a++) {
+                        this.sp_Betlist('fate', 1);
+                    }
                 }
             }
         }

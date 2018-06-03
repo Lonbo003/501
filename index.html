@@ -44,21 +44,21 @@
                 </div>
                 <div class="btn_box">
                     <input type="button" value="添加注单" @click="sp_Betlist('add')" />
-                    <input type="button" value="随机一注" />
-                    <input type="button" value="随机五注" />
+                    <input type="button" value="随机一注" @click="sp_Betlist('fate', 1)" />
+                    <input type="button" value="随机五注" @click="sp_Betlist('fate', 5)" />
                 </div>
             </div>
             <div class="num_frame">
                 <!--WZlist-->
                 <div v-show="WZlist.length > 0">
-                    <div v-if="typeof(subDetail.title) != 'undefined'">
-                        <div v-if="typeof(subDetail.title.WZ) != 'undefined'">
-                            <label class="num_title" v-if="typeof(subDetail.title.WZ) != 'undefined'">
-                                {{subDetail.title.WZ[0]}}
-                            </label>
-                        </div>
-                    </div>
                     <div class="num_box">
+                        <div v-if="subDetail.hasOwnProperty('title')">
+                            <div v-if="subDetail.title.hasOwnProperty('WZ')">
+                                <label class="num_title" v-if="typeof(subDetail.title.WZ) != 'undefined'">
+                                    {{subDetail.title.WZ[0]}}
+                                </label>
+                            </div>
+                        </div>
                         <div class="WZ_item"
                              v-for="item in WZlist"
                              @click="selectWZ(item)"
@@ -70,8 +70,8 @@
                 <!--Clist-->
                 <div v-show="Clist.length > 0">
                     <div class="num_box" v-for="(list, idx) in Clist">
-                        <div v-if="typeof(subDetail.title) != 'undefined'">
-                            <div v-if="typeof(subDetail.title.C) != 'undefined'">
+                        <div v-if="subDetail.hasOwnProperty('title')">
+                            <div v-if="subDetail.title.hasOwnProperty('C')">
                                 <label class="num_title" v-if="typeof(subDetail.title.C) != 'undefined'">
                                     {{subDetail.title.C[idx]}}
                                 </label>
@@ -88,8 +88,8 @@
                 <!--normal number-->
                 <div v-show="Numlist.length > 0">
                     <div class="num_box" v-for="(num, idx) in Numlist">
-                        <div v-if="typeof(subDetail.title) != 'undefined'">
-                            <div v-if="typeof(subDetail.title.N) != 'undefined'">
+                        <div v-if="subDetail.hasOwnProperty('title')">
+                            <div v-if="subDetail.title.hasOwnProperty('N')">
                                 <label class="num_title" v-if="subDetail.title.N.length > 0">
                                     <span>{{subDetail.title.N[idx]}}</span>
                                 </label>
@@ -114,15 +114,19 @@
                 <div class="bl_titlte fx">
                     <div class="bl_row">玩法</div>
                     <div class="bl_row">注數</div>
-                    <div class="bl_row"></div>
-                </div>
-                <div class="bl_context fx" v-for="(item, idx) in sd_Betlist">
                     <div class="bl_row">
-                        <p>{{item.name}}</p>
-                        <p>{{item.data}}</p>
+                        <div v-show="sd_Betlist.length > 0" @click="sp_Betlist('clear', -1)">X</div>
                     </div>
-                    <div class="bl_row">{{item.zhu}}注</div>
-                    <div class="bl_row" @click="sp_Betlist('clear', idx)">X</div>
+                </div>
+                <div class="bl_context_box">
+                    <div class="bl_context fx" v-for="(item, idx) in sd_Betlist">
+                        <div class="bl_row">
+                            <p>{{item.name}}</p>
+                            <p>{{item.data}}</p>
+                        </div>
+                        <div class="bl_row">{{item.zhu}}注</div>
+                        <div class="bl_row" @click="sp_Betlist('clear', idx)">X</div>
+                    </div>
                 </div>
                 <div class="bl_empty fx" v-show="sd_Betlist.length == 0">
                     查無資料
