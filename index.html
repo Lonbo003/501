@@ -36,10 +36,17 @@
                     </div>
                 </div>
             </div>
-            <div class="result_frame">
-                <span>共</span>
-                <span style="color: #E94335">{{totalBet}}</span>
-                <span>注</span>
+            <div class="result_frame fx">
+                <div>
+                    <span>共</span>
+                    <span style="color: #E94335">{{totalBet}}</span>
+                    <span>注</span>
+                </div>
+                <div class="btn_box">
+                    <input type="button" value="添加注单" @click="sp_Betlist('add')" />
+                    <input type="button" value="随机一注" />
+                    <input type="button" value="随机五注" />
+                </div>
             </div>
             <div class="num_frame">
                 <!--WZlist-->
@@ -101,6 +108,24 @@
                         <div class="num_item num_item_btn" @click="sp_Numlist('dab', idx)">雙</div>
                         <div class="num_item num_item_btn" @click="sp_Numlist('clear', idx)">清</div>
                     </div>
+                </div>
+            </div>
+            <div class="betlist_frame">
+                <div class="bl_titlte fx">
+                    <div class="bl_row">玩法</div>
+                    <div class="bl_row">注數</div>
+                    <div class="bl_row"></div>
+                </div>
+                <div class="bl_context fx" v-for="(item, idx) in sd_Betlist">
+                    <div class="bl_row">
+                        <p>{{item.name}}</p>
+                        <p>{{item.data}}</p>
+                    </div>
+                    <div class="bl_row">{{item.zhu}}注</div>
+                    <div class="bl_row" @click="sp_Betlist('clear', idx)">X</div>
+                </div>
+                <div class="bl_empty fx" v-show="sd_Betlist.length == 0">
+                    查無資料
                 </div>
             </div>
         </div>

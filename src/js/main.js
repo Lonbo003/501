@@ -6,6 +6,12 @@ var app = new Vue({
     el: '#app',
     data: {
         baseData: baseData,
+        totalBet: 0,
+        select: {
+            cz: '',
+            type: '',
+            subtype: [0, 0]
+        },
         //for html
         czlist: [],
         typelist: [],
@@ -16,12 +22,7 @@ var app = new Vue({
         sd_Numlist: [],
         sd_WZlist: [],
         sd_Clist: [],
-        totalBet: 0,
-        select: {
-            cz: '',
-            type: '',
-            subtype: [0, 0]
-        }
+        sd_Betlist: []
     },
     computed: {
         subDetail() {
@@ -107,12 +108,7 @@ var app = new Vue({
             this.sd_Numlist[idx].sort((a, b) => a - b);
 
             if (update) {
-                if (typeof (this.subDetail.WZlist) != 'undefined') {
-                    this.totalBet = this.subDetail.func(this.sd_Numlist, this.sd_WZlist);
-                }
-                else {
-                    this.totalBet = this.subDetail.func(this.sd_Numlist);
-                }
+                this.sp_totalBet();
             }
         },
         selectWZ(wz) {
@@ -133,35 +129,80 @@ var app = new Vue({
             }
             this.totalBet = this.subDetail.func(this.sd_Numlist, this.sd_Clist);
         },
+        sp_totalBet() {
+            if (typeof (this.subDetail.WZlist) != 'undefined') {
+                this.totalBet = this.subDetail.func(this.sd_Numlist, this.sd_WZlist);
+            }
+            else {
+                this.totalBet = this.subDetail.func(this.sd_Numlist);
+            }
+        },
         sp_Numlist(type, idx) {
             let SE = this.subDetail.se;
-            if (type == 'all') {
-                for (let a = SE[0]; a <= SE[1]; a++) {
-                    if (this.sd_Numlist[idx].indexOf(a) == -1) {
-                        this.selectNum(a, idx, true);
+            if (idx > -1) {
+                if (type == 'all') {
+                    for (let a = SE[0]; a <= SE[1]; a++) {
+                        if (this.sd_Numlist[idx].indexOf(a) == -1) {
+                            this.sd_Numlist[idx].push(a);
+                        }
                     }
+                    this.sd_Numlist[idx].sort((a, b) => a - b);
+                    this.sp_totalBet();
+                }
+                else if (type == 'clear') {
+                    this.sd_Numlist[idx].splice(0, this.sd_Numlist[idx].length);
+                    this.sp_totalBet();
+                }
+                else if (type == 'da' || type == 'sio' || type == 'den' || type == 'dab') {
+                    this.sp_Numlist('clear', idx);
+                    let mmd = Math.ceil((SE[1] + SE[0]) / 2);
+                    let result = {
+                        'da': this.Numlist[idx].filter(x => x >= mmd),
+                        'sio': this.Numlist[idx].filter(x => x < mmd),
+                        'den': this.Numlist[idx].filter(x => x % 2 == 1),
+                        'dab': this.Numlist[idx].filter(x => x % 2 == 0)
+                    }
+                    for (let a = SE[0]; a <= SE[1]; a++) {
+                        if (result[type].indexOf(a) > -1) {
+                            this.selectNum(a, idx, a == result[type][result[type].length - 1]);
+                        }
+                    }
+                }
+            }
+            else {
+                for (let a = 0; a < this.subDetail.line; a++) {
+                    this.sp_Numlist(type, a);
+                }
+            }
+        },
+        sp_Betlist(type, idx) {
+            if (type == 'add') {
+                if (this.totalBet > 0) {
+                    let r_data = [];
+                    [this.sd_WZlist, this.sd_Clist, this.sd_Numlist].forEach((item) => {
+                        if (item.length > 0) {
+                            item.forEach((item2) => {
+                                r_data.push(item2.toString());
+                            })
+                        }
+                    })
+                    this.sd_Betlist.push({
+                        name: [this.select.cz, this.baseData[this.select.cz][this.select.type][this.select.subtype[0]].subname, this.subDetail.name].join('_'),
+                        data: r_data.join(' | '),
+                        zhu: this.totalBet
+                    });
+                    this.sp_Numlist('clear', -1);
+                }
+                else {
+                    alert('下注');
                 }
             }
             else if (type == 'clear') {
-                for (let a = SE[0]; a <= SE[1]; a++) {
-                    if (this.sd_Numlist[idx].indexOf(a) > -1) {
-                        this.selectNum(a, idx, a == SE[1]);
-                    }
+                if (idx > -1) {
+                    this.sd_Betlist.splice(idx, 1);
                 }
-            }
-            else if (type == 'da' || type == 'sio' || type == 'den' || type == 'dab') {
-                this.sp_Numlist('clear', idx);
-                let mmd = Math.ceil((SE[1] + SE[0]) / 2);
-                let result = {
-                    'da': this.Numlist[idx].filter(x => x >= mmd),
-                    'sio': this.Numlist[idx].filter(x => x < mmd),
-                    'den': this.Numlist[idx].filter(x => x % 2 == 1),
-                    'dab': this.Numlist[idx].filter(x => x % 2 == 0)
-                }
-                for (let a = SE[0]; a <= SE[1]; a++) {
-                    if (result[type].indexOf(a) > -1) {
-                        this.selectNum(a, idx, a == result[type][result[type].length - 1]);
-                    }
+                else {
+                    this.sd_Betlist.splice(0, this.sd_Betlist.length);
                 }
             }
         }
