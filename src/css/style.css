@@ -94,6 +94,7 @@ body {
 }
 .num_frame .num_box {
   display: flex;
+  flex-wrap: wrap;
   background-color: #F7F7F7;
   border-radius: 100px;
   padding: 10px 20px;

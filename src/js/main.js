@@ -98,6 +98,7 @@ var app = new Vue({
                 }
             }
         },
+        //select
         selectNum(num, idx, update) {
             if (this.sd_Numlist[idx].indexOf(num) > -1) {
                 this.sd_Numlist[idx].splice(this.sd_Numlist[idx].indexOf(num), 1);
@@ -129,6 +130,7 @@ var app = new Vue({
             }
             this.sp_totalBet();
         },
+        //sp
         sp_totalBet() {
             if (this.subDetail.hasOwnProperty('WZlist')) {
                 this.totalBet = this.subDetail.func(this.sd_Numlist, this.sd_WZlist);
@@ -178,6 +180,12 @@ var app = new Vue({
                 }
             }
         },
+        sp_WZlist(type, idx) {
+            if (type == 'clear') {
+                this.sd_WZlist.splice(0, this.sd_WZlist.length);
+                this.sp_totalBet();
+            }
+        },
         sp_Clist(type, idx) {
             if (idx > -1) {
                 if (type == 'clear') {
@@ -189,12 +197,6 @@ var app = new Vue({
                 for (let a = 0; a < this.subDetail.Cline; a++) {
                     this.sp_Clist(type, a);
                 }
-            }
-        },
-        sp_WZlist(type, idx) {
-            if (type == 'clear') {
-                this.sd_WZlist.splice(0, this.sd_WZlist.length);
-                this.sp_totalBet();
             }
         },
         sp_Betlist(type, idx) {
@@ -232,15 +234,9 @@ var app = new Vue({
             else if (type == 'fate') {
                 let times = idx;
                 if (times == 1) {
-                    if (this.Numlist.length > 0)
-                        this.sp_Numlist('clear', -1);
-                    if (this.Clist.length > 0)
-                        this.sp_Clist('clear', -1);
-                    if (this.WZlist.length > 0)
-                        this.sp_WZlist('clear');
-
                     let data = this.subDetail.func_fate();
                     if (data.sd_Numlist.length > 0) {
+                        this.sp_Numlist('clear', -1);
                         for (let a in data.sd_Numlist) {
                             let N = data.sd_Numlist[a];
                             if (N.length > 0) {
@@ -251,11 +247,13 @@ var app = new Vue({
                         }
                     }
                     if (data.sd_WZlist.length > 0) {
+                        this.sp_WZlist('clear');
                         for (let a in data.sd_WZlist) {
                             this.selectWZ(this.WZlist[data.sd_WZlist[a]], a, a == data.sd_WZlist.length - 1);
                         }
                     }
                     if (data.sd_Clist.length > 0) {
+                        this.sp_Clist('clear', -1);
                         for (let a in data.sd_Clist) {
                             let C = data.sd_Clist[a];
                             if (C.length > 0) {
@@ -265,7 +263,7 @@ var app = new Vue({
                             }
                         }
                     }
-                    this.sp_Betlist('add');
+                    //this.sp_Betlist('add');
                 }
                 else {
                     for (let a = 0; a < times; a++) {

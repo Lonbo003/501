@@ -336,7 +336,7 @@
                     {
                         name: '复式',
                         title: {
-                            N: ['组选']
+                            N: ['万位', '千位']
                         },
                         se: [0, 9],
                         line: 2,
@@ -503,6 +503,9 @@
                                 result = Nlist.length;
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     },
                     {
@@ -519,6 +522,9 @@
                                 result = Nlist.length;
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     },
                     {
@@ -535,6 +541,9 @@
                                 result = Nlist.length;
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     },
                     {
@@ -553,6 +562,9 @@
                                 result = resultArr[Nlist.length - 1];
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     },
                     {
@@ -571,6 +583,9 @@
                                 result = resultArr[Nlist.length - 1];
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     },
                     {
@@ -589,6 +604,9 @@
                                 result = resultArr[Nlist.length - 1];
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     },
                 ],
@@ -610,6 +628,9 @@
                                 result = Nlist.length;
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     },
                     {
@@ -626,6 +647,9 @@
                                 result = Nlist.length;
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     },
                     {
@@ -644,6 +668,9 @@
                                 result = resultArr[Nlist.length - 1];
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     },
                     {
@@ -662,6 +689,9 @@
                                 result = resultArr[Nlist.length - 1];
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     },
                     {
@@ -680,6 +710,9 @@
                                 result = resultArr[Nlist.length - 1];
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     },
                     {
@@ -698,6 +731,9 @@
                                 result = resultArr[Nlist.length - 1];
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     }
                 ],
@@ -719,6 +755,9 @@
                                 result = Nlist.length;
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     },
                     {
@@ -737,6 +776,9 @@
                                 result = resultArr[Nlist.length - 1];
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     },
                     {
@@ -755,6 +797,9 @@
                                 result = resultArr[Nlist.length - 1];
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     },
                     {
@@ -773,6 +818,9 @@
                                 result = resultArr[Nlist.length - 1];
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     }
                 ],
@@ -803,6 +851,9 @@
                                 }
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, '2_1', true);
                         }
                     },
                     {
@@ -836,7 +887,7 @@
                             return result;
                         },
                         func_fate() {
-                            return sp_fate(this, 2, true);
+                            return sp_fate(this, 2, false);
                         }
                     },
 
@@ -875,6 +926,9 @@
                                         t_Nlist[1] * t_Nlist[0]);
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, "3_1", true);
                         }
                     },
                     {
@@ -968,6 +1022,9 @@
                             }
 
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, '4_1', true);
                         }
                     },
                     {
@@ -1000,6 +1057,9 @@
                                 result = Nlist.length;
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     },
                     {
@@ -1016,6 +1076,9 @@
                                 result = Nlist.length;
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     },
                     {
@@ -1032,6 +1095,9 @@
                                 result = Nlist.length;
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     },
                     {
@@ -1048,6 +1114,9 @@
                                 result = Nlist.length;
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     }
                 ],
@@ -1073,8 +1142,7 @@
                             return result;
                         },
                         func_fate() {
-                            ////////
-                            return sp_fate(this, 1, true);
+                            return sp_fate(this, 1, false);
                         }
                     },
                     {
@@ -1091,6 +1159,9 @@
                             Clist = Clist[0];
                             result = Clist.length;
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     },
                     {
@@ -1107,6 +1178,9 @@
                             Clist = Clist[0];
                             result = Clist.length;
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     },
                     {
@@ -1123,6 +1197,9 @@
                             Clist = Clist[0];
                             result = Clist.length;
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     },
                     {
@@ -1139,6 +1216,9 @@
                             Clist = Clist[0];
                             result = Clist.length;
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     },
                     {
@@ -1155,6 +1235,9 @@
                             Clist = Clist[0];
                             result = Clist.length;
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     },
                     {
@@ -1171,6 +1254,9 @@
                             Clist = Clist[0];
                             result = Clist.length;
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     },
                     {
@@ -1187,6 +1273,9 @@
                             Clist = Clist[0];
                             result = Clist.length;
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     },
                     {
@@ -1203,6 +1292,9 @@
                             Clist = Clist[0];
                             result = Clist.length;
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     },
                     {
@@ -1219,6 +1311,9 @@
                             Clist = Clist[0];
                             result = Clist.length;
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     }
                 ]
@@ -1231,7 +1326,7 @@
                     {
                         name: '总和',
                         title: {
-                            N: ['总和']
+                            C: ['总和']
                         },
                         se: [0, 0],
                         line: 0,
@@ -1242,6 +1337,9 @@
                             Clist = Clist[0];
                             result = Clist.length;
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     }
                 ]
@@ -1252,7 +1350,7 @@
                     {
                         name: '万位',
                         title: {
-                            N: ['万位']
+                            C: ['万位']
                         },
                         se: [0, 0],
                         line: 0,
@@ -1263,12 +1361,15 @@
                             Clist = Clist[0];
                             result = Clist.length;
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     },
                     {
                         name: '千位',
                         title: {
-                            N: ['千位']
+                            C: ['千位']
                         },
                         se: [0, 0],
                         line: 0,
@@ -1279,12 +1380,15 @@
                             Clist = Clist[0];
                             result = Clist.length;
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     },
                     {
                         name: '百位',
                         title: {
-                            N: ['百位']
+                            C: ['百位']
                         },
                         se: [0, 0],
                         line: 0,
@@ -1295,12 +1399,15 @@
                             Clist = Clist[0];
                             result = Clist.length;
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     },
                     {
                         name: '十位',
                         title: {
-                            N: ['十位']
+                            C: ['十位']
                         },
                         se: [0, 0],
                         line: 0,
@@ -1311,12 +1418,15 @@
                             Clist = Clist[0];
                             result = Clist.length;
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     },
                     {
                         name: '个位',
                         title: {
-                            N: ['个位']
+                            C: ['个位']
                         },
                         se: [0, 0],
                         line: 0,
@@ -1327,6 +1437,9 @@
                             Clist = Clist[0];
                             result = Clist.length;
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     }
                 ]
@@ -1337,7 +1450,7 @@
                     {
                         name: '串关',
                         title: {
-                            N: ['万位', '千位', '百位', '十位', '个位']
+                            C: ['万位', '千位', '百位', '十位', '个位']
                         },
                         se: [0, 0],
                         line: 0,
@@ -1355,6 +1468,9 @@
                                 result = t_Clist.reduce((a, b) => a * b);
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, '1_1', false);
                         }
                     }
                 ]
@@ -1372,6 +1488,9 @@
                             let result = 0;
                             result = Clist.map(x => x.length).reduce((a, b) => a * b);
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, true);
                         }
                     },
                     {
@@ -1384,6 +1503,9 @@
                             let result = 0;
                             result = Clist.map(x => x.length).reduce((a, b) => a * b);
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, true);
                         }
                     },
                     {
@@ -1394,6 +1516,9 @@
                         Cline: 3,
                         func(Nlist, Clist) {
                             return Clist[0].length * Clist[1].length * Clist[2].length;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, true);
                         }
                     },
                     {
@@ -1406,6 +1531,9 @@
                             let result = 0;
                             result = Clist.map(x => x.length).reduce((a, b) => a * b);
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, true);
                         }
                     }
                 ]
@@ -1429,6 +1557,9 @@
                             Clist = Clist[0];
                             result = Clist.length;
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     },
                     {
@@ -1445,6 +1576,9 @@
                             Clist = Clist[0];
                             result = Clist.length;
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     },
                     {
@@ -1461,6 +1595,9 @@
                             Clist = Clist[0];
                             result = Clist.length;
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     },
                 ]
@@ -1473,7 +1610,7 @@
                     {
                         name: '斗牛',
                         title: {
-                            N: ['斗牛']
+                            C: ['斗牛']
                         },
                         se: [0, 0],
                         line: 0,
@@ -1484,6 +1621,9 @@
                             Clist = Clist[0];
                             result = Clist.length;
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     }
                 ]
@@ -1504,6 +1644,8 @@
                             let result = 0;
                             result = Nlist.map(x => x.length).reduce((a, b) => a * b);
                             return result;
+                        },
+                        func_fate() {
                         }
                     },
                     {
@@ -1526,6 +1668,9 @@
                             let result = 0;
                             result = 4 * Nlist.map(x => x.length).reduce((a, b) => a * b);
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, true);
                         }
                     }
                 ]
@@ -1549,6 +1694,9 @@
                                 result = resultArr[Nlist.length - 1];
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     },
                     {
@@ -1570,6 +1718,9 @@
                                 }
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, [1, 2], false);
                         }
                     },
                     {
@@ -1588,6 +1739,9 @@
                                 result = resultArr[Nlist.length - 1];
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     },
                     {
@@ -1608,6 +1762,9 @@
                                 }
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     }
                 ]
@@ -1626,6 +1783,9 @@
                             let result = 0;
                             result = Nlist.map(x => x.length).reduce((a, b) => a * b);
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, true);
                         }
                     },
                     {
@@ -1648,6 +1808,9 @@
                             let result = 0;
                             result = 4 * Nlist.map(x => x.length).reduce((a, b) => a * b);
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     }]
             },
@@ -1670,6 +1833,9 @@
                                 result = resultArr[Nlist.length - 1];
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 4, false);
                         }
                     },
                     {
@@ -1691,6 +1857,9 @@
                                 }
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, [1, 2], false);
                         }
                     },
                     {
@@ -1709,6 +1878,9 @@
                                 result = resultArr[Nlist.length - 1];
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 2, false);
                         }
                     },
                     {
@@ -1729,6 +1901,9 @@
                                 }
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     }
                 ]
@@ -4798,6 +4973,9 @@ function fateObj() {
     }
 }
 //Math.floor(Math.random() * (max - min + 1) + min);
+function RNP(max, min) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
 function sp_fate(_this, _rule, rp) {
     let result = new fateObj();
     if (_this.line > 0) {
@@ -4808,7 +4986,7 @@ function sp_fate(_this, _rule, rp) {
             let min = 0;
             while (t_lineArr.length < rule[0]) {
                 let max = lineArr.length - 1;
-                t_lineArr.push(lineArr.splice(Math.floor(Math.random() * (max - min + 1) + min), 1)[0]);
+                t_lineArr.push(lineArr.splice(RNP(max, min), 1)[0]);
             }
 
             let Arr = new Array(_this.se[1] - _this.se[0] + 1).fill(0).map((v, i) => i + _this.se[0]);
@@ -4820,7 +4998,7 @@ function sp_fate(_this, _rule, rp) {
                 if (t_lineArr.indexOf(a) > -1) {
                     for (let b = 0; b < rule[1]; b++) {
                         let max = Arr.length - 1;
-                        sd_N.push(Arr.splice(Math.floor(Math.random() * (max - min + 1) + min), 1)[0]);
+                        sd_N.push(Arr.splice(RNP(max, min), 1)[0]);
                     }
                 }
                 result.sd_Numlist.push(sd_N);
@@ -4837,9 +5015,22 @@ function sp_fate(_this, _rule, rp) {
                 let sd_item = [];
                 for (let b = 0; b < rule[a]; b++) {
                     let max = Arr.length - 1;
-                    sd_item.push(Arr.splice(Math.floor(Math.random() * (max - min + 1) + min), 1)[0]);
+                    sd_item.push(Arr.splice(RNP(max, min), 1)[0]);
                 }
                 result.sd_Numlist.push(sd_item);
+            }
+        }
+    }
+    if (_this.hasOwnProperty('WZlist')) {
+        if (_this.WZlist.length > 0) {
+            if (Number.isInteger(_rule)) {
+                let min = 0;
+                let rule = _rule;
+                let Arr = new Array(_this.WZlist.length).fill(0).map((v, i) => i);
+                for (let a = 0; a < rule; a++) {
+                    let max = Arr.length - 1;
+                    result.sd_WZlist.push(Arr.splice(RNP(max, min), 1)[0]);
+                }
             }
         }
     }
@@ -4852,7 +5043,7 @@ function sp_fate(_this, _rule, rp) {
                 let min = 0;
                 while (t_lineArr.length < rule[0]) {
                     let max = lineArr.length - 1;
-                    t_lineArr.push(lineArr.splice(Math.floor(Math.random() * (max - min + 1) + min), 1)[0]);
+                    t_lineArr.push(lineArr.splice(RNP(max, min), 1)[0]);
                 }
 
                 let Arr = new Array(_this.Clist.length).fill(0).map((v, i) => i);
@@ -4864,7 +5055,7 @@ function sp_fate(_this, _rule, rp) {
                     if (t_lineArr.indexOf(a) > -1) {
                         for (let b = 0; b < rule[1]; b++) {
                             let max = Arr.length - 1;
-                            sd_item.push(Arr.splice(Math.floor(Math.random() * (max - min + 1) + min), 1)[0]);
+                            sd_item.push(Arr.splice(RNP(max, min), 1)[0]);
                         }
                     }
                     result.sd_Clist.push(sd_item);
@@ -4881,23 +5072,9 @@ function sp_fate(_this, _rule, rp) {
                     let sd_item = [];
                     for (let b = 0; b < rule[a]; b++) {
                         let max = Arr.length - 1;
-                        sd_item.push(Arr.splice(Math.floor(Math.random() * (max - min + 1) + min), 1)[0]);
+                        sd_item.push(Arr.splice(RNP(max, min), 1)[0]);
                     }
                     result.sd_Clist.push(sd_item);
-                }
-            }
-        }
-    }
-    if (_this.hasOwnProperty('WZlist')) {
-        if (_this.WZlist.length > 0) {
-            if (Number.isInteger(_rule)) {
-                let min = 0;
-                let rule = _rule;
-                let Arr = new Array(_this.WZlist.length).fill(0).map((v, i) => i);
-                console.log(2222, Arr);
-                for (let a = 0; a < rule; a++) {
-                    let max = Arr.length - 1;
-                    result.sd_WZlist.push(Arr.splice(Math.floor(Math.random() * (max - min + 1) + min), 1)[0]);
                 }
             }
         }
