@@ -150,6 +150,7 @@ body {
   justify-content: center;
   margin-right: 15px;
   transition: all .1s linear;
+  margin-bottom: 10px;
 }
 .num_frame .num_box .num_item.active {
   background-color: #D73021;

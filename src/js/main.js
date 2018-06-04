@@ -47,7 +47,7 @@ var app = new Vue({
             for (let i in this.baseData) {
                 this.czlist.push(i);
             }
-            this.selectMode('cz', this.czlist[0]);
+            this.selectMode('cz', this.czlist[2]);
         },
         selectMode(atb, val) {
             if (atb == 'cz') {
@@ -56,11 +56,11 @@ var app = new Vue({
                 for (let i in this.baseData[this.select.cz]) {
                     this.typelist.push(i);
                 }
-                this.selectMode('type', this.typelist[0]);
+                this.selectMode('type', this.typelist[4]);
             }
             else if (atb == 'type') {
                 this.select.type = val;
-                this.selectMode('subtype', [0, 0]);
+                this.selectMode('subtype', [0, 1]);
             }
             else if (atb == 'subtype') {
                 this.select.subtype = val;

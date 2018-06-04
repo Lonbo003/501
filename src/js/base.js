@@ -1924,6 +1924,9 @@
                             let result = 0;
                             result += Nlist.map(x => x.length).reduce((a, b) => a * b);
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, true);
                         }
                     },
                     {
@@ -1952,6 +1955,9 @@
                                 result = Nlist.map(x => resultArr[x]).reduce((a, b) => a + b);
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     },
                     {
@@ -1970,6 +1976,9 @@
                                 result = Nlist.map(x => resultArr[x]).reduce((a, b) => a + b);
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     },
                     {
@@ -1983,6 +1992,9 @@
                                 result = Nlist.length;
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     }
                 ],
@@ -2005,6 +2017,9 @@
                                 result = resultArr[Nlist.length - 1];
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 2, false);
                         }
                     },
                     {
@@ -2022,6 +2037,9 @@
                                 result = resultArr[Nlist.length - 1];
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 3, false);
                         }
                     },
                     {
@@ -2049,6 +2067,9 @@
                             let result = 0;
                             result = Nlist.map(x => x.length).reduce((a, b) => a * b);
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, true);
                         }
                     },
                     {
@@ -2077,6 +2098,9 @@
                                 result = Nlist.map(x => resultArr[x]).reduce((a, b) => a + b);
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     },
                     {
@@ -2095,6 +2119,9 @@
                                 result = Nlist.map(x => resultArr[x]).reduce((a, b) => a + b);
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     },
                     {
@@ -2108,6 +2135,9 @@
                                 result = Nlist.length;
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     }
                 ],
@@ -2130,6 +2160,9 @@
                                 result = resultArr[Nlist.length - 1];
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 2, false);
                         }
                     },
                     {
@@ -2147,6 +2180,9 @@
                                 result = resultArr[Nlist.length - 1];
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 3, false);
                         }
                     },
                     {
@@ -2174,6 +2210,9 @@
                             let result = 0;
                             result = Nlist.map(x => x.length).reduce((a, b) => a * b);
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, true);
                         }
                     },
                     {
@@ -3449,6 +3488,9 @@
                             let result = 0;
                             result = Nlist.map(x => x.length).reduce((a, b) => a * b);
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, true);
                         }
                     },
                     {
@@ -3477,6 +3519,9 @@
                                 result = Nlist.map(x => resultArr[x]).reduce((a, b) => a + b);
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     }
                 ]
@@ -3498,6 +3543,9 @@
                                 result = Nlist.length * (Nlist.length - 1);
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 2, false);
                         }
                     },
                     {
@@ -3516,6 +3564,9 @@
                                 result = resultArr[Nlist.length - 1];
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 3, false);
                         }
                     },
                     {
@@ -3525,7 +3576,7 @@
                         func(Nlist) {
                             let result = 0;
                             return result;
-                        }
+                        },
                     }
                 ]
             }
@@ -3545,6 +3596,9 @@
                             let result = 0;
                             result = Nlist.map(x => x.length).reduce((a, b) => a * b);
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, true);
                         }
                     },
                     {
@@ -3568,6 +3622,9 @@
                                 result = Nlist.map(x => resultArr[x]).reduce((a, b) => a + b);
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, true);
                         }
                     }
                 ]
@@ -3589,6 +3646,9 @@
                                 result = (Nlist.length * (Nlist.length - 1)) / 2;
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 2, true);
                         }
                     },
                     {
@@ -3616,6 +3676,9 @@
                             let result = 0;
                             result = Nlist.map(x => x.length).reduce((a, b) => a * b);
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, true);
                         }
                     },
                     {
@@ -3639,6 +3702,9 @@
                                 result = Nlist.map(x => resultArr[x]).reduce((a, b) => a + b);
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, true);
                         }
                     }
                 ]
@@ -3660,6 +3726,9 @@
                                 result = (Nlist.length * (Nlist.length - 1)) / 2;
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 2, true);
                         }
                     },
                     {
@@ -3689,6 +3758,9 @@
                             let result = 0;
                             result = Nlist.map(x => x.length).reduce((a, b) => a + b);
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, "1_1", true);
                         }
                     }
                 ]
@@ -3712,6 +3784,9 @@
                                 result = Nlist.length;
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     },
                     {
@@ -3732,6 +3807,9 @@
                                 result = resultArr[Nlist.length - 1];
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 2, false);
                         }
                     }
                 ]
@@ -3751,6 +3829,9 @@
                             let result = 0;
                             result = Clist.map(x => x.length).reduce((a, b) => a + b);
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, '1_1', true);
                         }
                     },
                     {
@@ -3763,6 +3844,9 @@
                             let result = 0;
                             result = Clist.map(x => x.length).reduce((a, b) => a + b);
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, '1_1', true);
                         }
                     }
                 ]
@@ -4989,10 +5073,10 @@ function sp_fate(_this, _rule, rp) {
                 t_lineArr.push(lineArr.splice(RNP(max, min), 1)[0]);
             }
 
-            let Arr = new Array(_this.se[1] - _this.se[0] + 1).fill(0).map((v, i) => i + _this.se[0]);
+            let Arr = new Array(_this.se[1] - _this.se[0] + 1).fill(0).map((v, i) => i);
             for (let a = 0; a < _this.line; a++) {
                 if (rp) {//重複=>刷新
-                    Arr = new Array(_this.se[1] - _this.se[0] + 1).fill(0).map((v, i) => i + _this.se[0]);
+                    Arr = new Array(_this.se[1] - _this.se[0] + 1).fill(0).map((v, i) => i);
                 }
                 let sd_N = [];
                 if (t_lineArr.indexOf(a) > -1) {
@@ -5007,10 +5091,10 @@ function sp_fate(_this, _rule, rp) {
         else {
             let rule = Array.isArray(_rule) ? _rule : new Array(_this.line).fill(_rule);
             let min = 0;
-            let Arr = new Array(_this.se[1] - _this.se[0] + 1).fill(0).map((v, i) => i + _this.se[0]);
+            let Arr = new Array(_this.se[1] - _this.se[0] + 1).fill(0).map((v, i) => i);
             for (let a = 0; a < _this.line; a++) {
                 if (rp) {//重複=>刷新
-                    Arr = new Array(_this.se[1] - _this.se[0] + 1).fill(0).map((v, i) => i + _this.se[0]);
+                    Arr = new Array(_this.se[1] - _this.se[0] + 1).fill(0).map((v, i) => i);
                 }
                 let sd_item = [];
                 for (let b = 0; b < rule[a]; b++) {
@@ -5036,8 +5120,8 @@ function sp_fate(_this, _rule, rp) {
     }
     if (_this.hasOwnProperty('Cline')) {
         if (_this.Cline > 0) {
-            if (typeof (rule) === "string") {
-                rule = rule.split('_');
+            if (typeof (_rule) === "string") {
+                let rule = _rule.split('_');
                 let lineArr = new Array(_this.Cline).fill(0).map((v, i) => i);
                 let t_lineArr = [];
                 let min = 0;
@@ -5062,7 +5146,7 @@ function sp_fate(_this, _rule, rp) {
                 }
             }
             else {
-                rule = Array.isArray(rule) ? rule : new Array(_this.Cline).fill(rule);
+                let rule = Array.isArray(_rule) ? _rule : new Array(_this.Cline).fill(_rule);
                 let min = 0;
                 let Arr = new Array(_this.Clist.length).fill(0).map((v, i) => i);
                 for (let a = 0; a < _this.Cline; a++) {
