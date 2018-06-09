@@ -3521,7 +3521,7 @@
                     {
                         cnName: '直选和值',
                         enName: '',
-                        title: { N: ['选号'] }
+                        title: { N: ['选号'] },
                         se: [0, 27],
                         line: 1,
                         func(Nlist) {
