@@ -15,23 +15,22 @@
             <!--czlist-->
             <div class="top_box">
                 <select v-model="select.cz" v-on:change="selectMode('cz', select.cz)">
-                    <option v-for="item in czlist" :value="item">{{item}}</option>
+                    <option v-for="(item, index) in czlist" :value="index">{{item}}</option>
                 </select>
             </div>
             <div class="chs_frame">
                 <!--typelist-->
                 <div class="title_frame">
-                    <div v-for="item in typelist" v-bind:class="{active: item == select.type}" @click="selectMode('type', item)">
+                    <div v-for="(item, index) in typelist" v-bind:class="{active: index == select.type}" @click="selectMode('type', index)">
                         {{item}}
                     </div>
                 </div>
                 <div class="sub_frame" v-if="ready">
                     <!--subtype-->
-                    <div class="sub_box" v-for="(subitem, index) in baseData[select.cz][select.type]">
-                        <label class="subname">{{subitem.subname}}</label>
-                        <div class="sublist" v-for="(item, idx) in subitem.sublist" @click="selectMode('subtype', [index, idx])">
-                            <div class="subicon" v-bind:class="{active: item == subDetail}"></div>
-                            <label class="subtxt">{{item.name}}</label>
+                    <div class="sub_box">
+                        <div class="sublist" v-for="(item, index) in baseData[select.cz].data[select.type].data" @click="selectMode('subtype', index)">
+                            <div class="subicon" v-bind:class="{active: index == select.subtype}"></div>
+                            <label class="subtxt">{{item.cnName}}</label>
                         </div>
                     </div>
                 </div>
@@ -43,8 +42,10 @@
                     <span>注</span>
                 </div>
                 <div class="btn_box">
+                    自動添加注單:
+                    <input type="checkbox" v-model="addBetlist" />
                     <input type="button" value="添加注单" @click="sp_Betlist('add')" />
-                    <input type="button" value="随机一注" @click="sp_Betlist('fate', 1)" />
+                    <input type="button" value="随机一注" @click="sp_Betlist('fate', 1, addBetlist)" />
                     <input type="button" value="随机五注" @click="sp_Betlist('fate', 5)" />
                 </div>
             </div>

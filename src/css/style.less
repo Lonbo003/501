@@ -52,26 +52,24 @@
     .sub_frame {
         .sub_box {
             .bx();
-            padding: 20px 40px;
-
-            .subname {
-                color: #E94335;
-                margin-right: 30px;
-            }
+            .fx();
+            .fw();
+            padding: 20px;
+            padding-bottom: 0;
 
             .sublist {
-                display: inline-block;
-                margin-right: 20px;
+                .fx();
+                align-items: center;
+                margin-right: 30px;
+                margin-bottom: 20px;
                 cursor: pointer;
 
                 .subicon {
-                    display: inline-block;
                     .wh(8px);
                     border: 6px solid #ffffff;
                     border-radius: 50%;
                     box-shadow: 0 0 0px 2px #CCCCCC;
-                    margin-bottom: -3px;
-                    margin-right: 5px;
+                    margin-right: 8px;
 
                     &.active {
                         border-color: #e64234;
@@ -130,7 +128,7 @@
             font-size: 14px;
             text-align: center;
             padding: 5px 10px;
-            margin-right: 20px;
+            margin-right: 10px;
         }
 
         .WZ_item {
@@ -173,9 +171,8 @@
             .fx();
             align-items: center;
             justify-content: center;
-            margin-right: 15px;
+            margin: 10px;
             transition: all .1s linear;
-            margin-bottom: 10px;
 
             &.active {
                 background-color: #D73021;
@@ -189,7 +186,7 @@
             border-radius: 4px;
             font-size: 15px;
             background-color: #ffffff;
-            margin-right: 10px;
+            margin: 5px;
             transition: all .2s linear;
 
             &:hover {

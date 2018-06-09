@@ -44,26 +44,25 @@ body {
 }
 .chs_frame .sub_frame .sub_box {
   box-sizing: border-box;
-  padding: 20px 40px;
-}
-.chs_frame .sub_frame .sub_box .subname {
-  color: #E94335;
-  margin-right: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  padding-bottom: 0;
 }
 .chs_frame .sub_frame .sub_box .sublist {
-  display: inline-block;
-  margin-right: 20px;
+  display: flex;
+  align-items: center;
+  margin-right: 30px;
+  margin-bottom: 20px;
   cursor: pointer;
 }
 .chs_frame .sub_frame .sub_box .sublist .subicon {
-  display: inline-block;
   width: 8px;
   height: 8px;
   border: 6px solid #ffffff;
   border-radius: 50%;
   box-shadow: 0 0 0px 2px #CCCCCC;
-  margin-bottom: -3px;
-  margin-right: 5px;
+  margin-right: 8px;
 }
 .chs_frame .sub_frame .sub_box .sublist .subicon.active {
   border-color: #e64234;
@@ -108,7 +107,7 @@ body {
   font-size: 14px;
   text-align: center;
   padding: 5px 10px;
-  margin-right: 20px;
+  margin-right: 10px;
 }
 .num_frame .num_box .WZ_item {
   display: inline-block;
@@ -148,9 +147,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 15px;
+  margin: 10px;
   transition: all .1s linear;
-  margin-bottom: 10px;
 }
 .num_frame .num_box .num_item.active {
   background-color: #D73021;
@@ -163,7 +161,7 @@ body {
   border-radius: 4px;
   font-size: 15px;
   background-color: #ffffff;
-  margin-right: 10px;
+  margin: 5px;
   transition: all .2s linear;
 }
 .num_frame .num_box .num_item_btn:hover {

@@ -1,11 +1,15 @@
-﻿var baseData = {
-    '时时彩': {
-        '五星': [
+﻿var baseData = [
+    {
+        cnName: '时时彩',
+        enName: 'tat',
+        data: [
             {
-                subname: '五星直选',
-                sublist: [
+                cnName: '五星',
+                enName: '',
+                data: [
                     {
-                        name: '复式',
+                        cnName: '直选复式',
+                        enName: '',
                         title: {
                             N: ['万位', '千位', '百位', '十位', '个位']
                         },
@@ -25,7 +29,8 @@
                         }
                     },
                     {
-                        name: '单式',
+                        cnName: '',//直选单式
+                        enName: '',
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
@@ -34,7 +39,8 @@
                         }
                     },
                     {
-                        name: '组合',
+                        cnName: '',//直选组合
+                        enName: '',
                         title: {
                             N: ['万位', '千位', '百位', '十位', '个位']
                         },
@@ -52,14 +58,10 @@
                         func_fate() {
                             return sp_fate(this, 1, true);
                         }
-                    }
-                ],
-            },
-            {
-                subname: '五星组选',
-                sublist: [
+                    },
                     {
-                        name: '组选120',
+                        cnName: '组选120',
+                        enName: '',
                         title: {
                             N: ['选号']
                         },
@@ -76,11 +78,12 @@
                             return result;
                         },
                         func_fate() {
-                            return sp_fate(this, 5, true);
+                            return sp_fate(this, 5, false);
                         }
                     },
                     {
-                        name: '组选60',
+                        cnName: '组选60',
+                        enName: '',
                         title: {
                             N: ['二重号', '单　号']
                         },
@@ -105,7 +108,8 @@
                         }
                     },
                     {
-                        name: '组选30',
+                        cnName: '组选30',
+                        enName: '',
                         title: {
                             N: ['二重号', '单　号']
                         },
@@ -130,7 +134,8 @@
                         }
                     },
                     {
-                        name: '组选20',
+                        cnName: '组选20',
+                        enName: '',
                         title: {
                             N: ['三重号', '单　号']
                         },
@@ -155,7 +160,8 @@
                         }
                     },
                     {
-                        name: '组选10',
+                        cnName: '组选10',
+                        enName: '',
                         title: {
                             N: ['三重号', '二重号']
                         },
@@ -178,7 +184,8 @@
                         }
                     },
                     {
-                        name: '组选5',
+                        cnName: '组选5',
+                        enName: '',
                         title: {
                             N: ['四重号', '单　号']
                         },
@@ -200,35 +207,15 @@
                             return sp_fate(this, 1, false);
                         }
                     }
-                ],
-            }
-        ],
-        '二星': [
+                ]
+            },
             {
-                subname: '后二直选',
-                sublist: [
+                cnName: '',//二星
+                enName: '',
+                data: [
                     {
-                        name: '复式',
-                        title: {
-                            N: ['十位', '个位']
-                        },
-                        se: [0, 9],
-                        line: 2,
-                        func(Nlist) {
-                            let result = 0;
-                            let Arr_1 = Nlist[0];
-                            let Arr_2 = Nlist[1];
-                            if (Arr_1.length > 0 && Arr_2.length > 0) {
-                                result = Arr_1.length * Arr_2.length;
-                            }
-                            return result;
-                        },
-                        func_fate() {
-                            return sp_fate(this, 1, true);
-                        }
-                    },
-                    {
-                        name: '单式',
+                        cnName: '',//后二直选单式
+                        enName: '',
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
@@ -237,27 +224,8 @@
                         }
                     },
                     {
-                        name: '直选和值',
-                        se: [0, 18],
-                        line: 1,
-                        func(Nlist) {
-                            let result = 0;
-                            Nlist = Nlist[0];
-                            if (Nlist.length > 0) {
-                                let resultArr = [1, 3, 6, 10, 15,
-                                    21, 28, 36, 45, 55,
-                                    64, 72, 79, 85, 90,
-                                    94, 97, 99, 100];
-                                result = resultArr[Nlist.length - 1];
-                            }
-                            return result;
-                        },
-                        func_fate() {
-                            return sp_fate(this, 1, true);
-                        }
-                    },
-                    {
-                        name: '直选跨度',
+                        cnName: '',//后二直选直选跨度
+                        enName: '',
                         title: {
                             N: ['十位', '个位']
                         },
@@ -274,11 +242,12 @@
                             return result;
                         },
                         func_fate() {
-                            return sp_fate(this, 1, true);
+                            return sp_fate(this, 1, false);
                         }
                     },
                     {
-                        name: '和值尾数',
+                        cnName: '',//后二直选和值尾数
+                        enName: '',
                         se: [0, 9],
                         line: 1,
                         func(Nlist) {
@@ -290,71 +259,12 @@
                             return result;
                         },
                         func_fate() {
-                            return sp_fate(this, 1, true);
-                        }
-                    },
-                ],
-            },
-            {
-                subname: '后二组选',
-                sublist: [
-                    {
-                        name: '复式',
-                        title: {
-                            N: ['组选']
-                        },
-                        se: [0, 9],
-                        line: 1,
-                        func(Nlist) {
-                            let result = 0;
-                            Nlist = Nlist[0];
-                            if (Nlist.length > 0) {
-                                let resultArr = [0, 1, 3, 6, 10,
-                                    15, 21, 28, 36, 45];
-                                result = resultArr[Nlist.length - 1];
-                            }
-                            return result;
-                        },
-                        func_fate() {
-                            return sp_fate(this, 1, true);
+                            return sp_fate(this, 1, false);
                         }
                     },
                     {
-                        name: '单式',
-                        se: [0, 0],
-                        line: 0,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    },
-                ],
-            },
-            {
-                subname: '前二直选',
-                sublist: [
-                    {
-                        name: '复式',
-                        title: {
-                            N: ['万位', '千位']
-                        },
-                        se: [0, 9],
-                        line: 2,
-                        func(Nlist) {
-                            let result = 0;
-                            let Arr_1 = Nlist[0];
-                            let Arr_2 = Nlist[1];
-                            if (Arr_1.length > 0 && Arr_2.length > 0) {
-                                result = Arr_1.length * Arr_2.length;
-                            }
-                            return result;
-                        },
-                        func_fate() {
-                            return sp_fate(this, 1, true);
-                        }
-                    },
-                    {
-                        name: '单式',
+                        cnName: '',//后二组选单式
+                        enName: '',
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
@@ -363,27 +273,18 @@
                         }
                     },
                     {
-                        name: '直选和值',
-                        se: [0, 18],
-                        line: 1,
+                        cnName: '',//前二直选单式
+                        enName: '',
+                        se: [0, 0],
+                        line: 0,
                         func(Nlist) {
                             let result = 0;
-                            Nlist = Nlist[0];
-                            if (Nlist.length > 0) {
-                                let resultArr = [1, 3, 6, 10, 15,
-                                    21, 28, 36, 45, 55,
-                                    64, 72, 79, 85, 90,
-                                    94, 97, 99, 100];
-                                result = resultArr[Nlist.length - 1];
-                            }
                             return result;
-                        },
-                        func_fate() {
-                            return sp_fate(this, 1, true);
                         }
                     },
                     {
-                        name: '直选跨度',
+                        cnName: '',//前二直选直选跨度
+                        enName: '',
                         title: {
                             N: ['选号']
                         },
@@ -400,11 +301,12 @@
                             return result;
                         },
                         func_fate() {
-                            return sp_fate(this, 1, true);
+                            return sp_fate(this, 1, false);
                         }
                     },
                     {
-                        name: '和值尾数',
+                        cnName: '',//前二直选和值尾数
+                        enName: '',
                         se: [0, 9],
                         line: 1,
                         func(Nlist) {
@@ -416,53 +318,28 @@
                             return result;
                         },
                         func_fate() {
-                            return sp_fate(this, 1, true);
-                        }
-                    },
-                ],
-            },
-            {
-                subname: '前二组选',
-                sublist: [
-                    {
-                        name: '复式',
-                        title: {
-                            N: ['选号']
-                        },
-                        se: [0, 9],
-                        line: 1,
-                        func(Nlist) {
-                            let result = 0;
-                            Nlist = Nlist[0];
-                            if (Nlist.length > 0) {
-                                let resultArr = [0, 1, 3, 6, 10,
-                                    15, 21, 28, 36, 45];
-                                result = resultArr[Nlist.length - 1];
-                            }
-                            return result;
-                        },
-                        func_fate() {
-                            return sp_fate(this, 1, true);
+                            return sp_fate(this, 1, false);
                         }
                     },
                     {
-                        name: '单式',
+                        cnName: '',//前二组选单式
+                        enName: '',
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
                             let result = 0;
                             return result;
                         }
-                    },
-                ],
+                    }
+                ]
             },
-        ],
-        '定位胆': [
             {
-                subname: '定位胆',
-                sublist: [
+                cnName: '定位胆',
+                enName: '',
+                data: [
                     {
-                        name: '定位胆',
+                        cnName: '定位胆',
+                        enName: '',
                         title: {
                             N: ['万位', '千位', '百位', '十位', '个位']
                         },
@@ -481,270 +358,18 @@
                         func_fate() {
                             return sp_fate(this, '1_1', true);
                         }
-                    },
-                ],
-            }
-        ],
-        '不定位': [
-            {
-                subname: '三星不定位',
-                sublist: [
-                    {
-                        name: '后三一码',
-                        title: {
-                            N: ['不定位']
-                        },
-                        se: [0, 9],
-                        line: 1,
-                        func(Nlist) {
-                            let result = 0;
-                            Nlist = Nlist[0];
-                            if (Nlist.length > 0) {
-                                result = Nlist.length;
-                            }
-                            return result;
-                        },
-                        func_fate() {
-                            return sp_fate(this, 1, false);
-                        }
-                    },
-                    {
-                        name: '中三一码',
-                        title: {
-                            N: ['不定位']
-                        },
-                        se: [0, 9],
-                        line: 1,
-                        func(Nlist) {
-                            let result = 0;
-                            Nlist = Nlist[0];
-                            if (Nlist.length > 0) {
-                                result = Nlist.length;
-                            }
-                            return result;
-                        },
-                        func_fate() {
-                            return sp_fate(this, 1, false);
-                        }
-                    },
-                    {
-                        name: '前三一码',
-                        title: {
-                            N: ['不定位']
-                        },
-                        se: [0, 9],
-                        line: 1,
-                        func(Nlist) {
-                            let result = 0;
-                            Nlist = Nlist[0];
-                            if (Nlist.length > 0) {
-                                result = Nlist.length;
-                            }
-                            return result;
-                        },
-                        func_fate() {
-                            return sp_fate(this, 1, false);
-                        }
-                    },
-                    {
-                        name: '后三二码',
-                        title: {
-                            N: ['不定位']
-                        },
-                        se: [0, 9],
-                        line: 1,
-                        func(Nlist) {
-                            let result = 0;
-                            Nlist = Nlist[0];
-                            if (Nlist.length >= 2) {
-                                let resultArr = [0, 1, 3, 6, 10,
-                                    15, 21, 28, 36, 45];
-                                result = resultArr[Nlist.length - 1];
-                            }
-                            return result;
-                        },
-                        func_fate() {
-                            return sp_fate(this, 1, false);
-                        }
-                    },
-                    {
-                        name: '中三二码',
-                        title: {
-                            N: ['不定位']
-                        },
-                        se: [0, 9],
-                        line: 1,
-                        func(Nlist) {
-                            let result = 0;
-                            Nlist = Nlist[0];
-                            if (Nlist.length >= 2) {
-                                let resultArr = [0, 1, 3, 6, 10,
-                                    15, 21, 28, 36, 45];
-                                result = resultArr[Nlist.length - 1];
-                            }
-                            return result;
-                        },
-                        func_fate() {
-                            return sp_fate(this, 1, false);
-                        }
-                    },
-                    {
-                        name: '前三二码',
-                        title: {
-                            N: ['不定位']
-                        },
-                        se: [0, 9],
-                        line: 1,
-                        func(Nlist) {
-                            let result = 0;
-                            Nlist = Nlist[0];
-                            if (Nlist.length >= 2) {
-                                let resultArr = [0, 1, 3, 6, 10,
-                                    15, 21, 28, 36, 45];
-                                result = resultArr[Nlist.length - 1];
-                            }
-                            return result;
-                        },
-                        func_fate() {
-                            return sp_fate(this, 1, false);
-                        }
-                    },
-                ],
-            },
-            {
-                subname: '四星不定位',
-                sublist: [
-                    {
-                        name: '前四一码',
-                        title: {
-                            N: ['不定位']
-                        },
-                        se: [0, 9],
-                        line: 1,
-                        func(Nlist) {
-                            let result = 0;
-                            Nlist = Nlist[0];
-                            if (Nlist.length > 0) {
-                                result = Nlist.length;
-                            }
-                            return result;
-                        },
-                        func_fate() {
-                            return sp_fate(this, 1, false);
-                        }
-                    },
-                    {
-                        name: '后四一码',
-                        title: {
-                            N: ['不定位']
-                        },
-                        se: [0, 9],
-                        line: 1,
-                        func(Nlist) {
-                            let result = 0;
-                            Nlist = Nlist[0];
-                            if (Nlist.length > 0) {
-                                result = Nlist.length;
-                            }
-                            return result;
-                        },
-                        func_fate() {
-                            return sp_fate(this, 1, false);
-                        }
-                    },
-                    {
-                        name: '前四二码',
-                        title: {
-                            N: ['不定位']
-                        },
-                        se: [0, 9],
-                        line: 1,
-                        func(Nlist) {
-                            let result = 0;
-                            Nlist = Nlist[0];
-                            if (Nlist.length >= 2) {
-                                let resultArr = [0, 1, 3, 6, 10,
-                                    15, 21, 28, 36, 45];
-                                result = resultArr[Nlist.length - 1];
-                            }
-                            return result;
-                        },
-                        func_fate() {
-                            return sp_fate(this, 1, false);
-                        }
-                    },
-                    {
-                        name: '后四二码',
-                        title: {
-                            N: ['不定位']
-                        },
-                        se: [0, 9],
-                        line: 1,
-                        func(Nlist) {
-                            let result = 0;
-                            Nlist = Nlist[0];
-                            if (Nlist.length >= 2) {
-                                let resultArr = [0, 1, 3, 6, 10,
-                                    15, 21, 28, 36, 45];
-                                result = resultArr[Nlist.length - 1];
-                            }
-                            return result;
-                        },
-                        func_fate() {
-                            return sp_fate(this, 1, false);
-                        }
-                    },
-                    {
-                        name: '前四三码',
-                        title: {
-                            N: ['不定位']
-                        },
-                        se: [0, 9],
-                        line: 1,
-                        func(Nlist) {
-                            let result = 0;
-                            Nlist = Nlist[0];
-                            if (Nlist.length >= 3) {
-                                let resultArr = [0, 0, 1, 4, 10,
-                                    20, 35, 56, 84, 120];
-                                result = resultArr[Nlist.length - 1];
-                            }
-                            return result;
-                        },
-                        func_fate() {
-                            return sp_fate(this, 1, false);
-                        }
-                    },
-                    {
-                        name: '后四三码',
-                        title: {
-                            N: ['不定位']
-                        },
-                        se: [0, 9],
-                        line: 1,
-                        func(Nlist) {
-                            let result = 0;
-                            Nlist = Nlist[0];
-                            if (Nlist.length >= 3) {
-                                let resultArr = [0, 0, 1, 4, 10,
-                                    20, 35, 56, 84, 120];
-                                result = resultArr[Nlist.length - 1];
-                            }
-                            return result;
-                        },
-                        func_fate() {
-                            return sp_fate(this, 1, false);
-                        }
                     }
-                ],
+                ]
             },
             {
-                subname: '五星不定位',
-                sublist: [
+                cnName: '不定胆',
+                enName: '',
+                data: [
                     {
-                        name: '五星一码',
+                        cnName: '后三一码',
+                        enName: '',
                         title: {
-                            N: ['不定位']
+                            N: ['不定胆']
                         },
                         se: [0, 9],
                         line: 1,
@@ -761,9 +386,50 @@
                         }
                     },
                     {
-                        name: '五星二码',
+                        cnName: '中三一码',
+                        enName: '',
                         title: {
-                            N: ['不定位']
+                            N: ['不定胆']
+                        },
+                        se: [0, 9],
+                        line: 1,
+                        func(Nlist) {
+                            let result = 0;
+                            Nlist = Nlist[0];
+                            if (Nlist.length > 0) {
+                                result = Nlist.length;
+                            }
+                            return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
+                        }
+                    },
+                    {
+                        cnName: '前三一码',
+                        enName: '',
+                        title: {
+                            N: ['不定胆']
+                        },
+                        se: [0, 9],
+                        line: 1,
+                        func(Nlist) {
+                            let result = 0;
+                            Nlist = Nlist[0];
+                            if (Nlist.length > 0) {
+                                result = Nlist.length;
+                            }
+                            return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
+                        }
+                    },
+                    {
+                        cnName: '后三二码',
+                        enName: '',
+                        title: {
+                            N: ['不定胆']
                         },
                         se: [0, 9],
                         line: 1,
@@ -778,13 +444,140 @@
                             return result;
                         },
                         func_fate() {
+                            return sp_fate(this, 2, false);
+                        }
+                    },
+                    {
+                        cnName: '',//三星不定胆中三二码
+                        title: {
+                            N: ['不定胆']
+                        },
+                        se: [0, 9],
+                        line: 1,
+                        func(Nlist) {
+                            let result = 0;
+                            Nlist = Nlist[0];
+                            if (Nlist.length >= 2) {
+                                let resultArr = [0, 1, 3, 6, 10,
+                                    15, 21, 28, 36, 45];
+                                result = resultArr[Nlist.length - 1];
+                            }
+                            return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 2, false);
+                        }
+                    },
+                    {
+                        cnName: '前三二码',
+                        title: {
+                            N: ['不定胆']
+                        },
+                        se: [0, 9],
+                        line: 1,
+                        func(Nlist) {
+                            let result = 0;
+                            Nlist = Nlist[0];
+                            if (Nlist.length >= 2) {
+                                let resultArr = [0, 1, 3, 6, 10,
+                                    15, 21, 28, 36, 45];
+                                result = resultArr[Nlist.length - 1];
+                            }
+                            return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 2, false);
+                        }
+                    },
+                    {
+                        cnName: '',//四星不定胆前四一码
+                        enName: '',
+                        title: {
+                            N: ['不定胆']
+                        },
+                        se: [0, 9],
+                        line: 1,
+                        func(Nlist) {
+                            let result = 0;
+                            Nlist = Nlist[0];
+                            if (Nlist.length > 0) {
+                                result = Nlist.length;
+                            }
+                            return result;
+                        },
+                        func_fate() {
                             return sp_fate(this, 1, false);
                         }
                     },
                     {
-                        name: '五星三码',
+                        cnName: '后四一码',
+                        enName: '',
                         title: {
-                            N: ['不定位']
+                            N: ['不定胆']
+                        },
+                        se: [0, 9],
+                        line: 1,
+                        func(Nlist) {
+                            let result = 0;
+                            Nlist = Nlist[0];
+                            if (Nlist.length > 0) {
+                                result = Nlist.length;
+                            }
+                            return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
+                        }
+                    },
+                    {
+                        cnName: '',//四星不定胆前四二码
+                        enName: '',
+                        title: {
+                            N: ['不定胆']
+                        },
+                        se: [0, 9],
+                        line: 1,
+                        func(Nlist) {
+                            let result = 0;
+                            Nlist = Nlist[0];
+                            if (Nlist.length >= 2) {
+                                let resultArr = [0, 1, 3, 6, 10,
+                                    15, 21, 28, 36, 45];
+                                result = resultArr[Nlist.length - 1];
+                            }
+                            return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 2, false);
+                        }
+                    },
+                    {
+                        cnName: '后四二码',
+                        enName: '',
+                        title: {
+                            N: ['不定胆']
+                        },
+                        se: [0, 9],
+                        line: 1,
+                        func(Nlist) {
+                            let result = 0;
+                            Nlist = Nlist[0];
+                            if (Nlist.length >= 2) {
+                                let resultArr = [0, 1, 3, 6, 10,
+                                    15, 21, 28, 36, 45];
+                                result = resultArr[Nlist.length - 1];
+                            }
+                            return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 2, false);
+                        }
+                    },
+                    {
+                        cnName: '',//四星不定胆前四三码
+                        enName: '',
+                        title: {
+                            N: ['不定胆']
                         },
                         se: [0, 9],
                         line: 1,
@@ -799,13 +592,100 @@
                             return result;
                         },
                         func_fate() {
+                            return sp_fate(this, 3, false);
+                        }
+                    },
+                    {
+                        cnName: '',//四星不定胆后四三码
+                        enName: '',
+                        title: {
+                            N: ['不定胆']
+                        },
+                        se: [0, 9],
+                        line: 1,
+                        func(Nlist) {
+                            let result = 0;
+                            Nlist = Nlist[0];
+                            if (Nlist.length >= 3) {
+                                let resultArr = [0, 0, 1, 4, 10,
+                                    20, 35, 56, 84, 120];
+                                result = resultArr[Nlist.length - 1];
+                            }
+                            return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 3, false);
+                        }
+                    },
+                    {
+                        cnName: '',//五星不定胆五星一码
+                        enName: '',
+                        title: {
+                            N: ['不定胆']
+                        },
+                        se: [0, 9],
+                        line: 1,
+                        func(Nlist) {
+                            let result = 0;
+                            Nlist = Nlist[0];
+                            if (Nlist.length > 0) {
+                                result = Nlist.length;
+                            }
+                            return result;
+                        },
+                        func_fate() {
                             return sp_fate(this, 1, false);
                         }
                     },
                     {
-                        name: '五星四码',
+                        cnName: '五星二码',
+                        enName: '',
                         title: {
-                            N: ['不定位']
+                            N: ['不定胆']
+                        },
+                        se: [0, 9],
+                        line: 1,
+                        func(Nlist) {
+                            let result = 0;
+                            Nlist = Nlist[0];
+                            if (Nlist.length >= 2) {
+                                let resultArr = [0, 1, 3, 6, 10,
+                                    15, 21, 28, 36, 45];
+                                result = resultArr[Nlist.length - 1];
+                            }
+                            return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 2, false);
+                        }
+                    },
+                    {
+                        cnName: '五星三码',
+                        enName: '',
+                        title: {
+                            N: ['不定胆']
+                        },
+                        se: [0, 9],
+                        line: 1,
+                        func(Nlist) {
+                            let result = 0;
+                            Nlist = Nlist[0];
+                            if (Nlist.length >= 3) {
+                                let resultArr = [0, 0, 1, 4, 10,
+                                    20, 35, 56, 84, 120];
+                                result = resultArr[Nlist.length - 1];
+                            }
+                            return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 3, false);
+                        }
+                    },
+                    {
+                        cnName: '',//五星不定胆五星四码
+                        enName: '',
+                        title: {
+                            N: ['不定胆']
                         },
                         se: [0, 9],
                         line: 1,
@@ -820,18 +700,18 @@
                             return result;
                         },
                         func_fate() {
-                            return sp_fate(this, 1, false);
+                            return sp_fate(this, 4, false);
                         }
                     }
-                ],
+                ]
             },
-        ],
-        '任选': [
             {
-                subname: '任二',
-                sublist: [
+                cnName: '任选',
+                enName: '',
+                data: [
                     {
-                        name: '复式',
+                        cnName: '任二复式',
+                        enName: '',
                         title: {
                             N: ['万位', '千位', '百位', '十位', '个位']
                         },
@@ -857,7 +737,8 @@
                         }
                     },
                     {
-                        name: '单式',
+                        cnName: '',//任二单式
+                        enName: '',
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
@@ -866,7 +747,8 @@
                         }
                     },
                     {
-                        name: '组选',
+                        cnName: '',//任二单式组选
+                        enName: '',
                         title: {
                             WZ: ['位置'],
                             N: ['号码']
@@ -890,14 +772,9 @@
                             return sp_fate(this, 2, false);
                         }
                     },
-
-                ],
-            },
-            {
-                subname: '任三',
-                sublist: [
                     {
-                        name: '复式',
+                        cnName: '任三复式',
+                        enName: '',
                         title: {
                             N: ['万位', '千位', '百位', '十位', '个位']
                         },
@@ -932,7 +809,8 @@
                         }
                     },
                     {
-                        name: '单式',
+                        cnName: '',//任三单式
+                        enName: '',
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
@@ -941,7 +819,8 @@
                         }
                     },
                     {
-                        name: '组三',
+                        cnName: '',//任三组三
+                        enName: '',
                         title: {
                             WZ: ['位置'],
                             N: ['号码']
@@ -960,10 +839,17 @@
                                 result = resultArr[Nlist.length - 1] * WZ;
                             }
                             return result;
+                        },
+                        func_fate() {
+                            let result = new fateObj();
+                            result.sd_WZlist = sp_fate(this, 3, false).sd_WZlist;
+                            result.sd_Numlist = sp_fate(this, 2, false).sd_Numlist;
+                            return result;
                         }
                     },
                     {
-                        name: '组六',
+                        cnName: '',//任三组三组六
+                        enName: '',
                         title: {
                             WZ: ['位置'],
                             N: ['号码']
@@ -981,24 +867,24 @@
                                 result = resultArr[Nlist.length - 1] * WZ;
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 3, false);
                         }
                     },
                     {
-                        name: '混合组选',
+                        cnName: '',//任三组三混合组选
+                        enName: '',
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
                             let result = 0;
                             return result;
                         }
-                    }
-                ]
-            },
-            {
-                subname: '任四',
-                sublist: [
+                    },
                     {
-                        name: '复式',
+                        cnName: '任四复式',
+                        enName: '',
                         title: {
                             N: ['万位', '千位', '百位', '十位', '个位']
                         },
@@ -1028,23 +914,23 @@
                         }
                     },
                     {
-                        name: '单式',
+                        cnName: '',//任四单式
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
                             let result = 0;
                             return result;
                         }
-                    },
+                    }
                 ]
-            }
-        ],
-        '趣味': [
+            },
             {
-                subname: '特殊',
-                sublist: [
+                cnName: '趣味',
+                enName: '',
+                data: [
                     {
-                        name: '一帆风顺',
+                        cnName: '一帆风顺',
+                        enName: '',
                         title: {
                             N: ['选号']
                         },
@@ -1063,7 +949,8 @@
                         }
                     },
                     {
-                        name: '好事成双',
+                        cnName: '',//趣味好事成双
+                        enName: '',
                         title: {
                             N: ['选号']
                         },
@@ -1082,7 +969,8 @@
                         }
                     },
                     {
-                        name: '三星报喜',
+                        cnName: '',//趣味三星报喜
+                        enName: '',
                         title: {
                             N: ['选号']
                         },
@@ -1101,7 +989,8 @@
                         }
                     },
                     {
-                        name: '四季发财',
+                        cnName: '',//趣味四季发财
+                        enName: '',
                         title: {
                             N: ['选号']
                         },
@@ -1119,15 +1008,14 @@
                             return sp_fate(this, 1, false);
                         }
                     }
-                ],
-            }
-        ],
-        '龙虎': [
+                ]
+            },
             {
-                subname: '龙虎',
-                sublist: [
+                cnName: '',//龙虎
+                enName: '',
+                data: [
                     {
-                        name: '万千',
+                        cnName: '万千',
                         title: {
                             C: ['龙虎']
                         },
@@ -1146,7 +1034,8 @@
                         }
                     },
                     {
-                        name: '万百',
+                        cnName: '万百',
+                        enName: '',
                         title: {
                             C: ['龙虎']
                         },
@@ -1165,7 +1054,8 @@
                         }
                     },
                     {
-                        name: '万十',
+                        cnName: '万十',
+                        enName: '',
                         title: {
                             C: ['龙虎']
                         },
@@ -1184,7 +1074,8 @@
                         }
                     },
                     {
-                        name: '万个',
+                        cnName: '万个',
+                        enName: '',
                         title: {
                             C: ['龙虎']
                         },
@@ -1203,7 +1094,8 @@
                         }
                     },
                     {
-                        name: '千百',
+                        cnName: '千百',
+                        enName: '',
                         title: {
                             C: ['龙虎']
                         },
@@ -1222,7 +1114,8 @@
                         }
                     },
                     {
-                        name: '千十',
+                        cnName: '千十',
+                        enName: '',
                         title: {
                             C: ['龙虎']
                         },
@@ -1241,7 +1134,8 @@
                         }
                     },
                     {
-                        name: '千个',
+                        cnName: '千个',
+                        enName: '',
                         title: {
                             C: ['龙虎']
                         },
@@ -1260,7 +1154,8 @@
                         }
                     },
                     {
-                        name: '百十',
+                        cnName: '百十',
+                        enName: '',
                         title: {
                             C: ['龙虎']
                         },
@@ -1279,7 +1174,8 @@
                         }
                     },
                     {
-                        name: '百个',
+                        cnName: '百个',
+                        enName: '',
                         title: {
                             C: ['龙虎']
                         },
@@ -1298,7 +1194,8 @@
                         }
                     },
                     {
-                        name: '十个',
+                        cnName: '十个',
+                        enName: '',
                         title: {
                             C: ['龙虎']
                         },
@@ -1317,14 +1214,31 @@
                         }
                     }
                 ]
-            }
-        ],
-        '大小单双': [
+            },
             {
-                subname: '总和',
-                sublist: [
+                cnName: '大小单双',
+                enName: '',
+                data: [
                     {
-                        name: '总和',
+                        cnName: '前二大小单双',
+                        enName: '',
+                        title: { C: ['万位', '千位'] },
+                        se: [0, 0],
+                        line: 0,
+                        Clist: ['大', '小', '单', '双'],
+                        Cline: 2,
+                        func(Nlist, Clist) {
+                            let result = 0;
+                            result = Clist.map(x => x.length).reduce((a, b) => a * b);
+                            return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, true);
+                        }
+                    },
+                    {
+                        cnName: '',//大小单双总和
+                        enName: '',
                         title: {
                             C: ['总和']
                         },
@@ -1341,14 +1255,10 @@
                         func_fate() {
                             return sp_fate(this, 1, false);
                         }
-                    }
-                ]
-            },
-            {
-                subname: '定位',
-                sublist: [
+                    },
                     {
-                        name: '万位',
+                        cnName: '',//大小单双万位
+                        enName: '',
                         title: {
                             C: ['万位']
                         },
@@ -1367,7 +1277,8 @@
                         }
                     },
                     {
-                        name: '千位',
+                        cnName: '',//大小单双千位
+                        enName: '',
                         title: {
                             C: ['千位']
                         },
@@ -1386,7 +1297,8 @@
                         }
                     },
                     {
-                        name: '百位',
+                        cnName: '',//大小单双百位
+                        enName: '',
                         title: {
                             C: ['百位']
                         },
@@ -1405,7 +1317,8 @@
                         }
                     },
                     {
-                        name: '十位',
+                        cnName: '',//大小单双十位
+                        enName: '',
                         title: {
                             C: ['十位']
                         },
@@ -1424,7 +1337,8 @@
                         }
                     },
                     {
-                        name: '个位',
+                        cnName: '',//大小单双个位
+                        enName: '',
                         title: {
                             C: ['个位']
                         },
@@ -1441,14 +1355,10 @@
                         func_fate() {
                             return sp_fate(this, 1, false);
                         }
-                    }
-                ]
-            },
-            {
-                subname: '串关',
-                sublist: [
+                    },
                     {
-                        name: '串关',
+                        cnName: '',//大小单双串关
+                        enName: '',
                         title: {
                             C: ['万位', '千位', '百位', '十位', '个位']
                         },
@@ -1472,14 +1382,11 @@
                         func_fate() {
                             return sp_fate(this, '1_1', false);
                         }
-                    }
-                ]
-            },
-            {
-                subname: '前後二/三',
-                sublist: [
+                    },
                     {
-                        name: '前二',
+                        cnName: '后二大小单双',
+                        enName: '',
+                        title: { C: ['十位', '个位'] },
                         se: [0, 0],
                         line: 0,
                         Clist: ['大', '小', '单', '双'],
@@ -1494,22 +1401,9 @@
                         }
                     },
                     {
-                        name: '後二',
-                        se: [0, 0],
-                        line: 0,
-                        Clist: ['大', '小', '单', '双'],
-                        Cline: 2,
-                        func(Nlist, Clist) {
-                            let result = 0;
-                            result = Clist.map(x => x.length).reduce((a, b) => a * b);
-                            return result;
-                        },
-                        func_fate() {
-                            return sp_fate(this, 1, true);
-                        }
-                    },
-                    {
-                        name: '前三',
+                        cnName: '前三大小单双',
+                        enName: '',
+                        title: { C: ['万位', '千位', '百位'] },
                         se: [0, 0],
                         line: 0,
                         Clist: ['大', '小', '单', '双'],
@@ -1522,8 +1416,9 @@
                         }
                     },
                     {
-                        name: '後三',
+                        cnName: '后三大小单双',
                         se: [0, 0],
+                        title: { C: ['百位', '十位', '个位'] },
                         line: 0,
                         Clist: ['大', '小', '单', '双'],
                         Cline: 3,
@@ -1537,16 +1432,16 @@
                         }
                     }
                 ]
-            }
-        ],
-        '特殊号': [
+            },
             {
-                subname: '特殊号',
-                sublist: [
+                cnName: '',//特殊号
+                enName: '',
+                data: [
                     {
-                        name: '前三',
+                        cnName: '前三',
+                        enName: '',
                         title: {
-                            N: ['前三']
+                            C: ['前三']
                         },
                         se: [0, 0],
                         line: 0,
@@ -1563,9 +1458,10 @@
                         }
                     },
                     {
-                        name: '中三',
+                        cnName: '中三',
+                        enName: '',
                         title: {
-                            N: ['中三']
+                            C: ['中三']
                         },
                         se: [0, 0],
                         line: 0,
@@ -1582,9 +1478,10 @@
                         }
                     },
                     {
-                        name: '后三',
+                        cnName: '后三',
+                        enName: '',
                         title: {
-                            N: ['后三']
+                            C: ['后三']
                         },
                         se: [0, 0],
                         line: 0,
@@ -1599,16 +1496,16 @@
                         func_fate() {
                             return sp_fate(this, 1, false);
                         }
-                    },
+                    }
                 ]
-            }
-        ],
-        '斗牛': [
+            },
             {
-                subname: '斗牛',
-                sublist: [
+                cnName: '',//斗牛
+                enName: '',
+                data: [
                     {
-                        name: '斗牛',
+                        cnName: '斗牛',
+                        enName: '',
                         title: {
                             C: ['斗牛']
                         },
@@ -1627,155 +1524,16 @@
                         }
                     }
                 ]
-            }
-        ],
-        '四星': [
-            {
-                subname: '后四直选',
-                sublist: [
-                    {
-                        name: '复式',
-                        title: {
-                            N: ['万位', '千位', '百位', '十位', '个位']
-                        },
-                        se: [0, 9],
-                        line: 4,
-                        func(Nlist) {
-                            let result = 0;
-                            result = Nlist.map(x => x.length).reduce((a, b) => a * b);
-                            return result;
-                        },
-                        func_fate() {
-                        }
-                    },
-                    {
-                        name: '单式',
-                        se: [0, 0],
-                        line: 0,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    },
-                    {
-                        name: '组合',
-                        title: {
-                            N: ['万位', '千位', '百位', '十位', '个位']
-                        },
-                        se: [0, 9],
-                        line: 4,
-                        func(Nlist) {
-                            let result = 0;
-                            result = 4 * Nlist.map(x => x.length).reduce((a, b) => a * b);
-                            return result;
-                        },
-                        func_fate() {
-                            return sp_fate(this, 1, true);
-                        }
-                    }
-                ]
             },
             {
-                subname: '后四组选',
-                sublist: [
+                cnName: '四星',
+                enName: '',
+                data: [
                     {
-                        name: '组选24',
+                        cnName: ' 后四直选',//ps:后四直选复式
+                        enName: '',
                         title: {
-                            N: ['选号']
-                        },
-                        se: [0, 9],
-                        line: 1,
-                        func(Nlist) {
-                            let result = 0;
-                            Nlist = Nlist[0];
-                            if (Nlist.length > 0) {
-                                let resultArr = [0, 0, 0, 1, 5,
-                                    15, 35, 70, 126, 210];
-                                result = resultArr[Nlist.length - 1];
-                            }
-                            return result;
-                        },
-                        func_fate() {
-                            return sp_fate(this, 1, false);
-                        }
-                    },
-                    {
-                        name: '组选12',
-                        title: {
-                            N: ['二重号', '单　号']
-                        },
-                        se: [0, 9],
-                        line: 2,
-                        func(Nlist) {
-                            let result = 0;
-                            let Arr_1 = Nlist[0];
-                            let Arr_2 = Nlist[1];
-                            if (Arr_1.length > 0 && Arr_2.length >= 2) {
-                                let resultArr = [0, 1, 3, 6, 10, 15, 21, 28, 36];
-                                for (let A1 of Arr_1) {
-                                    let t_Arr_2 = Arr_2.filter(x => x != A1);
-                                    result += resultArr[t_Arr_2.length - 1];
-                                }
-                            }
-                            return result;
-                        },
-                        func_fate() {
-                            return sp_fate(this, [1, 2], false);
-                        }
-                    },
-                    {
-                        name: '组选6',
-                        title: {
-                            N: ['二重号']
-                        },
-                        se: [0, 9],
-                        line: 1,
-                        func(Nlist) {
-                            let result = 0;
-                            Nlist = Nlist[0];
-                            if (Nlist.length >= 2) {
-                                let resultArr = [0, 1, 3, 6, 10,
-                                    15, 21, 28, 36, 45];
-                                result = resultArr[Nlist.length - 1];
-                            }
-                            return result;
-                        },
-                        func_fate() {
-                            return sp_fate(this, 1, false);
-                        }
-                    },
-                    {
-                        name: '组选4',
-                        title: {
-                            N: ['三重号', '单　号']
-                        },
-                        se: [0, 9],
-                        line: 2,
-                        func(Nlist) {
-                            let result = 0;
-                            let Arr_1 = Nlist[0];
-                            let Arr_2 = Nlist[1];
-                            if (Arr_1.length > 0 && Arr_2.length >= 1) {
-                                for (let A1 of Arr_1) {
-                                    let t_Arr_2 = Arr_2.filter(x => x != A1);
-                                    result += t_Arr_2.length;
-                                }
-                            }
-                            return result;
-                        },
-                        func_fate() {
-                            return sp_fate(this, 1, false);
-                        }
-                    }
-                ]
-            },
-            {
-                subname: '前四直选',
-                sublist: [
-                    {
-                        name: '复式',
-                        title: {
-                            N: ['万位', '千位', '百位', '十位']
+                            N: ['千位', '百位', '十位', '个位']
                         },
                         se: [0, 9],
                         line: 4,
@@ -1789,7 +1547,8 @@
                         }
                     },
                     {
-                        name: '单式',
+                        cnName: '',//后四直选单式
+                        enName: '',
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
@@ -1798,9 +1557,10 @@
                         }
                     },
                     {
-                        name: '组合',
+                        cnName: '',//后四直选组合
+                        enName: '',
                         title: {
-                            N: ['万位', '千位', '百位', '十位']
+                            N: ['万位', '千位', '百位', '十位', '个位']
                         },
                         se: [0, 9],
                         line: 4,
@@ -1810,15 +1570,12 @@
                             return result;
                         },
                         func_fate() {
-                            return sp_fate(this, 1, false);
+                            return sp_fate(this, 1, true);
                         }
-                    }]
-            },
-            {
-                subname: '前四组选',
-                sublist: [
+                    },
                     {
-                        name: '组选24',
+                        cnName: '组选24',
+                        enName: '',
                         title: {
                             N: ['选号']
                         },
@@ -1839,7 +1596,8 @@
                         }
                     },
                     {
-                        name: '组选12',
+                        cnName: '组选12',
+                        enName: '',
                         title: {
                             N: ['二重号', '单　号']
                         },
@@ -1863,7 +1621,8 @@
                         }
                     },
                     {
-                        name: '组选6',
+                        cnName: '组选6',
+                        enName: '',
                         title: {
                             N: ['二重号']
                         },
@@ -1884,7 +1643,145 @@
                         }
                     },
                     {
-                        name: '组选4',
+                        cnName: '组选4',
+                        enName: '',
+                        title: {
+                            N: ['三重号', '单　号']
+                        },
+                        se: [0, 9],
+                        line: 2,
+                        func(Nlist) {
+                            let result = 0;
+                            let Arr_1 = Nlist[0];
+                            let Arr_2 = Nlist[1];
+                            if (Arr_1.length > 0 && Arr_2.length >= 1) {
+                                for (let A1 of Arr_1) {
+                                    let t_Arr_2 = Arr_2.filter(x => x != A1);
+                                    result += t_Arr_2.length;
+                                }
+                            }
+                            return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
+                        }
+                    },
+                    {
+                        cnName: '前四直选',//ps:前四直选复式
+                        enName: '',
+                        title: {
+                            N: ['万位', '千位', '百位', '十位']
+                        },
+                        se: [0, 9],
+                        line: 4,
+                        func(Nlist) {
+                            let result = 0;
+                            result = Nlist.map(x => x.length).reduce((a, b) => a * b);
+                            return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, true);
+                        }
+                    },
+                    {
+                        cnName: '',//前四直选单式
+                        enName: '',
+                        se: [0, 0],
+                        line: 0,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '',//前四直选组合
+                        enName: '',
+                        title: {
+                            N: ['万位', '千位', '百位', '十位']
+                        },
+                        se: [0, 9],
+                        line: 4,
+                        func(Nlist) {
+                            let result = 0;
+                            result = 4 * Nlist.map(x => x.length).reduce((a, b) => a * b);
+                            return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, true);
+                        }
+                    },
+                    {
+                        cnName: '',//前四组选组选24
+                        enName: '',
+                        title: {
+                            N: ['选号']
+                        },
+                        se: [0, 9],
+                        line: 1,
+                        func(Nlist) {
+                            let result = 0;
+                            Nlist = Nlist[0];
+                            if (Nlist.length > 0) {
+                                let resultArr = [0, 0, 0, 1, 5,
+                                    15, 35, 70, 126, 210];
+                                result = resultArr[Nlist.length - 1];
+                            }
+                            return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 4, false);
+                        }
+                    },
+                    {
+                        cnName: '',//前四组选组选12
+                        enName: '',
+                        title: {
+                            N: ['二重号', '单　号']
+                        },
+                        se: [0, 9],
+                        line: 2,
+                        func(Nlist) {
+                            let result = 0;
+                            let Arr_1 = Nlist[0];
+                            let Arr_2 = Nlist[1];
+                            if (Arr_1.length > 0 && Arr_2.length >= 2) {
+                                let resultArr = [0, 1, 3, 6, 10, 15, 21, 28, 36];
+                                for (let A1 of Arr_1) {
+                                    let t_Arr_2 = Arr_2.filter(x => x != A1);
+                                    result += resultArr[t_Arr_2.length - 1];
+                                }
+                            }
+                            return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, [1, 2], false);
+                        }
+                    },
+                    {
+                        cnName: '',//前四组选组选6
+                        enName: '',
+                        title: {
+                            N: ['二重号']
+                        },
+                        se: [0, 9],
+                        line: 1,
+                        func(Nlist) {
+                            let result = 0;
+                            Nlist = Nlist[0];
+                            if (Nlist.length >= 2) {
+                                let resultArr = [0, 1, 3, 6, 10,
+                                    15, 21, 28, 36, 45];
+                                result = resultArr[Nlist.length - 1];
+                            }
+                            return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 2, false);
+                        }
+                    },
+                    {
+                        cnName: '',//前四组选组选4
+                        enName: '',
                         title: {
                             N: ['三重号', '单　号']
                         },
@@ -1907,30 +1804,14 @@
                         }
                     }
                 ]
-            }
-        ],
-        '三星': [
+            },
             {
-                subname: '后三直选',
-                sublist: [
+                cnName: '',//三星
+                enName: '',
+                data: [
                     {
-                        name: '复式',
-                        title: {
-                            N: ['百位', '十位', '个位']
-                        },
-                        se: [0, 9],
-                        line: 3,
-                        func(Nlist) {
-                            let result = 0;
-                            result += Nlist.map(x => x.length).reduce((a, b) => a * b);
-                            return result;
-                        },
-                        func_fate() {
-                            return sp_fate(this, 1, true);
-                        }
-                    },
-                    {
-                        name: '单式',
+                        cnName: '',//后三直选单式
+                        enName: '',
                         se: [0],
                         line: 1,
                         func(Nlist) {
@@ -1939,7 +1820,8 @@
                         }
                     },
                     {
-                        name: '直选和值',
+                        cnName: '',//后三直选直选和值
+                        enName: '',
                         se: [0, 27],
                         line: 1,
                         func(Nlist) {
@@ -1961,7 +1843,51 @@
                         }
                     },
                     {
-                        name: '直选跨度',
+                        cnName: '',//后三组选混合组选
+                        enName: '',
+                        se: [0, 9],
+                        line: 0,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '',//中三直选单式
+                        enName: '',
+                        se: [0],
+                        line: 1,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '',//中三直选直选和值
+                        enName: '',
+                        se: [0, 27],
+                        line: 1,
+                        func(Nlist) {
+                            let result = 0;
+                            Nlist = Nlist[0];
+                            if (Nlist.length > 0) {
+                                let resultArr = [1, 3, 6, 10, 15,
+                                    21, 28, 36, 45, 55,
+                                    63, 69, 73, 75, 75,
+                                    73, 69, 63, 55, 45,
+                                    36, 28, 21, 15, 10,
+                                    6, 3, 1];
+                                result = Nlist.map(x => resultArr[x]).reduce((a, b) => a + b);
+                            }
+                            return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
+                        }
+                    },
+                    {
+                        cnName: '',//中三直选直选跨度
+                        enName: '',
                         title: {
                             N: ['选号']
                         },
@@ -1982,7 +1908,8 @@
                         }
                     },
                     {
-                        name: '和值尾数',
+                        cnName: '',//中三直选和值尾数
+                        enName: '',
                         se: [0, 9],
                         line: 1,
                         func(Nlist) {
@@ -1996,14 +1923,108 @@
                         func_fate() {
                             return sp_fate(this, 1, false);
                         }
+                    },
+                    {
+                        cnName: '',//中三组选混合组选
+                        enName: '',
+                        se: [0, 9],
+                        line: 0,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '',//前三直选单式
+                        enName: '',
+                        se: [0],
+                        line: 1,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '',//前三直选直选和值
+                        enName: '',
+                        se: [0, 27],
+                        line: 1,
+                        func(Nlist) {
+                            let result = 0;
+                            Nlist = Nlist[0];
+                            if (Nlist.length > 0) {
+                                let resultArr = [1, 3, 6, 10, 15,
+                                    21, 28, 36, 45, 55,
+                                    63, 69, 73, 75, 75,
+                                    73, 69, 63, 55, 45,
+                                    36, 28, 21, 15, 10,
+                                    6, 3, 1];
+                                result = Nlist.map(x => resultArr[x]).reduce((a, b) => a + b);
+                            }
+                            return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
+                        }
+                    },
+                    {
+                        cnName: '',//前三直选直选跨度
+                        enName: '',
+                        title: {
+                            N: ['选号']
+                        },
+                        se: [0, 9],
+                        line: 1,
+                        func(Nlist) {
+                            let result = 0;
+                            Nlist = Nlist[0];
+                            if (Nlist.length > 0) {
+                                let resultArr = [10, 54, 96, 126, 144,
+                                    150, 144, 126, 96, 54, 10];
+                                result = Nlist.map(x => resultArr[x]).reduce((a, b) => a + b);
+                            }
+                            return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
+                        }
+                    },
+                    {
+                        cnName: '',//前三直选和值尾数
+                        enName: '',
+                        se: [0, 9],
+                        line: 1,
+                        func(Nlist) {
+                            let result = 0;
+                            Nlist = Nlist[0];
+                            if (Nlist.length > 0) {
+                                result = Nlist.length;
+                            }
+                            return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
+                        }
+                    },
+                    {
+                        cnName: '',//前三组选混合组选
+                        enName: '',
+                        se: [0, 9],
+                        line: 0,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
                     }
-                ],
+                ]
             },
             {
-                subname: '后三组选',
-                sublist: [
+                cnName: '前三',
+                enName: '',
+                data: [
                     {
-                        name: '组三',
+                        cnName: '组三',
+                        enName: '',
                         title: {
                             N: ['组三']
                         },
@@ -2023,7 +2044,8 @@
                         }
                     },
                     {
-                        name: '组六',
+                        cnName: '组六',
+                        enName: '',
                         title: {
                             N: ['组六']
                         },
@@ -2043,21 +2065,102 @@
                         }
                     },
                     {
-                        name: '混合组选',
+                        cnName: '直选复式',
+                        enName: '',
+                        title: {
+                            N: ['万位', '千位', '百位']
+                        },
                         se: [0, 9],
-                        line: 0,
+                        line: 3,
                         func(Nlist) {
                             let result = 0;
+                            result = Nlist.map(x => x.length).reduce((a, b) => a * b);
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, true);
                         }
                     }
-                ],
+                ]
             },
             {
-                subname: '中三直选',
-                sublist: [
+                cnName: '前二',
+                enName: '',
+                data: [
                     {
-                        name: '复式',
+                        cnName: '组选复式',
+                        enName: '',
+                        title: {
+                            N: ['选号']
+                        },
+                        se: [0, 9],
+                        line: 1,
+                        func(Nlist) {
+                            let result = 0;
+                            Nlist = Nlist[0];
+                            if (Nlist.length > 0) {
+                                let resultArr = [0, 1, 3, 6, 10,
+                                    15, 21, 28, 36, 45];
+                                result = resultArr[Nlist.length - 1];
+                            }
+                            return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 2, false);
+                        }
+                    },
+                    {
+                        cnName: '直选复式',
+                        enName: '',
+                        title: {
+                            N: ['万位', '千位']
+                        },
+                        se: [0, 9],
+                        line: 2,
+                        func(Nlist) {
+                            let result = 0;
+                            let Arr_1 = Nlist[0];
+                            let Arr_2 = Nlist[1];
+                            if (Arr_1.length > 0 && Arr_2.length > 0) {
+                                result = Arr_1.length * Arr_2.length;
+                            }
+                            return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, true);
+                        }
+                    },
+                    {
+                        cnName: '直选和值',
+                        enName: '',
+                        title: { N: ['选号'] },
+                        se: [0, 18],
+                        line: 1,
+                        func(Nlist) {
+                            let result = 0;
+                            Nlist = Nlist[0];
+                            if (Nlist.length > 0) {
+                                let resultArr = [1, 3, 6, 10, 15,
+                                    21, 28, 36, 45, 55,
+                                    64, 72, 79, 85, 90,
+                                    94, 97, 99, 100];
+                                result = resultArr[Nlist.length - 1];
+                            }
+                            return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
+                        }
+                    }
+                ]
+            },
+            {
+                cnName: '中三',
+                enName: '',
+                data: [
+                    {
+                        cnName: '直选复式',
+                        enName: '',
                         title: {
                             N: ['千位', '百位', '十位']
                         },
@@ -2073,80 +2176,7 @@
                         }
                     },
                     {
-                        name: '单式',
-                        se: [0],
-                        line: 1,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    },
-                    {
-                        name: '直选和值',
-                        se: [0, 27],
-                        line: 1,
-                        func(Nlist) {
-                            let result = 0;
-                            Nlist = Nlist[0];
-                            if (Nlist.length > 0) {
-                                let resultArr = [1, 3, 6, 10, 15,
-                                    21, 28, 36, 45, 55,
-                                    63, 69, 73, 75, 75,
-                                    73, 69, 63, 55, 45,
-                                    36, 28, 21, 15, 10,
-                                    6, 3, 1];
-                                result = Nlist.map(x => resultArr[x]).reduce((a, b) => a + b);
-                            }
-                            return result;
-                        },
-                        func_fate() {
-                            return sp_fate(this, 1, false);
-                        }
-                    },
-                    {
-                        name: '直选跨度',
-                        title: {
-                            N: ['选号']
-                        },
-                        se: [0, 9],
-                        line: 1,
-                        func(Nlist) {
-                            let result = 0;
-                            Nlist = Nlist[0];
-                            if (Nlist.length > 0) {
-                                let resultArr = [10, 54, 96, 126, 144,
-                                    150, 144, 126, 96, 54, 10];
-                                result = Nlist.map(x => resultArr[x]).reduce((a, b) => a + b);
-                            }
-                            return result;
-                        },
-                        func_fate() {
-                            return sp_fate(this, 1, false);
-                        }
-                    },
-                    {
-                        name: '和值尾数',
-                        se: [0, 9],
-                        line: 1,
-                        func(Nlist) {
-                            let result = 0;
-                            Nlist = Nlist[0];
-                            if (Nlist.length > 0) {
-                                result = Nlist.length;
-                            }
-                            return result;
-                        },
-                        func_fate() {
-                            return sp_fate(this, 1, false);
-                        }
-                    }
-                ],
-            },
-            {
-                subname: '中三组选',
-                sublist: [
-                    {
-                        name: '组三',
+                        cnName: '组三',
                         title: {
                             N: ['组三']
                         },
@@ -2166,7 +2196,7 @@
                         }
                     },
                     {
-                        name: '组六',
+                        cnName: '组六',
                         title: {
                             N: ['组六']
                         },
@@ -2184,31 +2214,24 @@
                         func_fate() {
                             return sp_fate(this, 3, false);
                         }
-                    },
-                    {
-                        name: '混合组选',
-                        se: [0, 9],
-                        line: 0,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
                     }
-                ],
+                ]
             },
             {
-                subname: '前三直选',
-                sublist: [
+                cnName: '后三',
+                enName: '',
+                data: [
                     {
-                        name: '复式',
+                        cnName: '直选复式',
+                        enName: '',
                         title: {
-                            N: ['万位', '千位', '百位']
+                            N: ['百位', '十位', '个位']
                         },
                         se: [0, 9],
                         line: 3,
                         func(Nlist) {
                             let result = 0;
-                            result = Nlist.map(x => x.length).reduce((a, b) => a * b);
+                            result += Nlist.map(x => x.length).reduce((a, b) => a * b);
                             return result;
                         },
                         func_fate() {
@@ -2216,35 +2239,8 @@
                         }
                     },
                     {
-                        name: '单式',
-                        se: [0],
-                        line: 1,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    },
-                    {
-                        name: '直选和值',
-                        se: [0, 27],
-                        line: 1,
-                        func(Nlist) {
-                            let result = 0;
-                            Nlist = Nlist[0];
-                            if (Nlist.length > 0) {
-                                let resultArr = [1, 3, 6, 10, 15,
-                                    21, 28, 36, 45, 55,
-                                    63, 69, 73, 75, 75,
-                                    73, 69, 63, 55, 45,
-                                    36, 28, 21, 15, 10,
-                                    6, 3, 1];
-                                result = Nlist.map(x => resultArr[x]).reduce((a, b) => a + b);
-                            }
-                            return result;
-                        }
-                    },
-                    {
-                        name: '直选跨度',
+                        cnName: '直选跨度',
+                        enName: '',
                         title: {
                             N: ['选号']
                         },
@@ -2259,10 +2255,15 @@
                                 result = Nlist.map(x => resultArr[x]).reduce((a, b) => a + b);
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     },
                     {
-                        name: '和值尾数',
+                        cnName: '和值尾数',
+                        enName: '',
+                        title: { N: ['选号'] },
                         se: [0, 9],
                         line: 1,
                         func(Nlist) {
@@ -2272,15 +2273,14 @@
                                 result = Nlist.length;
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
-                    }
-                ],
-            },
-            {
-                subname: '前三组选',
-                sublist: [
+                    },
                     {
-                        name: '组三',
+                        cnName: '组三',
+                        enName: '',
                         title: {
                             N: ['组三']
                         },
@@ -2294,10 +2294,14 @@
                                 result = resultArr[Nlist.length - 1];
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 2, false);
                         }
                     },
                     {
-                        name: '组六',
+                        cnName: '组六',
+                        enName: '',
                         title: {
                             N: ['组六']
                         },
@@ -2311,53 +2315,123 @@
                                 result = resultArr[Nlist.length - 1];
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 3, false);
+                        }
+                    }
+                ]
+            },
+            {
+                cnName: '后二',
+                enName: '',
+                data: [
+                    {
+                        cnName: '直选复式',
+                        enName: '',
+                        title: {
+                            N: ['十位', '个位']
+                        },
+                        se: [0, 9],
+                        line: 2,
+                        func(Nlist) {
+                            let result = 0;
+                            let Arr_1 = Nlist[0];
+                            let Arr_2 = Nlist[1];
+                            if (Arr_1.length > 0 && Arr_2.length > 0) {
+                                result = Arr_1.length * Arr_2.length;
+                            }
+                            return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, true);
                         }
                     },
                     {
-                        name: '混合组选',
+                        cnName: '组选复式',
+                        enName: '',
+                        title: {
+                            N: ['组选']
+                        },
                         se: [0, 9],
-                        line: 0,
+                        line: 1,
                         func(Nlist) {
                             let result = 0;
+                            Nlist = Nlist[0];
+                            if (Nlist.length > 0) {
+                                let resultArr = [0, 1, 3, 6, 10,
+                                    15, 21, 28, 36, 45];
+                                result = resultArr[Nlist.length - 1];
+                            }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 2, false);
+                        }
+                    },
+                    {
+                        cnName: '直选和值',
+                        se: [0, 18],
+                        line: 1,
+                        func(Nlist) {
+                            let result = 0;
+                            Nlist = Nlist[0];
+                            if (Nlist.length > 0) {
+                                let resultArr = [1, 3, 6, 10, 15,
+                                    21, 28, 36, 45, 55,
+                                    64, 72, 79, 85, 90,
+                                    94, 97, 99, 100];
+                                result = resultArr[Nlist.length - 1];
+                            }
+                            return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     }
-                ],
+                ]
             }
         ]
     },
-    'PK拾': {
-        '前一': [
+    {
+        cnName: '北京PK10',
+        enName: 'pk10',
+        data: [
             {
-                subname: '前一',
-                sublist: [
+                cnName: '前一',
+                enName: '',
+                data: [
                     {
-                        name: '前一',
+                        cnName: '直选复式',
+                        enName: '',
                         title: {
                             N: ['第一位']
                         },
-                        se: [1, 10],
+                        se: ['01', '10'],
                         line: 1,
                         func(Nlist) {
                             let result = 0;
                             Nlist = Nlist[0];
                             result = Nlist.length;
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     }
                 ]
-            }
-        ],
-        '前二': [
+            },
             {
-                subname: '前二',
-                sublist: [
+                cnName: '前二',
+                enName: '',
+                data: [
                     {
-                        name: '前二复式',
+                        cnName: '直选复式',
+                        enName: '',
                         title: {
                             N: ['第一位', '第二位']
                         },
-                        se: [1, 10],
+                        se: ['01', '10'],
                         line: 2,
                         func(Nlist) {
                             let result = 0;
@@ -2370,10 +2444,14 @@
                                 }
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     },
                     {
-                        name: '前二单式',
+                        cnName: '',//前二直选单式
+                        enName: '',
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
@@ -2381,19 +2459,19 @@
                             return result;
                         }
                     }
-                ],
-            }
-        ],
-        '前三': [
+                ]
+            },
             {
-                subname: '前三',
-                sublist: [
+                cnName: '前三',
+                enName: '',
+                data: [
                     {
-                        name: '前三复式',
+                        cnName: '直选复式',
+                        enName: '',
                         title: {
                             N: ['第一位', '第二位', '第三位']
                         },
-                        se: [1, 10],
+                        se: ['01', '10'],
                         line: 3,
                         func(Nlist) {
                             let result = 0;
@@ -2408,10 +2486,14 @@
                                 }
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     },
                     {
-                        name: '前三单式',
+                        cnName: '',//前三直选复式单式
+                        enName: '',
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
@@ -2420,51 +2502,39 @@
                         }
                     }
                 ]
-            }
-        ],
-        '定位胆': [
+            },
             {
-                subname: '定位胆',
-                sublist: [
+                cnName: '定位胆',
+                enName: '',
+                data: [
                     {
-                        name: '第1~5名',
+                        cnName: '定位胆',
+                        enName: '',
                         title: {
-                            N: ['第一名', '第二名', '第三名', '第四名', '第五名']
+                            N: ['第一名', '第二名', '第三名', '第四名', '第五名', '第六名', '第七名', '第八名', '第九名', '第十名']
                         },
-                        se: [1, 10],
-                        line: 5,
+                        se: ['01', '10'],
+                        line: 10,
                         func(Nlist) {
                             let result = 0;
                             for (let N of Nlist) {
                                 result += N.length;
                             }
                             return result;
-                        }
-                    },
-                    {
-                        name: '第6~10名',
-                        title: {
-                            N: ['第六名', '第七名', '第八名', '第九名', '第十名']
                         },
-                        se: [1, 10],
-                        line: 5,
-                        func(Nlist) {
-                            let result = 0;
-                            for (let N of Nlist) {
-                                result += N.length;
-                            }
-                            return result;
+                        func_fate() {
+                            return sp_fate(this, '1_1', false);
                         }
                     }
                 ]
-            }
-        ],
-        '冠亚和': [
+            },
             {
-                subname: '冠亚和',
-                sublist: [
+                cnName: '',//冠亚和
+                enName: '',
+                data: [
                     {
-                        name: '和值',
+                        cnName: '和值',
+                        enName: '',
                         se: [3, 19],
                         line: 1,
                         func(Nlist) {
@@ -2472,342 +2542,227 @@
                             Nlist = Nlist[0];
                             result = Nlist.length;
                             return result;
-                        }
-                    }
-                ]
-            }
-        ],
-        '龙虎': [
-            {
-                subname: '龙虎',
-                sublist: [
-                    {
-                        name: '冠 军',
-                        title: {
-                            C: ['龙虎']
                         },
-                        se: [0, 0],
-                        line: 0,
-                        Clist: ['龙', '虎'],
-                        Cline: 1,
-                        func(Nlist, Clist) {
-                            let result = 0;
-                            Clist = Clist[0];
-                            result = Clist.length;
-                            return result;
-                        }
-                    },
-                    {
-                        name: '亚 军',
-                        title: {
-                            C: ['龙虎']
-                        },
-                        se: [0, 0],
-                        line: 0,
-                        Clist: ['龙', '虎'],
-                        Cline: 1,
-                        func(Nlist, Clist) {
-                            let result = 0;
-                            Clist = Clist[0];
-                            result = Clist.length;
-                            return result;
-                        }
-                    },
-                    {
-                        name: '季 军',
-                        title: {
-                            C: ['龙虎']
-                        },
-                        se: [0, 0],
-                        line: 0,
-                        Clist: ['龙', '虎'],
-                        Cline: 1,
-                        func(Nlist, Clist) {
-                            let result = 0;
-                            Clist = Clist[0];
-                            result = Clist.length;
-                            return result;
-                        }
-                    },
-                    {
-                        name: '第四名',
-                        title: {
-                            C: ['龙虎']
-                        },
-                        se: [0, 0],
-                        line: 0,
-                        Clist: ['龙', '虎'],
-                        Cline: 1,
-                        func(Nlist, Clist) {
-                            let result = 0;
-                            Clist = Clist[0];
-                            result = Clist.length;
-                            return result;
-                        }
-                    },
-                    {
-                        name: '第五名',
-                        title: {
-                            C: ['龙虎']
-                        },
-                        se: [0, 0],
-                        line: 0,
-                        Clist: ['龙', '虎'],
-                        Cline: 1,
-                        func(Nlist, Clist) {
-                            let result = 0;
-                            Clist = Clist[0];
-                            result = Clist.length;
-                            return result;
-                        }
-                    },
-                    {
-                        name: '冠亚军',
-                        se: [0, 0],
-                        line: 0,
-                        Clist: ['龙', '虎'],
-                        Cline: 1,
-                        func(Nlist, Clist) {
-                            let result = 0;
-                            Clist = Clist[0];
-                            result = Clist.length;
-                            return result;
-                        }
-                    },
-                    {
-                        name: '冠亚季军',
-                        se: [0, 0],
-                        line: 0,
-                        Clist: ['龙', '虎'],
-                        Cline: 1,
-                        func(Nlist, Clist) {
-                            let result = 0;
-                            Clist = Clist[0];
-                            result = Clist.length;
-                            return result;
-                        }
-                    }
-                ]
-            }
-        ],
-        '五行': [
-            {
-                subname: '五行',
-                sublist: [
-                    {
-                        name: '冠 军',
-                        title: {
-                            N: ['五行']
-                        },
-                        se: [0, 0],
-                        line: 0,
-                        Clist: ['金', '木', '水', '火', '土'],
-                        Cline: 1,
-                        func(Nlist, Clist) {
-                            let result = 0;
-                            Clist = Clist[0];
-                            result = Clist.length;
-                            return result;
-                        }
-                    },
-                    {
-                        name: '亚 军',
-                        title: {
-                            C: ['龙虎']
-                        },
-                        se: [0, 0],
-                        line: 0,
-                        Clist: ['金', '木', '水', '火', '土'],
-                        Cline: 1,
-                        func(Nlist, Clist) {
-                            let result = 0;
-                            Clist = Clist[0];
-                            result = Clist.length;
-                            return result;
-                        }
-                    },
-                    {
-                        name: '季 军',
-                        title: {
-                            C: ['龙虎']
-                        },
-                        se: [0, 0],
-                        line: 0,
-                        Clist: ['金', '木', '水', '火', '土'],
-                        Cline: 1,
-                        func(Nlist, Clist) {
-                            let result = 0;
-                            Clist = Clist[0];
-                            result = Clist.length;
-                            return result;
-                        }
-                    }
-                ]
-            }
-        ],
-        '大小单双': [
-            {
-                subname: '大小单双',
-                sublist: [
-                    {
-                        name: '冠军',
-                        title: {
-                            N: ['冠军']
-                        },
-                        se: [0, 0],
-                        line: 0,
-                        Clist: ['大', '小', '单', '双'],
-                        Cline: 1,
-                        func(Nlist, Clist) {
-                            let result = 0;
-                            Clist = Clist[0];
-                            result = Clist.length;
-                            return result;
-                        }
-                    },
-                    {
-                        name: '亚军',
-                        title: {
-                            N: ['亚军']
-                        },
-                        se: [0, 0],
-                        line: 0,
-                        Clist: ['大', '小', '单', '双'],
-                        Cline: 1,
-                        func(Nlist, Clist) {
-                            let result = 0;
-                            Clist = Clist[0];
-                            result = Clist.length;
-                            return result;
-                        }
-                    },
-                    {
-                        name: '季军',
-                        title: {
-                            N: ['季军']
-                        },
-                        se: [0, 0],
-                        line: 0,
-                        Clist: ['大', '小', '单', '双'],
-                        Cline: 1,
-                        func(Nlist, Clist) {
-                            let result = 0;
-                            Clist = Clist[0];
-                            result = Clist.length;
-                            return result;
-                        }
-                    },
-                    {
-                        name: '第四名',
-                        se: [0, 0],
-                        line: 0,
-                        Clist: ['大', '小', '单', '双'],
-                        Cline: 1,
-                        func(Nlist, Clist) {
-                            let result = 0;
-                            Clist = Clist[0];
-                            result = Clist.length;
-                            return result;
-                        }
-                    },
-                    {
-                        name: '第五名',
-                        se: [0, 0],
-                        line: 0,
-                        Clist: ['大', '小', '单', '双'],
-                        Cline: 1,
-                        func(Nlist, Clist) {
-                            let result = 0;
-                            Clist = Clist[0];
-                            result = Clist.length;
-                            return result;
-                        }
-                    },
-                    {
-                        name: '第六名',
-                        se: [0, 0],
-                        line: 0,
-                        Clist: ['大', '小', '单', '双'],
-                        Cline: 1,
-                        func(Nlist, Clist) {
-                            let result = 0;
-                            Clist = Clist[0];
-                            result = Clist.length;
-                            return result;
-                        }
-                    },
-                    {
-                        name: '第七名',
-                        se: [0, 0],
-                        line: 0,
-                        Clist: ['大', '小', '单', '双'],
-                        Cline: 1,
-                        func(Nlist, Clist) {
-                            let result = 0;
-                            Clist = Clist[0];
-                            result = Clist.length;
-                            return result;
-                        }
-                    },
-                    {
-                        name: '第八名',
-                        se: [0, 0],
-                        line: 0,
-                        Clist: ['大', '小', '单', '双'],
-                        Cline: 1,
-                        func(Nlist, Clist) {
-                            let result = 0;
-                            Clist = Clist[0];
-                            result = Clist.length;
-                            return result;
-                        }
-                    },
-                    {
-                        name: '第九名',
-                        se: [0, 0],
-                        line: 0,
-                        Clist: ['大', '小', '单', '双'],
-                        Cline: 1,
-                        func(Nlist, Clist) {
-                            let result = 0;
-                            Clist = Clist[0];
-                            result = Clist.length;
-                            return result;
-                        }
-                    },
-                    {
-                        name: '第十名',
-                        se: [0, 0],
-                        line: 0,
-                        Clist: ['大', '小', '单', '双'],
-                        Cline: 1,
-                        func(Nlist, Clist) {
-                            let result = 0;
-                            Clist = Clist[0];
-                            result = Clist.length;
-                            return result;
-                        }
-                    },
-                    {
-                        name: '冠亚季',
-                        se: [0, 0],
-                        line: 0,
-                        Clist: ['大', '小', '单', '双'],
-                        Cline: 1,
-                        func(Nlist, Clist) {
-                            let result = 0;
-                            Clist = Clist[0];
-                            result = Clist.length;
-                            return result;
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     }
                 ]
             },
             {
-                subname: '冠亚和',
-                sublist: [
+                cnName: '龙虎',
+                enName: '',
+                data: [
                     {
-                        name: '大小单双',
+                        cnName: '冠军',
+                        enName: '',
+                        title: {
+                            C: ['龙虎']
+                        },
+                        se: [0, 0],
+                        line: 0,
+                        Clist: ['龙', '虎'],
+                        Cline: 1,
+                        func(Nlist, Clist) {
+                            let result = 0;
+                            Clist = Clist[0];
+                            result = Clist.length;
+                            return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
+                        }
+                    },
+                    {
+                        cnName: '亚军',
+                        enName: '',
+                        title: {
+                            C: ['龙虎']
+                        },
+                        se: [0, 0],
+                        line: 0,
+                        Clist: ['龙', '虎'],
+                        Cline: 1,
+                        func(Nlist, Clist) {
+                            let result = 0;
+                            Clist = Clist[0];
+                            result = Clist.length;
+                            return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
+                        }
+                    },
+                    {
+                        cnName: '季军',
+                        enName: '',
+                        title: {
+                            C: ['龙虎']
+                        },
+                        se: [0, 0],
+                        line: 0,
+                        Clist: ['龙', '虎'],
+                        Cline: 1,
+                        func(Nlist, Clist) {
+                            let result = 0;
+                            Clist = Clist[0];
+                            result = Clist.length;
+                            return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
+                        }
+                    },
+                    {
+                        cnName: '第四名',
+                        enName: '',
+                        title: { C: ['龙虎'] },
+                        se: [0, 0],
+                        line: 0,
+                        Clist: ['龙', '虎'],
+                        Cline: 1,
+                        func(Nlist, Clist) {
+                            let result = 0;
+                            Clist = Clist[0];
+                            result = Clist.length;
+                            return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
+                        }
+                    },
+                    {
+                        cnName: '第五名',
+                        enName: '',
+                        title: {
+                            C: ['龙虎']
+                        },
+                        se: [0, 0],
+                        line: 0,
+                        Clist: ['龙', '虎'],
+                        Cline: 1,
+                        func(Nlist, Clist) {
+                            let result = 0;
+                            Clist = Clist[0];
+                            result = Clist.length;
+                            return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
+                        }
+                    },
+                    {
+                        cnName: '冠亚',
+                        enName: '',
+                        title: { C: ['龙虎'] },
+                        se: [0, 0],
+                        line: 0,
+                        Clist: ['龙', '虎'],
+                        Cline: 1,
+                        func(Nlist, Clist) {
+                            let result = 0;
+                            Clist = Clist[0];
+                            result = Clist.length;
+                            return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
+                        }
+                    },
+                    {
+                        cnName: '冠亚季',
+                        enName: '',
+                        title: { C: ['龙虎'] },
+                        se: [0, 0],
+                        line: 0,
+                        Clist: ['龙', '虎'],
+                        Cline: 1,
+                        func(Nlist, Clist) {
+                            let result = 0;
+                            Clist = Clist[0];
+                            result = Clist.length;
+                            return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
+                        }
+                    }
+                ]
+            },
+            {
+                cnName: '',//五行
+                enName: '',
+                data: [
+                    {
+                        cnName: '冠 军',
+                        enName: '',
+                        title: {
+                            C: ['五行']
+                        },
+                        se: [0, 0],
+                        line: 0,
+                        Clist: ['金', '木', '水', '火', '土'],
+                        Cline: 1,
+                        func(Nlist, Clist) {
+                            let result = 0;
+                            Clist = Clist[0];
+                            result = Clist.length;
+                            return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
+                        }
+                    },
+                    {
+                        cnName: '亚 军',
+                        enName: '',
+                        title: {
+                            C: ['五行']
+                        },
+                        se: [0, 0],
+                        line: 0,
+                        Clist: ['金', '木', '水', '火', '土'],
+                        Cline: 1,
+                        func(Nlist, Clist) {
+                            let result = 0;
+                            Clist = Clist[0];
+                            result = Clist.length;
+                            return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
+                        }
+                    },
+                    {
+                        cnName: '季 军',
+                        enName: '',
+                        title: {
+                            C: ['五行']
+                        },
+                        se: [0, 0],
+                        line: 0,
+                        Clist: ['金', '木', '水', '火', '土'],
+                        Cline: 1,
+                        func(Nlist, Clist) {
+                            let result = 0;
+                            Clist = Clist[0];
+                            result = Clist.length;
+                            return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
+                        }
+                    }
+                ]
+            },
+            {
+                cnName: '大小单双',
+                enName: '',
+                data: [
+                    {
+                        cnName: '冠军',
+                        enName: '',
+                        title: { C: ['选择'] },
                         se: [0, 0],
                         line: 0,
                         Clist: ['大', '小', '单', '双'],
@@ -2817,39 +2772,248 @@
                             Clist = Clist[0];
                             result = Clist.length;
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
+                        }
+                    },
+                    {
+                        cnName: '亚军',
+                        enName: '',
+                        title: { C: ['选择'] },
+                        se: [0, 0],
+                        line: 0,
+                        Clist: ['大', '小', '单', '双'],
+                        Cline: 1,
+                        func(Nlist, Clist) {
+                            let result = 0;
+                            Clist = Clist[0];
+                            result = Clist.length;
+                            return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
+                        }
+                    },
+                    {
+                        cnName: '季军',
+                        enName: '',
+                        title: { C: ['选择'] },
+                        se: [0, 0],
+                        line: 0,
+                        Clist: ['大', '小', '单', '双'],
+                        Cline: 1,
+                        func(Nlist, Clist) {
+                            let result = 0;
+                            Clist = Clist[0];
+                            result = Clist.length;
+                            return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
+                        }
+                    },
+                    {
+                        cnName: '第四名',
+                        enName: '',
+                        title: { C: ['选择'] },
+                        se: [0, 0],
+                        line: 0,
+                        Clist: ['大', '小', '单', '双'],
+                        Cline: 1,
+                        func(Nlist, Clist) {
+                            let result = 0;
+                            Clist = Clist[0];
+                            result = Clist.length;
+                            return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
+                        }
+                    },
+                    {
+                        cnName: '第五名',
+                        enName: '',
+                        title: { C: ['选择'] },
+                        se: [0, 0],
+                        line: 0,
+                        Clist: ['大', '小', '单', '双'],
+                        Cline: 1,
+                        func(Nlist, Clist) {
+                            let result = 0;
+                            Clist = Clist[0];
+                            result = Clist.length;
+                            return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
+                        }
+                    },
+                    {
+                        cnName: '第六名',
+                        enName: '',
+                        title: { C: ['选择'] },
+                        se: [0, 0],
+                        line: 0,
+                        Clist: ['大', '小', '单', '双'],
+                        Cline: 1,
+                        func(Nlist, Clist) {
+                            let result = 0;
+                            Clist = Clist[0];
+                            result = Clist.length;
+                            return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
+                        }
+                    },
+                    {
+                        cnName: '第七名',
+                        enName: '',
+                        title: { C: ['选择'] },
+                        se: [0, 0],
+                        line: 0,
+                        Clist: ['大', '小', '单', '双'],
+                        Cline: 1,
+                        func(Nlist, Clist) {
+                            let result = 0;
+                            Clist = Clist[0];
+                            result = Clist.length;
+                            return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
+                        }
+                    },
+                    {
+                        cnName: '第八名',
+                        enName: '',
+                        title: { C: ['选择'] },
+                        se: [0, 0],
+                        line: 0,
+                        Clist: ['大', '小', '单', '双'],
+                        Cline: 1,
+                        func(Nlist, Clist) {
+                            let result = 0;
+                            Clist = Clist[0];
+                            result = Clist.length;
+                            return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
+                        }
+                    },
+                    {
+                        cnName: '第九名',
+                        enName: '',
+                        title: { C: ['选择'] },
+                        se: [0, 0],
+                        line: 0,
+                        Clist: ['大', '小', '单', '双'],
+                        Cline: 1,
+                        func(Nlist, Clist) {
+                            let result = 0;
+                            Clist = Clist[0];
+                            result = Clist.length;
+                            return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
+                        }
+                    },
+                    {
+                        cnName: '第十名',
+                        enName: '',
+                        title: { C: ['选择'] },
+                        se: [0, 0],
+                        line: 0,
+                        Clist: ['大', '小', '单', '双'],
+                        Cline: 1,
+                        func(Nlist, Clist) {
+                            let result = 0;
+                            Clist = Clist[0];
+                            result = Clist.length;
+                            return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
+                        }
+                    },
+                    {
+                        cnName: '冠亚季',
+                        enName: '',
+                        title: { C: ['选择'] },
+                        se: [0, 0],
+                        line: 0,
+                        Clist: ['大', '小', '单', '双'],
+                        Cline: 1,
+                        func(Nlist, Clist) {
+                            let result = 0;
+                            Clist = Clist[0];
+                            result = Clist.length;
+                            return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
+                        }
+                    },
+                    {
+                        cnName: '',//大小单双
+                        enName: '',
+                        title: { C: ['选择'] },
+                        se: [0, 0],
+                        line: 0,
+                        Clist: ['大', '小', '单', '双'],
+                        Cline: 1,
+                        func(Nlist, Clist) {
+                            let result = 0;
+                            Clist = Clist[0];
+                            result = Clist.length;
+                            return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     }
                 ]
-            }
-        ],
-        '冠亚季选一': [
+            },
             {
-                subname: '冠亚季选一',
-                sublist: [
+                cnName: '冠亚季',
+                enName: '',
+                data: [
                     {
-                        name: '冠亚季',
+                        cnName: '冠亚季',
+                        enName: '',
+                        title: { C: ['冠亚季'] },
                         se: [1, 10],
-                        line: 0,
+                        line: 1,
                         func(Nlist, Clist) {
                             let result = 0;
                             Nlist = Nlist[0];
                             result = Nlist.length;
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     }
                 ]
-            }
-        ],
+            },
+        ]
     },
-    '11选5': {
-        '三码': [
+    {
+        cnName: '11选5',
+        enName: '11x5',
+        data: [
             {
-                subname: '前三直选',
-                sublist: [
+                cnName: '前三',
+                enName: '',
+                data: [
                     {
-                        name: '复式',
+                        cnName: '直选复式',
+                        enName: '',
                         title: { N: ['第一位', '第二位', '第三位'] },
-                        se: [1, 11],
+                        se: ['01', '11'],
                         line: 3,
                         func(Nlist) {
                             let result = 0;
@@ -2864,10 +3028,44 @@
                                 }
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     },
                     {
-                        name: '单式',
+                        cnName: '',//直选单式
+                        enName: '',
+                        se: [0, 0],
+                        line: 0,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '组选复式',
+                        enName: '',
+                        title: { N: ['选号'] },
+                        se: ['01', '11'],
+                        line: 1,
+                        func(Nlist) {
+                            let result = 0;
+                            Nlist = Nlist[0];
+                            if (Nlist.length > 0) {
+                                let resultArr = [0, 0, 1, 4, 10,
+                                    20, 35, 56, 84, 120, 165]
+                                result = resultArr[Nlist.length - 1];
+                            }
+                            return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 3, false);
+                        }
+                    },
+                    {
+                        cnName: '',//组选单式
+                        enName: '',
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
@@ -2878,44 +3076,14 @@
                 ]
             },
             {
-                subname: '前三组选',
-                sublist: [
+                cnName: '前二',
+                enName: '',
+                data: [
                     {
-                        name: '复式',
-                        title: { N: ['选号'] },
-                        se: [1, 11],
-                        line: 1,
-                        func(Nlist) {
-                            let result = 0;
-                            Nlist = Nlist[0];
-                            if (Nlist.length > 0) {
-                                let resultArr = [0, 0, 1, 4, 10,
-                                    20, 35, 56, 84, 120, 165
-                                ]
-                            }
-                            return result;
-                        }
-                    },
-                    {
-                        name: '单式',
-                        se: [0, 0],
-                        line: 0,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    }
-                ]
-            }
-        ],
-        '二码': [
-            {
-                subname: '前二直选',
-                sublist: [
-                    {
-                        name: '复式',
+                        cnName: '直选复式',
+                        enName: '',
                         title: { N: ['第一位', '第二位'] },
-                        se: [1, 11],
+                        se: ['01', '11'],
                         line: 2,
                         func(Nlist) {
                             let result = 0;
@@ -2926,10 +3094,45 @@
                                 result += t_Arr_2.length;
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     },
                     {
-                        name: '单式',
+                        cnName: '',//直选单式
+                        enName: '',
+                        se: [0, 0],
+                        line: 0,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '组选复式',
+                        enName: '',
+                        title: { N: ['选号'] },
+                        se: ['01', '11'],
+                        line: 1,
+                        func(Nlist) {
+                            let result = 0;
+                            Nlist = Nlist[0];
+                            if (Nlist.length > 0) {
+                                let resultArr = [0, 1, 3, 6, 10,
+                                    15, 21, 28, 36, 45, 55
+                                ];
+                                result = resultArr[Nlist.length - 1];
+                            }
+                            return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 2, false);
+                        }
+                    },
+                    {
+                        cnName: '',//组选单式
+                        enName: '',
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
@@ -2940,63 +3143,36 @@
                 ]
             },
             {
-                subname: '前二组选',
-                sublist: [
+                cnName: '不定胆',
+                enName: '',
+                data: [
                     {
-                        name: '复式',
+                        cnName: '前三不定胆',
+                        enName: '',
                         title: { N: ['选号'] },
-                        se: [1, 11],
-                        line: 1,
-                        func(Nlist) {
-                            let result = 0;
-                            Nlist = Nlist[0];
-                            if (Nlist.length > 0) {
-                                let resultArr = [0, 1, 3, 6, 10,
-                                    15, 21, 28, 36, 45, 55
-                                ];
-                            }
-                            return result;
-                        }
-                    },
-                    {
-                        name: '单式',
-                        se: [0, 0],
-                        line: 0,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    }
-                ]
-            }
-        ],
-        '不定胆': [
-            {
-                subname: '不定胆',
-                sublist: [
-                    {
-                        name: '前三位',
-                        title: { N: ['选号'] },
-                        se: [1, 11],
+                        se: ['01', '11'],
                         line: 1,
                         func(Nlist) {
                             let result = 0;
                             Nlist = Nlist[0];
                             result = Nlist.length;
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     }
                 ]
-            }
-        ],
-        '定位胆': [
+            },
             {
-                subname: '定位胆',
-                sublist: [
+                cnName: '定位胆',
+                enName: '',
+                data: [
                     {
-                        name: '定位胆',
+                        cnName: '定位胆',
+                        enName: '',
                         title: { N: ['第一位', '第二位', '第三位', '第四位', '第五位'] },
-                        se: [1, 11],
+                        se: ['01', '11'],
                         line: 5,
                         func(Nlist) {
                             let result = 0;
@@ -3004,19 +3180,22 @@
                                 result += N.length;
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, '1_1', false);
                         }
                     }
                 ]
-            }
-        ],
-        '任选': [
+            },
             {
-                subname: '任选复式',
-                sublist: [
+                cnName: '任选复式',
+                enName: '',
+                data: [
                     {
-                        name: '一中一',
+                        cnName: '一中一',
+                        enName: '',
                         title: { N: ['一中一'] },
-                        se: [1, 11],
+                        se: ['01', '11'],
                         line: 1,
                         func(Nlist) {
                             let result = 0;
@@ -3028,12 +3207,16 @@
                                 result = resultArr[Nlist.length - 1];
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     },
                     {
-                        name: '二中二',
+                        cnName: '二中二',
+                        enName: '',
                         title: { N: ['二中二'] },
-                        se: [1, 11],
+                        se: ['01', '11'],
                         line: 1,
                         func(Nlist) {
                             let result = 0;
@@ -3045,12 +3228,16 @@
                                 result = resultArr[Nlist.length - 1];
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 2, false);
                         }
                     },
                     {
-                        name: '三中三',
+                        cnName: '三中三',
+                        enName: '',
                         title: { N: ['三中三'] },
-                        se: [1, 11],
+                        se: ['01', '11'],
                         line: 1,
                         func(Nlist) {
                             let result = 0;
@@ -3062,12 +3249,16 @@
                                 result = resultArr[Nlist.length - 1];
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 3, false);
                         }
                     },
                     {
-                        name: '四中四',
+                        cnName: '四中四',
+                        enName: '',
                         title: { N: ['四中四'] },
-                        se: [1, 11],
+                        se: ['01', '11'],
                         line: 1,
                         func(Nlist) {
                             let result = 0;
@@ -3079,12 +3270,16 @@
                                 result = resultArr[Nlist.length - 1];
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 4, false);
                         }
                     },
                     {
-                        name: '五中五',
+                        cnName: '五中五',
+                        enName: '',
                         title: { N: ['五中五'] },
-                        se: [1, 11],
+                        se: ['01', '11'],
                         line: 1,
                         func(Nlist) {
                             let result = 0;
@@ -3096,12 +3291,16 @@
                                 result = resultArr[Nlist.length - 1];
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 5, false);
                         }
                     },
                     {
-                        name: '六中五',
+                        cnName: '六中五',
+                        enName: '',
                         title: { N: ['六中五'] },
-                        se: [1, 11],
+                        se: ['01', '11'],
                         line: 1,
                         func(Nlist) {
                             let result = 0;
@@ -3113,12 +3312,16 @@
                                 result = resultArr[Nlist.length - 1];
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 6, false);
                         }
                     },
                     {
-                        name: '七中五',
+                        cnName: '七中五',
+                        enName: '',
                         title: { N: ['七中五'] },
-                        se: [1, 11],
+                        se: ['01', '11'],
                         line: 1,
                         func(Nlist) {
                             let result = 0;
@@ -3130,12 +3333,16 @@
                                 result = resultArr[Nlist.length - 1];
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 7, false);
                         }
                     },
                     {
-                        name: '八中五',
+                        cnName: '八中五',
+                        enName: '',
                         title: { N: ['八中五'] },
-                        se: [1, 11],
+                        se: ['01', '11'],
                         line: 1,
                         func(Nlist) {
                             let result = 0;
@@ -3147,15 +3354,20 @@
                                 result = resultArr[Nlist.length - 1];
                             }
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 8, false);
                         }
                     }
                 ]
             },
             {
-                subname: '任选单式',
-                sublist: [
+                cnName: '',//任选单式
+                enName: '',
+                data: [
                     {
-                        name: '一中一',
+                        cnName: '一中一',
+                        enName: '',
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
@@ -3164,7 +3376,8 @@
                         }
                     },
                     {
-                        name: '二中二',
+                        cnName: '二中二',
+                        enName: '',
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
@@ -3173,7 +3386,8 @@
                         }
                     },
                     {
-                        name: '三中三',
+                        cnName: '三中三',
+                        enName: '',
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
@@ -3182,7 +3396,8 @@
                         }
                     },
                     {
-                        name: '四中四',
+                        cnName: '四中四',
+                        enName: '',
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
@@ -3191,7 +3406,8 @@
                         }
                     },
                     {
-                        name: '五中五',
+                        cnName: '五中五',
+                        enName: '',
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
@@ -3200,7 +3416,8 @@
                         }
                     },
                     {
-                        name: '六中五',
+                        cnName: '六中五',
+                        enName: '',
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
@@ -3209,7 +3426,8 @@
                         }
                     },
                     {
-                        name: '七中五',
+                        cnName: '七中五',
+                        enName: '',
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
@@ -3218,7 +3436,8 @@
                         }
                     },
                     {
-                        name: '八中五',
+                        cnName: '八中五',
+                        enName: '',
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
@@ -3227,258 +3446,54 @@
                         }
                     }
                 ]
-            }
-        ],
-        '前一': [
+            },
             {
-                subname: '直选',
-                sublist: [
+                cnName: '前一',
+                enName: '',
+                data: [
                     {
-                        name: '复式',
-                        se: [1, 11],
+                        cnName: '直选复式',
+                        enName: '',
+                        title: { N: ['第一位'] },
+                        se: ['01', '11'],
                         line: 1,
                         func(Nlist) {
                             let result = Nlist[0].length;
                             return result;
                         }
-                    },
+                    }
                 ]
-            }
-        ],
-        '趣味': [
+            },
             {
-                subname: '趣味',
-                sublist: [
+                cnName: '趣味',
+                enName: '',
+                data: [
                     {
-                        name: '猜中位',
-                        se: [3, 9],
+                        cnName: '猜中位',
+                        enName: '',
+                        title: { N: ['猜中位'] },
+                        se: ['03', '09'],
                         line: 1,
                         func(Nlist) {
                             let result = Nlist[0].length;
                             return result;
                         }
-                    },
-                ]
-            }
-        ]
-    },
-    '快3': {
-        '二不同号': [
-            {
-                subname: '二不同号',
-                sublist: [
-                    {
-                        name: '标准选号',
-                        se: [1, 6],
-                        line: 1,
-                        func(Nlist) {
-                            let result = 0;
-                            Nlist = Nlist[0];
-                            if (Nlist.length > 0) {
-                                let resultArr = [0, 1, 3, 6, 10, 15];
-                                result = resultArr[Nlist.length - 1];
-                            }
-                            return result;
-                        }
-                    },
-                    {
-                        name: '手动选号',
-                        se: [0, 0],
-                        line: 0,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    },
-                    {
-                        name: '胆拖选号',
-                        se: [1, 6],
-                        line: 2,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    }
-                ]
-            }
-        ],
-        '二同号': [
-            {
-                subname: '二同号单选',
-                sublist: [
-                    {
-                        name: '标准选号',
-                        se: [0, 0],
-                        line: 0,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    },
-                    {
-                        name: '手动选号',
-                        se: [0, 0],
-                        line: 0,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
                     }
                 ]
             },
-            {
-                subname: '二同号复选',
-                sublist: [
-                    {
-                        name: '二同号复选',
-                        se: [0, 0],
-                        line: 0,
-                        func(Nlist) {
-                            let result = 0;
-                            Nlist = Nlist[0];
-                            if (Nlist.length > 0) {
-                                let resultArr = [1, 2, 3, 4, 5, 6];
-                                result = resultArr[Nlist.length - 1];
-                            }
-                            return result;
-                        }
-                    }
-                ]
-            }
-        ],
-        '三不同号': [
-            {
-                subname: '三不同号',
-                sublist: [
-                    {
-                        name: '标准选号',
-                        se: [1, 6],
-                        line: 1,
-                        func(Nlist) {
-                            let result = 0;
-                            Nlist = Nlist[0];
-                            if (Nlist.length > 0) {
-                                let resultArr = [0, 0, 1, 4, 10, 20];
-                                result = resultArr[Nlist.length - 1];
-                            }
-                            return result;
-                        }
-                    },
-                    {
-                        name: '手动选号',
-                        se: [0, 0],
-                        line: 0,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    }
-                ]
-            }
-        ],
-        '三同号': [
-            {
-                subname: '三同号单选',
-                sublist: [
-                    {
-                        name: '三同号单选',
-                        se: [0, 0],
-                        line: 0,
-                        func(Nlist) {
-                            let result = 0;
-                            Nlist = Nlist[0];
-                            if (Nlist.length > 0) {
-                                let resultArr = [1, 2, 3, 4, 5, 6];
-                                result = resultArr[Nlist.length - 1];
-                            }
-                            return result;
-                        }
-                    }
-                ]
-            },
-            {
-                subname: '三同号通选',
-                sublist: [
-                    {
-                        name: '三同号通选',
-                        se: [0, 0],
-                        line: 0,
-                        func(Nlist) {
-                            let result = 0;
-                            Nlist = Nlist[0];
-                            if (Nlist.length > 0) {
-                                let resultArr = [1];
-                                result = resultArr[Nlist.length - 1];
-                            }
-                            return result;
-                        }
-                    }
-                ]
-            }
-        ],
-        '三连号': [
-            {
-                subname: '三连号通选',
-                sublist: [
-                    {
-                        name: '三连号通选',
-                        se: [0, 0],
-                        line: 0,
-                        func(Nlist) {
-                            let result = 0;
-                            Nlist = Nlist[0];
-                            if (Nlist.length > 0) {
-                                let resultArr = [1];
-                                result = resultArr[Nlist.length - 1];
-                            }
-                            return result;
-                        }
-                    }
-                ]
-            }
-        ],
-        '和值': [
-            {
-                subname: '和值',
-                sublist: [
-                    {
-                        name: '和值',
-                        se: [3, 18],
-                        line: 1,
-                        func(Nlist) {
-                            let result = 0;
-                            Nlist = Nlist[0];
-                            if (Nlist.length > 0) {
-                                let resultArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
-                                result = resultArr[Nlist.length - 1];
-                            }
-                            return result;
-                        }
-                    },
-                    {
-                        name: '大小单双',
-                        se: [0, 0],
-                        line: 0,
-                        Clist: ['大', '小', '单', '双', '大单', '大双', '小单', '小双'],
-                        Cline: 1,
-                        func(Nlist, Clist) {
-                            let result = 0;
-                            Clist = Clist[0];
-                            result = Clist.length;
-                            return result;
-                        }
-                    }
-                ]
-            }
         ]
     },
-    '福彩3D': {
-        '三码': [
+    {
+        cnName: '福彩3D',
+        enName: 'fc3d',
+        data: [
             {
-                subname: '直选',
-                sublist: [
+                cnName: '三码',
+                enName: '',
+                data: [
                     {
-                        name: '复式',
+                        cnName: '直选复式',
+                        enName: '',
                         title: {
                             N: ['百位', '十位', '个位']
                         },
@@ -3494,7 +3509,8 @@
                         }
                     },
                     {
-                        name: '单式',
+                        cnName: '',//直选单式
+                        enName: '',
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
@@ -3503,7 +3519,9 @@
                         }
                     },
                     {
-                        name: '直选和值',
+                        cnName: '直选和值',
+                        enName: '',
+                        title: { N: ['选号'] }
                         se: [0, 27],
                         line: 1,
                         func(Nlist) {
@@ -3523,14 +3541,10 @@
                         func_fate() {
                             return sp_fate(this, 1, false);
                         }
-                    }
-                ]
-            },
-            {
-                subname: '组选',
-                sublist: [
+                    },
                     {
-                        name: '组三',
+                        cnName: '组三',
+                        enName: '',
                         title: {
                             N: ['组三']
                         },
@@ -3549,7 +3563,8 @@
                         }
                     },
                     {
-                        name: '组六',
+                        cnName: '组六',
+                        enName: '',
                         title: {
                             N: ['组六']
                         },
@@ -3570,7 +3585,8 @@
                         }
                     },
                     {
-                        name: '混合组选',
+                        cnName: '',//混合组选
+                        enName: '',
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
@@ -3579,14 +3595,14 @@
                         },
                     }
                 ]
-            }
-        ],
-        '二码': [
+            },
             {
-                subname: '后二码直选',
-                sublist: [
+                cnName: '后二',
+                enName: '',
+                data: [
                     {
-                        name: '复式',
+                        cnName: '直选复式',
+                        enName: '',
                         title: {
                             N: ['十位', '个位']
                         },
@@ -3602,7 +3618,8 @@
                         }
                     },
                     {
-                        name: '单式',
+                        cnName: '',//直选单式
+                        enName: '',
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
@@ -3611,7 +3628,8 @@
                         }
                     },
                     {
-                        name: '直选和值',
+                        cnName: '',//直选和值
+                        enName: '',
                         se: [0, 18],
                         line: 1,
                         func(Nlist) {
@@ -3624,16 +3642,12 @@
                             return result;
                         },
                         func_fate() {
-                            return sp_fate(this, 1, true);
+                            return sp_fate(this, 1, false);
                         }
-                    }
-                ]
-            },
-            {
-                subname: '后二码组选',
-                sublist: [
+                    },
                     {
-                        name: '复式',
+                        cnName: '组选复式',
+                        enName: '',
                         title: {
                             N: ['组选']
                         },
@@ -3648,11 +3662,12 @@
                             return result;
                         },
                         func_fate() {
-                            return sp_fate(this, 2, true);
+                            return sp_fate(this, 2, false);
                         }
                     },
                     {
-                        name: '单式',
+                        cnName: '',//组选单式
+                        enName: '',
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
@@ -3663,10 +3678,12 @@
                 ]
             },
             {
-                subname: '前二码直选',
-                sublist: [
+                cnName: '前二',
+                enName: '',
+                data: [
                     {
-                        name: '复式',
+                        cnName: '直选复式',
+                        enName: '',
                         title: {
                             N: ['百位', '十位']
                         },
@@ -3682,7 +3699,8 @@
                         }
                     },
                     {
-                        name: '单式',
+                        cnName: '',//直选单式
+                        enName: '',
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
@@ -3691,7 +3709,8 @@
                         }
                     },
                     {
-                        name: '直选和值',
+                        cnName: '',//直选和值
+                        enName: '',
                         se: [0, 18],
                         line: 1,
                         func(Nlist) {
@@ -3704,16 +3723,12 @@
                             return result;
                         },
                         func_fate() {
-                            return sp_fate(this, 1, true);
+                            return sp_fate(this, 1, false);
                         }
-                    }
-                ]
-            },
-            {
-                subname: '前二码组选',
-                sublist: [
+                    },
                     {
-                        name: '复式',
+                        cnName: '组选复式',
+                        enName: '',
                         title: {
                             N: ['组选']
                         },
@@ -3728,11 +3743,12 @@
                             return result;
                         },
                         func_fate() {
-                            return sp_fate(this, 2, true);
+                            return sp_fate(this, 2, false);
                         }
                     },
                     {
-                        name: '单式',
+                        cnName: '',//组选单式
+                        enName: '',
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
@@ -3741,14 +3757,14 @@
                         }
                     }
                 ]
-            }
-        ],
-        '定位胆': [
+            },
             {
-                subname: '定位胆',
-                sublist: [
+                cnName: '定位胆',
+                enName: '',
+                data: [
                     {
-                        name: '定位胆',
+                        cnName: '定位胆',
+                        enName: '',
                         title: {
                             N: ['百位', '十位', '个位']
                         },
@@ -3760,18 +3776,18 @@
                             return result;
                         },
                         func_fate() {
-                            return sp_fate(this, "1_1", true);
+                            return sp_fate(this, "1_1", false);
                         }
                     }
                 ]
-            }
-        ],
-        '不定胆': [
+            },
             {
-                subname: '不定胆',
-                sublist: [
+                cnName: '不定胆',
+                enName: '',
+                data: [
                     {
-                        name: '一码不定胆',
+                        cnName: '一码',
+                        enName: '',
                         title: {
                             N: ['不定胆']
                         },
@@ -3790,7 +3806,8 @@
                         }
                     },
                     {
-                        name: '二码不定胆',
+                        cnName: '二码',
+                        enName: '',
                         title: {
                             N: ['不定胆']
                         },
@@ -3813,14 +3830,15 @@
                         }
                     }
                 ]
-            }
-        ],
-        '大小单双': [
+            },
             {
-                subname: '大小单双',
-                sublist: [
+                cnName: '大小单双',
+                enName: '',
+                data: [
                     {
-                        name: '前二',
+                        cnName: '前二大小单双',
+                        enName: '',
+                        title: { C: ['百位', '十位'] },
                         se: [0, 0],
                         line: 0,
                         Clist: ['大', '小', '单', '双'],
@@ -3831,11 +3849,13 @@
                             return result;
                         },
                         func_fate() {
-                            return sp_fate(this, '1_1', true);
+                            return sp_fate(this, '1_1', false);
                         }
                     },
                     {
-                        name: '后二',
+                        cnName: '后二大小单双',
+                        enName: '',
+                        title: { C: ['十位', '个位'] },
                         se: [0, 0],
                         line: 0,
                         Clist: ['大', '小', '单', '双'],
@@ -3846,29 +3866,39 @@
                             return result;
                         },
                         func_fate() {
-                            return sp_fate(this, '1_1', true);
+                            return sp_fate(this, '1_1', false);
                         }
                     }
                 ]
             },
-        ],
+        ]
     },
-    '三分彩': {
-        '五星': [
+    {
+        cnName: '',//快3
+        enName: '',
+        data: [
             {
-                subname: '五星直选',
-                sublist: [
+                cnName: '二不同号',
+                enName: '',
+                data: [
                     {
-                        name: '复式',
-                        se: [0, 9],
-                        line: 5,
+                        cnName: '标准选号',
+                        enName: '',
+                        se: [1, 6],
+                        line: 1,
                         func(Nlist) {
                             let result = 0;
+                            Nlist = Nlist[0];
+                            if (Nlist.length > 0) {
+                                let resultArr = [0, 1, 3, 6, 10, 15];
+                                result = resultArr[Nlist.length - 1];
+                            }
                             return result;
                         }
                     },
                     {
-                        name: '单式',
+                        cnName: '手动选号',
+                        enName: '',
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
@@ -3877,9 +3907,10 @@
                         }
                     },
                     {
-                        name: '组合',
-                        se: [0, 9],
-                        line: 5,
+                        cnName: '胆拖选号',
+                        enName: '',
+                        se: [1, 6],
+                        line: 2,
                         func(Nlist) {
                             let result = 0;
                             return result;
@@ -3888,80 +3919,12 @@
                 ]
             },
             {
-                subname: '五星组选',
-                sublist: [
+                cnName: '二同号',
+                enName: '',
+                data: [
                     {
-                        name: '组选120',
-                        se: [0, 9],
-                        line: 1,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    },
-                    {
-                        name: '组选60',
-                        se: [0, 9],
-                        line: 2,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    },
-                    {
-                        name: '组选30',
-                        se: [0, 9],
-                        line: 2,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    },
-                    {
-                        name: '组选20',
-                        se: [0, 9],
-                        line: 2,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    },
-                    {
-                        name: '组选10',
-                        se: [0, 9],
-                        line: 2,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    },
-                    {
-                        name: '组选5',
-                        se: [0, 9],
-                        line: 2,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    }
-                ]
-            }
-        ],
-        '二星': [
-            {
-                subname: '后二直选',
-                sublist: [
-                    {
-                        name: '复式',
-                        se: [0, 9],
-                        line: 2,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    },
-                    {
-                        name: '单式',
+                        cnName: '标准选号',
+                        enName: '',
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
@@ -3970,7 +3933,284 @@
                         }
                     },
                     {
-                        name: '直选和值',
+                        cnName: '手动选号',
+                        enName: '',
+                        se: [0, 0],
+                        line: 0,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '二同号复选',
+                        enName: '',
+                        se: [0, 0],
+                        line: 0,
+                        func(Nlist) {
+                            let result = 0;
+                            Nlist = Nlist[0];
+                            if (Nlist.length > 0) {
+                                let resultArr = [1, 2, 3, 4, 5, 6];
+                                result = resultArr[Nlist.length - 1];
+                            }
+                            return result;
+                        }
+                    }
+                ]
+            },
+            {
+                cnName: '三不同号',
+                enName: '',
+                data: [
+                    {
+                        cnName: '标准选号',
+                        enName: '',
+                        se: [1, 6],
+                        line: 1,
+                        func(Nlist) {
+                            let result = 0;
+                            Nlist = Nlist[0];
+                            if (Nlist.length > 0) {
+                                let resultArr = [0, 0, 1, 4, 10, 20];
+                                result = resultArr[Nlist.length - 1];
+                            }
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '手动选号',
+                        enName: '',
+                        se: [0, 0],
+                        line: 0,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    }
+                ]
+            },
+            {
+                cnName: '三同号',
+                enName: '',
+                data: [
+                    {
+                        cnName: '三同号单选',
+                        enName: '',
+                        se: [0, 0],
+                        line: 0,
+                        func(Nlist) {
+                            let result = 0;
+                            Nlist = Nlist[0];
+                            if (Nlist.length > 0) {
+                                let resultArr = [1, 2, 3, 4, 5, 6];
+                                result = resultArr[Nlist.length - 1];
+                            }
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '三同号通选',
+                        enName: '',
+                        se: [0, 0],
+                        line: 0,
+                        func(Nlist) {
+                            let result = 0;
+                            Nlist = Nlist[0];
+                            if (Nlist.length > 0) {
+                                let resultArr = [1];
+                                result = resultArr[Nlist.length - 1];
+                            }
+                            return result;
+                        }
+                    }
+                ]
+            },
+            {
+                cnName: '三连号',
+                enName: '',
+                data: [
+                    {
+                        cnName: '三连号通选',
+                        enName: '',
+                        se: [0, 0],
+                        line: 0,
+                        func(Nlist) {
+                            let result = 0;
+                            Nlist = Nlist[0];
+                            if (Nlist.length > 0) {
+                                let resultArr = [1];
+                                result = resultArr[Nlist.length - 1];
+                            }
+                            return result;
+                        }
+                    }
+                ]
+            },
+            {
+                cnName: '和值',
+                enName: '',
+                data: [
+                    {
+                        cnName: '和值',
+                        enName: '',
+                        se: [3, 18],
+                        line: 1,
+                        func(Nlist) {
+                            let result = 0;
+                            Nlist = Nlist[0];
+                            if (Nlist.length > 0) {
+                                let resultArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
+                                result = resultArr[Nlist.length - 1];
+                            }
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '大小单双',
+                        enName: '',
+                        se: [0, 0],
+                        line: 0,
+                        Clist: ['大', '小', '单', '双', '大单', '大双', '小单', '小双'],
+                        Cline: 1,
+                        func(Nlist, Clist) {
+                            let result = 0;
+                            Clist = Clist[0];
+                            result = Clist.length;
+                            return result;
+                        }
+                    }
+                ]
+            },
+        ]
+    },
+    {
+        cnName: '',//三分彩
+        enName: '',
+        data: [
+            {
+                cnName: '五星',
+                enName: '',
+                data: [
+                    {
+                        cnName: '复式',
+                        enName: '',
+                        se: [0, 9],
+                        line: 5,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '单式',
+                        enName: '',
+                        se: [0, 0],
+                        line: 0,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '组合',
+                        enName: '',
+                        se: [0, 9],
+                        line: 5,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '组选120',
+                        enName: '',
+                        se: [0, 9],
+                        line: 1,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '组选60',
+                        enName: '',
+                        se: [0, 9],
+                        line: 2,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '组选30',
+                        enName: '',
+                        se: [0, 9],
+                        line: 2,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '组选20',
+                        enName: '',
+                        se: [0, 9],
+                        line: 2,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '组选10',
+                        enName: '',
+                        se: [0, 9],
+                        line: 2,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '组选5',
+                        enName: '',
+                        se: [0, 9],
+                        line: 2,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    }
+                ]
+            },
+            {
+                cnName: '二星',
+                enName: '',
+                data: [
+                    {
+                        cnName: '复式',
+                        enName: '',
+                        se: [0, 9],
+                        line: 2,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '单式',
+                        enName: '',
+                        se: [0, 0],
+                        line: 0,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '直选和值',
+                        enName: '',
                         se: [0, 18],
                         line: 1,
                         func(Nlist) {
@@ -3979,7 +4219,8 @@
                         }
                     },
                     {
-                        name: '直选跨度',
+                        cnName: '直选跨度',
+                        enName: '',
                         se: [0, 9],
                         line: 1,
                         func(Nlist) {
@@ -3988,21 +4229,8 @@
                         }
                     },
                     {
-                        name: '和值尾数',
-                        se: [0, 9],
-                        line: 1,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    }
-                ]
-            },
-            {
-                subname: '后二组选',
-                sublist: [
-                    {
-                        name: '复式',
+                        cnName: '和值尾数',
+                        enName: '',
                         se: [0, 9],
                         line: 1,
                         func(Nlist) {
@@ -4011,21 +4239,28 @@
                         }
                     },
                     {
-                        name: '单式',
+                        cnName: '复式',
+                        enName: '',
+                        se: [0, 9],
+                        line: 1,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '单式',
+                        enName: '',
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
                             let result = 0;
                             return result;
                         }
-                    }
-                ]
-            },
-            {
-                subname: '前二直选',
-                sublist: [
+                    },
                     {
-                        name: '复式',
+                        cnName: '复式',
+                        enName: '',
                         se: [0, 9],
                         line: 2,
                         func(Nlist) {
@@ -4034,7 +4269,8 @@
                         }
                     },
                     {
-                        name: '单式',
+                        cnName: '单式',
+                        enName: '',
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
@@ -4043,7 +4279,8 @@
                         }
                     },
                     {
-                        name: '直选和值',
+                        cnName: '直选和值',
+                        enName: '',
                         se: [0, 18],
                         line: 1,
                         func(Nlist) {
@@ -4052,7 +4289,8 @@
                         }
                     },
                     {
-                        name: '直选跨度',
+                        cnName: '直选跨度',
+                        enName: '',
                         se: [0, 9],
                         line: 1,
                         func(Nlist) {
@@ -4061,21 +4299,8 @@
                         }
                     },
                     {
-                        name: '和值尾数',
-                        se: [0, 9],
-                        line: 1,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    }
-                ]
-            },
-            {
-                subname: '前二组选',
-                sublist: [
-                    {
-                        name: '复式',
+                        cnName: '和值尾数',
+                        enName: '',
                         se: [0, 9],
                         line: 1,
                         func(Nlist) {
@@ -4084,7 +4309,18 @@
                         }
                     },
                     {
-                        name: '单式',
+                        cnName: '复式',
+                        enName: '',
+                        se: [0, 9],
+                        line: 1,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '单式',
+                        enName: '',
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
@@ -4093,14 +4329,14 @@
                         }
                     }
                 ]
-            }
-        ],
-        '定位胆': [
+            },
             {
-                subname: '定位胆',
-                sublist: [
+                cnName: '定位胆',
+                enName: '',
+                data: [
                     {
-                        name: '定位胆',
+                        cnName: '定位胆',
+                        enName: '',
                         se: [0, 9],
                         line: 5,
                         func(Nlist) {
@@ -4109,14 +4345,14 @@
                         }
                     }
                 ]
-            }
-        ],
-        '不定位': [
+            },
             {
-                subname: '三星不定位',
-                sublist: [
+                cnName: '不定位',
+                enName: '',
+                data: [
                     {
-                        name: '后三一码',
+                        cnName: '后三一码',
+                        enName: '',
                         se: [0, 9],
                         line: 1,
                         func(Nlist) {
@@ -4125,7 +4361,8 @@
                         }
                     },
                     {
-                        name: '中三一码',
+                        cnName: '中三一码',
+                        enName: '',
                         se: [0, 9],
                         line: 1,
                         func(Nlist) {
@@ -4134,7 +4371,8 @@
                         }
                     },
                     {
-                        name: '前三一码',
+                        cnName: '前三一码',
+                        enName: '',
                         se: [0, 9],
                         line: 1,
                         func(Nlist) {
@@ -4143,7 +4381,8 @@
                         }
                     },
                     {
-                        name: '后三二码',
+                        cnName: '后三二码',
+                        enName: '',
                         se: [0, 9],
                         line: 1,
                         func(Nlist) {
@@ -4152,7 +4391,8 @@
                         }
                     },
                     {
-                        name: '中三二码',
+                        cnName: '中三二码',
+                        enName: '',
                         se: [0, 9],
                         line: 1,
                         func(Nlist) {
@@ -4161,7 +4401,108 @@
                         }
                     },
                     {
-                        name: '前三二码',
+                        cnName: '前三二码',
+                        enName: '',
+                        se: [0, 9],
+                        line: 1,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '前四一码',
+                        enName: '',
+                        se: [0, 9],
+                        line: 1,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '后四一码',
+                        enName: '',
+                        se: [0, 9],
+                        line: 1,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '前四二码',
+                        enName: '',
+                        se: [0, 9],
+                        line: 1,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '后四二码',
+                        enName: '',
+                        se: [0, 9],
+                        line: 1,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '前四三码',
+                        enName: '',
+                        se: [0, 9],
+                        line: 1,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '后四三码',
+                        enName: '',
+                        se: [0, 9],
+                        line: 1,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '五星一码',
+                        enName: '',
+                        se: [0, 9],
+                        line: 1,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '五星二码',
+                        enName: '',
+                        se: [0, 9],
+                        line: 1,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '五星三码',
+                        enName: '',
+                        se: [0, 9],
+                        line: 1,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '五星四码',
+                        enName: '',
                         se: [0, 9],
                         line: 1,
                         func(Nlist) {
@@ -4172,112 +4513,11 @@
                 ]
             },
             {
-                subname: '四星不定位',
-                sublist: [
+                cnName: '任选',
+                enName: '',
+                data: [
                     {
-                        name: '前四一码',
-                        se: [0, 9],
-                        line: 1,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    },
-                    {
-                        name: '后四一码',
-                        se: [0, 9],
-                        line: 1,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    },
-                    {
-                        name: '前四二码',
-                        se: [0, 9],
-                        line: 1,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    },
-                    {
-                        name: '后四二码',
-                        se: [0, 9],
-                        line: 1,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    },
-                    {
-                        name: '前四三码',
-                        se: [0, 9],
-                        line: 1,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    },
-                    {
-                        name: '后四三码',
-                        se: [0, 9],
-                        line: 1,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    },
-                ]
-            },
-            {
-                subname: '五星不定位',
-                sublist: [
-                    {
-                        name: '五星一码',
-                        se: [0, 9],
-                        line: 1,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    },
-                    {
-                        name: '五星二码',
-                        se: [0, 9],
-                        line: 1,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    },
-                    {
-                        name: '五星三码',
-                        se: [0, 9],
-                        line: 1,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    },
-                    {
-                        name: '五星四码',
-                        se: [0, 9],
-                        line: 1,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    }
-                ]
-            }
-        ],
-        '任选': [
-            {
-                subname: '任二',
-                sublist: [
-                    {
-                        name: '复式',
+                        cnName: '复式',
                         se: [0, 9],
                         line: 5,
                         func(Nlist) {
@@ -4286,7 +4526,7 @@
                         }
                     },
                     {
-                        name: '单式',
+                        cnName: '单式',
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
@@ -4295,21 +4535,16 @@
                         }
                     },
                     {
-                        name: '组选',
+                        cnName: '组选',
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
                             let result = 0;
                             return result;
                         }
-                    }
-                ]
-            },
-            {
-                subname: '任三',
-                sublist: [
+                    },
                     {
-                        name: '复式',
+                        cnName: '复式',
                         se: [0, 9],
                         line: 5,
                         func(Nlist) {
@@ -4318,7 +4553,7 @@
                         }
                     },
                     {
-                        name: '单式',
+                        cnName: '单式',
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
@@ -4327,7 +4562,7 @@
                         }
                     },
                     {
-                        name: '组三',
+                        cnName: '组三',
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
@@ -4336,7 +4571,7 @@
                         }
                     },
                     {
-                        name: '组六',
+                        cnName: '组六',
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
@@ -4345,21 +4580,16 @@
                         }
                     },
                     {
-                        name: '混合组选',
+                        cnName: '混合组选',
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
                             let result = 0;
                             return result;
                         }
-                    }
-                ]
-            },
-            {
-                subname: '任四',
-                sublist: [
+                    },
                     {
-                        name: '复式',
+                        cnName: '复式',
                         se: [0, 9],
                         line: 5,
                         func(Nlist) {
@@ -4368,163 +4598,7 @@
                         }
                     },
                     {
-                        name: '单式',
-                        se: [0, 0],
-                        line: 0,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    }
-                ]
-            }
-        ],
-        '趣味': [
-            {
-                subname: '特殊',
-                sublist: [
-                    {
-                        name: '一帆风顺',
-                        se: [0, 9],
-                        line: 1,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    },
-                    {
-                        name: '好事成双',
-                        se: [0, 9],
-                        line: 1,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    },
-                    {
-                        name: '三星报喜',
-                        se: [0, 9],
-                        line: 1,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    },
-                    {
-                        name: '四季发财',
-                        se: [0, 9],
-                        line: 1,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    }
-                ]
-            }
-        ],
-        '龙虎': [
-            {
-                subname: '龙虎',
-                sublist: [
-                    {
-                        name: '万千',
-                        se: [0, 0],
-                        line: 0,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    },
-                    {
-                        name: '万百',
-                        se: [0, 0],
-                        line: 0,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    },
-                    {
-                        name: '万十',
-                        se: [0, 0],
-                        line: 0,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    },
-                    {
-                        name: '万个',
-                        se: [0, 0],
-                        line: 0,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    },
-                    {
-                        name: '千百',
-                        se: [0, 0],
-                        line: 0,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    },
-                    {
-                        name: '千十',
-                        se: [0, 0],
-                        line: 0,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    },
-                    {
-                        name: '千个',
-                        se: [0, 0],
-                        line: 0,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    },
-                    {
-                        name: '百十',
-                        se: [0, 0],
-                        line: 0,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    },
-                    {
-                        name: '百个',
-                        se: [0, 0],
-                        line: 0,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    },
-                    {
-                        name: '十个',
-                        se: [0, 0],
-                        line: 0,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    }
-                ]
-            }
-        ],
-        '大小单双': [
-            {
-                subname: '总和',
-                sublist: [
-                    {
-                        name: '总和',
+                        cnName: '单式',
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
@@ -4535,10 +4609,54 @@
                 ]
             },
             {
-                subname: '定位',
-                sublist: [
+                cnName: '趣味',
+                enName: '',
+                data: [
                     {
-                        name: '万位',
+                        cnName: '一帆风顺',
+                        se: [0, 9],
+                        line: 1,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '好事成双',
+                        se: [0, 9],
+                        line: 1,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '三星报喜',
+                        se: [0, 9],
+                        line: 1,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '四季发财',
+                        se: [0, 9],
+                        line: 1,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    }
+                ]
+            },
+            {
+                cnName: '龙虎',
+                enName: '',
+                data: [
+                    {
+                        cnName: '万千',
+                        enName: '',
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
@@ -4547,7 +4665,8 @@
                         }
                     },
                     {
-                        name: '千位',
+                        cnName: '万百',
+                        enName: '',
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
@@ -4556,7 +4675,8 @@
                         }
                     },
                     {
-                        name: '百位',
+                        cnName: '万十',
+                        enName: '',
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
@@ -4565,7 +4685,8 @@
                         }
                     },
                     {
-                        name: '十位',
+                        cnName: '万个',
+                        enName: '',
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
@@ -4574,7 +4695,58 @@
                         }
                     },
                     {
-                        name: '个位',
+                        cnName: '千百',
+                        enName: '',
+                        se: [0, 0],
+                        line: 0,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '千十',
+                        enName: '',
+                        se: [0, 0],
+                        line: 0,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '千个',
+                        enName: '',
+                        se: [0, 0],
+                        line: 0,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '百十',
+                        enName: '',
+                        se: [0, 0],
+                        line: 0,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '百个',
+                        enName: '',
+                        se: [0, 0],
+                        line: 0,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '十个',
+                        enName: '',
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
@@ -4585,26 +4757,12 @@
                 ]
             },
             {
-                subname: '串关',
-                sublist: [
+                cnName: '大小单双',
+                enName: '',
+                data: [
                     {
-                        name: '串关',
-                        se: [0, 0],
-                        line: 0,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    }
-                ]
-            }
-        ],
-        '特殊号': [
-            {
-                subname: '特殊号',
-                sublist: [
-                    {
-                        name: '前三',
+                        cnName: '总和',
+                        enName: '',
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
@@ -4613,7 +4771,8 @@
                         }
                     },
                     {
-                        name: '中三',
+                        cnName: '万位',
+                        enName: '',
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
@@ -4622,7 +4781,48 @@
                         }
                     },
                     {
-                        name: '后三',
+                        cnName: '千位',
+                        enName: '',
+                        se: [0, 0],
+                        line: 0,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '百位',
+                        enName: '',
+                        se: [0, 0],
+                        line: 0,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '十位',
+                        enName: '',
+                        se: [0, 0],
+                        line: 0,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '个位',
+                        enName: '',
+                        se: [0, 0],
+                        line: 0,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '串关',
+                        enName: '',
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
@@ -4631,14 +4831,34 @@
                         }
                     }
                 ]
-            }
-        ],
-        '斗牛': [
+            },
             {
-                subname: '斗牛',
-                sublist: [
+                cnName: '特殊号',
+                enName: '',
+                data: [
                     {
-                        name: '斗牛',
+                        cnName: '前三',
+                        enName: '',
+                        se: [0, 0],
+                        line: 0,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '中三',
+                        enName: '',
+                        se: [0, 0],
+                        line: 0,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '后三',
+                        enName: '',
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
@@ -4647,14 +4867,30 @@
                         }
                     }
                 ]
-            }
-        ],
-        '四星': [
+            },
             {
-                subname: '后四直选',
-                sublist: [
+                cnName: '斗牛',
+                enName: '',
+                data: [
                     {
-                        name: '复式',
+                        cnName: '斗牛',
+                        enName: '',
+                        se: [0, 0],
+                        line: 0,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    }
+                ]
+            },
+            {
+                cnName: '四星',
+                enName: '',
+                data: [
+                    {
+                        cnName: '复式',
+                        enName: '',
                         se: [0, 9],
                         line: 4,
                         func(Nlist) {
@@ -4663,7 +4899,8 @@
                         }
                     },
                     {
-                        name: '单式',
+                        cnName: '单式',
+                        enName: '',
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
@@ -4672,62 +4909,8 @@
                         }
                     },
                     {
-                        name: '组合',
-                        se: [0, 9],
-                        line: 4,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    }
-                ]
-            },
-            {
-                subname: '后四组选',
-                sublist: [
-                    {
-                        name: '组选24',
-                        se: [0, 9],
-                        line: 1,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    },
-                    {
-                        name: '组选12',
-                        se: [0, 9],
-                        line: 2,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    },
-                    {
-                        name: '组选6',
-                        se: [0, 9],
-                        line: 1,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    },
-                    {
-                        name: '组选4',
-                        se: [0, 9],
-                        line: 2,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    }
-                ]
-            },
-            {
-                subname: '前四直选',
-                sublist: [
-                    {
-                        name: '复式',
+                        cnName: '组合',
+                        enName: '',
                         se: [0, 9],
                         line: 4,
                         func(Nlist) {
@@ -4736,7 +4919,58 @@
                         }
                     },
                     {
-                        name: '单式',
+                        cnName: '组选24',
+                        enName: '',
+                        se: [0, 9],
+                        line: 1,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '组选12',
+                        enName: '',
+                        se: [0, 9],
+                        line: 2,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '组选6',
+                        enName: '',
+                        se: [0, 9],
+                        line: 1,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '组选4',
+                        enName: '',
+                        se: [0, 9],
+                        line: 2,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '复式',
+                        enName: '',
+                        se: [0, 9],
+                        line: 4,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '单式',
+                        enName: '',
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
@@ -4745,9 +4979,50 @@
                         }
                     },
                     {
-                        name: '组合',
+                        cnName: '组合',
+                        enName: '',
                         se: [0, 9],
                         line: 4,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '组选24',
+                        enName: '',
+                        se: [0, 9],
+                        line: 1,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '组选12',
+                        enName: '',
+                        se: [0, 9],
+                        line: 2,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '组选6',
+                        enName: '',
+                        se: [0, 9],
+                        line: 1,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '组选4',
+                        enName: '',
+                        se: [0, 9],
+                        line: 2,
                         func(Nlist) {
                             let result = 0;
                             return result;
@@ -4756,53 +5031,12 @@
                 ]
             },
             {
-                subname: '前四组选',
-                sublist: [
+                cnName: '三星',
+                enName: '',
+                data: [
                     {
-                        name: '组选24',
-                        se: [0, 9],
-                        line: 1,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    },
-                    {
-                        name: '组选12',
-                        se: [0, 9],
-                        line: 2,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    },
-                    {
-                        name: '组选6',
-                        se: [0, 9],
-                        line: 1,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    },
-                    {
-                        name: '组选4',
-                        se: [0, 9],
-                        line: 2,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    }
-                ]
-            }
-        ],
-        '三星': [
-            {
-                subname: '后三直选',
-                sublist: [
-                    {
-                        name: '复式',
+                        cnName: '复式',
+                        enName: '',
                         se: [0, 9],
                         line: 3,
                         func(Nlist) {
@@ -4811,7 +5045,8 @@
                         }
                     },
                     {
-                        name: '单式',
+                        cnName: '单式',
+                        enName: '',
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
@@ -4820,7 +5055,8 @@
                         }
                     },
                     {
-                        name: '直选和值',
+                        cnName: '直选和值',
+                        enName: '',
                         se: [0, 27],
                         line: 1,
                         func(Nlist) {
@@ -4829,7 +5065,8 @@
                         }
                     },
                     {
-                        name: '直选跨度',
+                        cnName: '直选跨度',
+                        enName: '',
                         se: [0, 9],
                         line: 1,
                         func(Nlist) {
@@ -4838,21 +5075,8 @@
                         }
                     },
                     {
-                        name: '和值尾数',
-                        se: [0, 9],
-                        line: 1,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    }
-                ]
-            },
-            {
-                subname: '后三组选',
-                sublist: [
-                    {
-                        name: '组三',
+                        cnName: '和值尾数',
+                        enName: '',
                         se: [0, 9],
                         line: 1,
                         func(Nlist) {
@@ -4861,7 +5085,8 @@
                         }
                     },
                     {
-                        name: '组六',
+                        cnName: '组三',
+                        enName: '',
                         se: [0, 9],
                         line: 1,
                         func(Nlist) {
@@ -4870,21 +5095,28 @@
                         }
                     },
                     {
-                        name: '混合组选',
+                        cnName: '组六',
+                        enName: '',
+                        se: [0, 9],
+                        line: 1,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '混合组选',
+                        enName: '',
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
                             let result = 0;
                             return result;
                         }
-                    }
-                ]
-            },
-            {
-                subname: '中三直选',
-                sublist: [
+                    },
                     {
-                        name: '复式',
+                        cnName: '复式',
+                        enName: '',
                         se: [0, 9],
                         line: 3,
                         func(Nlist) {
@@ -4893,7 +5125,8 @@
                         }
                     },
                     {
-                        name: '单式',
+                        cnName: '单式',
+                        enName: '',
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
@@ -4902,7 +5135,8 @@
                         }
                     },
                     {
-                        name: '直选和值',
+                        cnName: '直选和值',
+                        enName: '',
                         se: [0, 27],
                         line: 1,
                         func(Nlist) {
@@ -4911,7 +5145,8 @@
                         }
                     },
                     {
-                        name: '直选跨度',
+                        cnName: '直选跨度',
+                        enName: '',
                         se: [0, 9],
                         line: 1,
                         func(Nlist) {
@@ -4920,21 +5155,8 @@
                         }
                     },
                     {
-                        name: '和值尾数',
-                        se: [0, 9],
-                        line: 1,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    }
-                ]
-            },
-            {
-                subname: '中三组选',
-                sublist: [
-                    {
-                        name: '组三',
+                        cnName: '和值尾数',
+                        enName: '',
                         se: [0, 9],
                         line: 1,
                         func(Nlist) {
@@ -4943,7 +5165,8 @@
                         }
                     },
                     {
-                        name: '组六',
+                        cnName: '组三',
+                        enName: '',
                         se: [0, 9],
                         line: 1,
                         func(Nlist) {
@@ -4952,21 +5175,28 @@
                         }
                     },
                     {
-                        name: '混合组选',
+                        cnName: '组六',
+                        enName: '',
+                        se: [0, 9],
+                        line: 1,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '混合组选',
+                        enName: '',
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
                             let result = 0;
                             return result;
                         }
-                    }
-                ]
-            },
-            {
-                subname: '前三直选',
-                sublist: [
+                    },
                     {
-                        name: '复式',
+                        cnName: '复式',
+                        enName: '',
                         se: [0, 9],
                         line: 3,
                         func(Nlist) {
@@ -4975,7 +5205,8 @@
                         }
                     },
                     {
-                        name: '单式',
+                        cnName: '单式',
+                        enName: '',
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
@@ -4984,7 +5215,8 @@
                         }
                     },
                     {
-                        name: '直选和值',
+                        cnName: '直选和值',
+                        enName: '',
                         se: [0, 27],
                         line: 1,
                         func(Nlist) {
@@ -4993,7 +5225,8 @@
                         }
                     },
                     {
-                        name: '直选跨度',
+                        cnName: '直选跨度',
+                        enName: '',
                         se: [0, 9],
                         line: 1,
                         func(Nlist) {
@@ -5002,21 +5235,8 @@
                         }
                     },
                     {
-                        name: '和值尾数',
-                        se: [0, 9],
-                        line: 1,
-                        func(Nlist) {
-                            let result = 0;
-                            return result;
-                        }
-                    }
-                ]
-            },
-            {
-                subname: '前三组选',
-                sublist: [
-                    {
-                        name: '组三',
+                        cnName: '和值尾数',
+                        enName: '',
                         se: [0, 9],
                         line: 1,
                         func(Nlist) {
@@ -5025,7 +5245,8 @@
                         }
                     },
                     {
-                        name: '组六',
+                        cnName: '组三',
+                        enName: '',
                         se: [0, 9],
                         line: 1,
                         func(Nlist) {
@@ -5034,7 +5255,18 @@
                         }
                     },
                     {
-                        name: '混合组选',
+                        cnName: '组六',
+                        enName: '',
+                        se: [0, 9],
+                        line: 1,
+                        func(Nlist) {
+                            let result = 0;
+                            return result;
+                        }
+                    },
+                    {
+                        cnName: '混合组选',
+                        enName: '',
                         se: [0, 0],
                         line: 0,
                         func(Nlist) {
@@ -5046,7 +5278,19 @@
             }
         ]
     }
+]
+
+function sp_baseData(type, _e) {
+    if (type == 'hide') {
+        for (let i = _e.length - 1; i >= 0; i--) {
+            if (_e[i].cnName == '') { _e.splice(i, 1); }
+            else
+                if (_e[i].hasOwnProperty('data')) { sp_baseData('hide', _e[i].data); }
+        }
+    }
 }
+
+sp_baseData('hide', baseData);
 
 function fateObj() {
     //index
@@ -5057,7 +5301,7 @@ function fateObj() {
     }
 }
 //Math.floor(Math.random() * (max - min + 1) + min);
-function RNP(max, min) {
+function MRD(max, min) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 function sp_fate(_this, _rule, rp) {
@@ -5070,7 +5314,7 @@ function sp_fate(_this, _rule, rp) {
             let min = 0;
             while (t_lineArr.length < rule[0]) {
                 let max = lineArr.length - 1;
-                t_lineArr.push(lineArr.splice(RNP(max, min), 1)[0]);
+                t_lineArr.push(lineArr.splice(MRD(max, min), 1)[0]);
             }
 
             let Arr = new Array(_this.se[1] - _this.se[0] + 1).fill(0).map((v, i) => i);
@@ -5082,7 +5326,7 @@ function sp_fate(_this, _rule, rp) {
                 if (t_lineArr.indexOf(a) > -1) {
                     for (let b = 0; b < rule[1]; b++) {
                         let max = Arr.length - 1;
-                        sd_N.push(Arr.splice(RNP(max, min), 1)[0]);
+                        sd_N.push(Arr.splice(MRD(max, min), 1)[0]);
                     }
                 }
                 result.sd_Numlist.push(sd_N);
@@ -5099,7 +5343,7 @@ function sp_fate(_this, _rule, rp) {
                 let sd_item = [];
                 for (let b = 0; b < rule[a]; b++) {
                     let max = Arr.length - 1;
-                    sd_item.push(Arr.splice(RNP(max, min), 1)[0]);
+                    sd_item.push(Arr.splice(MRD(max, min), 1)[0]);
                 }
                 result.sd_Numlist.push(sd_item);
             }
@@ -5113,7 +5357,7 @@ function sp_fate(_this, _rule, rp) {
                 let Arr = new Array(_this.WZlist.length).fill(0).map((v, i) => i);
                 for (let a = 0; a < rule; a++) {
                     let max = Arr.length - 1;
-                    result.sd_WZlist.push(Arr.splice(RNP(max, min), 1)[0]);
+                    result.sd_WZlist.push(Arr.splice(MRD(max, min), 1)[0]);
                 }
             }
         }
@@ -5127,7 +5371,7 @@ function sp_fate(_this, _rule, rp) {
                 let min = 0;
                 while (t_lineArr.length < rule[0]) {
                     let max = lineArr.length - 1;
-                    t_lineArr.push(lineArr.splice(RNP(max, min), 1)[0]);
+                    t_lineArr.push(lineArr.splice(MRD(max, min), 1)[0]);
                 }
 
                 let Arr = new Array(_this.Clist.length).fill(0).map((v, i) => i);
@@ -5139,7 +5383,7 @@ function sp_fate(_this, _rule, rp) {
                     if (t_lineArr.indexOf(a) > -1) {
                         for (let b = 0; b < rule[1]; b++) {
                             let max = Arr.length - 1;
-                            sd_item.push(Arr.splice(RNP(max, min), 1)[0]);
+                            sd_item.push(Arr.splice(MRD(max, min), 1)[0]);
                         }
                     }
                     result.sd_Clist.push(sd_item);
@@ -5156,7 +5400,7 @@ function sp_fate(_this, _rule, rp) {
                     let sd_item = [];
                     for (let b = 0; b < rule[a]; b++) {
                         let max = Arr.length - 1;
-                        sd_item.push(Arr.splice(RNP(max, min), 1)[0]);
+                        sd_item.push(Arr.splice(MRD(max, min), 1)[0]);
                     }
                     result.sd_Clist.push(sd_item);
                 }

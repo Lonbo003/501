@@ -8,9 +8,9 @@ var app = new Vue({
         baseData: baseData,
         totalBet: 0,
         select: {
-            cz: '',
-            type: '',
-            subtype: [0, 0]
+            cz: 0,
+            type: 0,
+            subtype: 0
         },
         //for html
         czlist: [],
@@ -22,19 +22,30 @@ var app = new Vue({
         sd_Numlist: [],
         sd_WZlist: [],
         sd_Clist: [],
-        sd_Betlist: []
+        sd_Betlist: [],
+        //
+        addBetlist: false
     },
     computed: {
         subDetail() {
             if (this.ready) {
-                return this.baseData[this.select.cz][this.select.type][this.select.subtype[0]].sublist[this.select.subtype[1]];
+                return this.baseData[this.select.cz].data[this.select.type].data[this.select.subtype];
             }
             else {
                 return {};
             }
         },
         ready() {
-            return (this.select.cz != '' && this.select.type != '');
+            return (this.czlist.length > 0 && this.typelist.length > 0);
+        },
+        selectIndexs() {
+            return [this.select.cz, this.select.type, this.select.subtype];
+        },
+        selectNames() {
+            return [
+                this.baseData[this.select.cz].cnName,
+                this.baseData[this.select.cz].data[this.select.type].cnName,
+                this.baseData[this.select.cz].data[this.select.type].data[this.select.subtype].cnName];
         }
     },
     created() {
@@ -44,23 +55,24 @@ var app = new Vue({
     },
     methods: {
         init() {
-            for (let i in this.baseData) {
-                this.czlist.push(i);
+            for (let i of this.baseData) {
+                this.czlist.push(i.cnName);
             }
-            this.selectMode('cz', this.czlist[0]);
+            this.selectMode('cz', 0);
         },
         selectMode(atb, val) {
             if (atb == 'cz') {
+                if (typeof (val) == 'string') val = this.baseData.findIndex(x => new RegExp(`${x.enName}$`).test(val));
                 this.select.cz = val;
                 this.typelist = [];
-                for (let i in this.baseData[this.select.cz]) {
-                    this.typelist.push(i);
+                for (let i of this.baseData[this.select.cz].data) {
+                    if (i.cnName != '') this.typelist.push(i.cnName);
                 }
-                this.selectMode('type', this.typelist[0]);
+                this.selectMode('type', 0);
             }
             else if (atb == 'type') {
                 this.select.type = val;
-                this.selectMode('subtype', [0, 0]);
+                this.selectMode('subtype', 0);
             }
             else if (atb == 'subtype') {
                 this.select.subtype = val;
@@ -72,12 +84,21 @@ var app = new Vue({
             this.Numlist = [];
             this.sd_Numlist = [];
             this.totalBet = 0;
+            let se = this.subDetail.se;
             if (this.subDetail.line > 0) {
                 for (let a = 0; a < this.subDetail.line; a++) {
                     let list = [];
-                    for (let b = this.subDetail.se[0]; b <= this.subDetail.se[1]; b++) {
-                        list.push(b);
+                    if (typeof (se[0]) == 'number' && typeof (se[1]) == 'number') {
+                        for (let b = se[0]; b <= se[1]; b++) {
+                            list.push(b);
+                        }
                     }
+                    else if (typeof (se[0]) == 'string' && typeof (se[1]) == 'string') {
+                        for (let b = parseInt(se[0]); b <= parseInt(se[1]); b++) {
+                            list.push(`${b.toString().length == 1 ? '0' : ''}${b.toString()}`);
+                        }
+                    }
+
                     this.Numlist.push(list);
                     this.sd_Numlist.push([]);
                 }
@@ -199,7 +220,7 @@ var app = new Vue({
                 }
             }
         },
-        sp_Betlist(type, idx) {
+        sp_Betlist(type, idx, auto) {
             if (type == 'add') {
                 if (this.totalBet > 0) {
                     let r_data = [];
@@ -211,7 +232,7 @@ var app = new Vue({
                         }
                     })
                     this.sd_Betlist.push({
-                        name: [this.select.cz, this.baseData[this.select.cz][this.select.type][this.select.subtype[0]].subname, this.subDetail.name].join('_'),
+                        name: [this.baseData[this.select.cz].cnName, this.subDetail.cnName].join('_'),
                         data: r_data.join('|'),
                         zhu: this.totalBet
                     });
@@ -263,11 +284,33 @@ var app = new Vue({
                             }
                         }
                     }
-                    //this.sp_Betlist('add');
+                    if (auto)
+                        this.sp_Betlist('add');
                 }
                 else {
-                    for (let a = 0; a < times; a++) {
-                        this.sp_Betlist('fate', 1);
+                    for (let i = 0; i < times; i++) {
+                        let data = this.subDetail.func_fate();
+                        for (let _sd in data) {
+                            if (data[_sd].length > 0) {
+                                if (Array.isArray(data[_sd][0])) data[_sd] = data[_sd].map(a => a.map(b => this[_sd.replace('sd_', '')][0][b]));
+                                else data[_sd] = data[_sd].map(a => this[_sd.replace('sd_', '')][a]);
+                            }
+                        }
+
+                        let r_data = [];
+                        [data.sd_WZlist, data.sd_Clist, data.sd_Numlist.map(x => x.length > 0 ? x : '_')].forEach((item) => {
+                            if (item.length > 0) item.forEach((item2) => { r_data.push(item2.toString()); })
+                        })
+                        let r_totalBet = 0;
+                        if (this.subDetail.hasOwnProperty('WZlist')) r_totalBet = this.subDetail.func(data.sd_Numlist, data.sd_WZlist);
+                        else if (this.subDetail.hasOwnProperty('Clist')) r_totalBet = this.subDetail.func(data.sd_Numlist, data.sd_Clist);
+                        else r_totalBet = this.subDetail.func(data.sd_Numlist);
+
+                        this.sd_Betlist.push({
+                            name: [this.baseData[this.select.cz].cnName, this.subDetail.cnName].join('_'),
+                            data: r_data.join('|'),
+                            zhu: r_totalBet
+                        });
                     }
                 }
             }
