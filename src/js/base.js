@@ -15,6 +15,8 @@
                         },
                         se: [0, 9],
                         line: 5,
+                        sl: '',
+                        zj: '',
                         func(Nlist) {
                             let result = 0;
                             let t_Nlist = [];

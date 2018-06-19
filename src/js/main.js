@@ -46,20 +46,6 @@ var app = new Vue({
                 this.baseData[this.select.cz].cnName,
                 this.baseData[this.select.cz].data[this.select.type].cnName,
                 this.baseData[this.select.cz].data[this.select.type].data[this.select.subtype].cnName];
-        },
-        baseWanfa() {
-            let sl = "", zj = "";
-            try {
-                let data = baseWanfa
-                    .filter(x => x.cnName == this.selectNames[0])[0].data
-                    .filter(x => x.cnName == this.selectNames[1])[0].data
-                    .filter(x => new RegExp(`${this.selectNames[2]}$`).test(x.cnName))[0];
-                sl = data.sl;
-                zj = data.zj;
-            }
-            catch (e) { }
-
-            return { sl: sl, zj: zj };
         }
     },
     created() {
