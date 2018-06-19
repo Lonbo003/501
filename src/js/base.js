@@ -1530,7 +1530,7 @@
                 enName: '',
                 data: [
                     {
-                        cnName: ' 后四直选',//ps:后四直选复式
+                        cnName: '后四直选',//ps:后四直选复式
                         enName: '',
                         title: {
                             N: ['千位', '百位', '十位', '个位']
@@ -2140,11 +2140,8 @@
                             let result = 0;
                             Nlist = Nlist[0];
                             if (Nlist.length > 0) {
-                                let resultArr = [1, 3, 6, 10, 15,
-                                    21, 28, 36, 45, 55,
-                                    64, 72, 79, 85, 90,
-                                    94, 97, 99, 100];
-                                result = resultArr[Nlist.length - 1];
+                                let resultArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
+                                result = Nlist.map(x => resultArr[x]).reduce((a, b) => a + b);
                             }
                             return result;
                         },
@@ -2371,17 +2368,18 @@
                     },
                     {
                         cnName: '直选和值',
+                        enName: '和值',
+                        title: {
+                            N: ['和值']
+                        },
                         se: [0, 18],
                         line: 1,
                         func(Nlist) {
                             let result = 0;
                             Nlist = Nlist[0];
                             if (Nlist.length > 0) {
-                                let resultArr = [1, 3, 6, 10, 15,
-                                    21, 28, 36, 45, 55,
-                                    64, 72, 79, 85, 90,
-                                    94, 97, 99, 100];
-                                result = resultArr[Nlist.length - 1];
+                                let resultArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
+                                result = Nlist.map(x => resultArr[x]).reduce((a, b) => a + b);
                             }
                             return result;
                         },
@@ -3484,8 +3482,8 @@
         ]
     },
     {
-        cnName: '福彩3D',
-        enName: 'fc3d',
+        cnName: '低频彩',
+        enName: 'dpc',
         data: [
             {
                 cnName: '三码',
@@ -5278,7 +5276,7 @@
             }
         ]
     }
-]
+];
 
 function sp_baseData(type, _e) {
     if (type == 'hide') {

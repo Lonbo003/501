@@ -46,6 +46,20 @@ var app = new Vue({
                 this.baseData[this.select.cz].cnName,
                 this.baseData[this.select.cz].data[this.select.type].cnName,
                 this.baseData[this.select.cz].data[this.select.type].data[this.select.subtype].cnName];
+        },
+        baseWanfa() {
+            let sl = "", zj = "";
+            try {
+                let data = baseWanfa
+                    .filter(x => x.cnName == this.selectNames[0])[0].data
+                    .filter(x => x.cnName == this.selectNames[1])[0].data
+                    .filter(x => new RegExp(`${this.selectNames[2]}$`).test(x.cnName))[0];
+                sl = data.sl;
+                zj = data.zj;
+            }
+            catch (e) { }
+
+            return { sl: sl, zj: zj };
         }
     },
     created() {
@@ -164,10 +178,9 @@ var app = new Vue({
             }
         },
         sp_Numlist(type, idx) {
-            let SE = this.subDetail.se;
             if (idx > -1) {
                 if (type == 'all') {
-                    for (let a = SE[0]; a <= SE[1]; a++) {
+                    for (let a of this.Numlist[idx]) {
                         if (this.sd_Numlist[idx].indexOf(a) == -1) {
                             this.sd_Numlist[idx].push(a);
                         }
@@ -179,18 +192,17 @@ var app = new Vue({
                     this.sd_Numlist[idx].splice(0, this.sd_Numlist[idx].length);
                     this.sp_totalBet();
                 }
-                else if (type == 'da' || type == 'sio' || type == 'den' || type == 'dab') {
+                else if (['da', 'sio', 'den', 'dab'].includes(type)) {
                     this.sp_Numlist('clear', idx);
-                    let mmd = Math.ceil((SE[1] + SE[0]) / 2);
-                    let result = {
-                        'da': this.Numlist[idx].filter(x => x >= mmd),
-                        'sio': this.Numlist[idx].filter(x => x < mmd),
-                        'den': this.Numlist[idx].filter(x => x % 2 == 1),
-                        'dab': this.Numlist[idx].filter(x => x % 2 == 0)
-                    }
-                    for (let a = SE[0]; a <= SE[1]; a++) {
-                        if (result[type].indexOf(a) > -1) {
-                            this.selectNum(a, idx, a == result[type][result[type].length - 1]);
+                    let mmd = Math.ceil(this.Numlist[idx].length / 2) - 1;
+                    let result =
+                        type == 'da' && this.Numlist[idx].filter((x, i) => i > mmd) ||
+                        type == 'sio' && this.Numlist[idx].filter((x, i) => i <= mmd) ||
+                        type == 'den' && this.Numlist[idx].filter(x => x * 1 % 2 == 1) ||
+                        type == 'dab' && this.Numlist[idx].filter(x => x * 1 % 2 == 0);
+                    for (let a of this.Numlist[idx]) {
+                        if (result.indexOf(a) > -1) {
+                            this.selectNum(a, idx, a == result[result.length - 1]);
                         }
                     }
                 }
