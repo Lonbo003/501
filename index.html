@@ -10,7 +10,22 @@
     <script src="./src/js/base.js"></script>
 </head>
 <body>
-    <a href="/index2.html">AAAAAAAAAAAAAAAAAAAAAAAA222222222222222222222222222222</a>
+    <label id="l1"></label>
+    <input id="i1" type="number" name="name" value="111111" />
+    <script>
+        setTimeout(function () {
+            document.getElementById('l1').innerText = 1
+            document.getElementById('i1').focus();
+        }, 1000);
+        setTimeout(function () {
+            document.getElementById('l1').innerText = 2
+            document.getElementById('i1').select();
+        }, 2500);
+        setTimeout(function () {
+            document.getElementById('l1').innerText = 3
+            document.getElementById('i1').click();
+        }, 4000);
+    </script>
     <div id="app" v-cloak>
         <div class="main_frame">
             <!--czlist-->
