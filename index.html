@@ -7,7 +7,7 @@
     <title></title>
     <link href="./src/css/style.min.css" rel="stylesheet" />
     <script src="./src/js/vue.js"></script>
-    <script src="./src/js/base.js"></script>
+    <script src="./src/js/base.es5.min.js"></script>
 </head>
 <body>
     <div id="app" v-cloak>
@@ -57,13 +57,9 @@
                 <!--WZlist-->
                 <div v-show="WZlist.length > 0">
                     <div class="num_box">
-                        <div v-if="subDetail.hasOwnProperty('title')">
-                            <div v-if="subDetail.title.hasOwnProperty('WZ')">
-                                <label class="num_title" v-if="typeof(subDetail.title.WZ) != 'undefined'">
-                                    {{subDetail.title.WZ[0]}}
-                                </label>
-                            </div>
-                        </div>
+                        <label class="num_title" v-if="subDetail.title && subDetail.title.WZ">
+                            {{subDetail.title.WZ[0]}}
+                        </label>
                         <div class="WZ_item"
                              v-for="item in WZlist"
                              @click="selectWZ(item)"
@@ -75,13 +71,9 @@
                 <!--Clist-->
                 <div v-show="Clist.length > 0">
                     <div class="num_box" v-for="(list, idx) in Clist">
-                        <div v-if="subDetail.hasOwnProperty('title')">
-                            <div v-if="subDetail.title.hasOwnProperty('C')">
-                                <label class="num_title" v-if="typeof(subDetail.title.C) != 'undefined'">
-                                    {{subDetail.title.C[idx]}}
-                                </label>
-                            </div>
-                        </div>
+                        <label class="num_title" v-if="subDetail.title && subDetail.title.C">
+                            {{subDetail.title.C[idx]}}
+                        </label>
                         <div class="num_item num_item_C"
                              v-for="item in list"
                              @click="selectC(item, idx)"
@@ -93,13 +85,9 @@
                 <!--normal number-->
                 <div v-show="Numlist.length > 0">
                     <div class="num_box" v-for="(num, idx) in Numlist">
-                        <div v-if="subDetail.hasOwnProperty('title')">
-                            <div v-if="subDetail.title.hasOwnProperty('N')">
-                                <label class="num_title" v-if="subDetail.title.N.length > 0">
-                                    <span>{{subDetail.title.N[idx]}}</span>
-                                </label>
-                            </div>
-                        </div>
+                        <label class="num_title" v-if="subDetail.title && subDetail.title.N">
+                            <span>{{subDetail.title.N[idx]}}</span>
+                        </label>
                         <div class="num_item"
                              v-for="(num2, idx2) in num"
                              @click="selectNum(num2, idx, true)"
@@ -139,6 +127,6 @@
             </div>
         </div>
     </div>
-    <script src="./src/js/main.js"></script>
+    <script src="./src/js/main.es5.min.js"></script>
 </body>
 </html>

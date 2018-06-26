@@ -1,8 +1,4 @@
-﻿function DeepClone(obj) {
-    return JSON.parse(JSON.stringify(obj));
-}
-
-var app = new Vue({
+﻿var app = new Vue({
     el: '#app',
     data: {
         baseData: baseData,

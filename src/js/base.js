@@ -5477,13 +5477,15 @@
         ]
     }
 ];
-
+function DeepClone(obj) {
+    return JSON.parse(JSON.stringify(obj));
+}
 function sp_baseData(type, _e) {
     if (type == 'hide') {
         for (let i = _e.length - 1; i >= 0; i--) {
             if (_e[i].cnName == '') { _e.splice(i, 1); }
             else
-                if (_e[i].hasOwnProperty('data')) { sp_baseData('hide', _e[i].data); }
+                _e[i].data && sp_baseData('hide', _e[i].data);
         }
     }
 }
