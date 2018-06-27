@@ -3630,6 +3630,9 @@
                         func(Nlist) {
                             let result = Nlist[0].length;
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     }
                 ]
@@ -3649,6 +3652,9 @@
                         func(Nlist) {
                             let result = Nlist[0].length;
                             return result;
+                        },
+                        func_fate() {
+                            return sp_fate(this, 1, false);
                         }
                     }
                 ]
