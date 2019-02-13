@@ -7,8 +7,8 @@ self.onmessage = function (e) {//e.data
   let arrR = new Set();
   let arrP = e.data.arrP;
   //迴圈範圍
-  let start = idx * limit;
-  let end = (idx + 1) * limit > arr0.length ? arr0.length : (idx + 1) * limit;
+  let start = 0//idx * limit;
+  let end = arr0.length//(idx + 1) * limit > arr0.length ? arr0.length : (idx + 1) * limit;
   if (rule.ws === 1) {
     for (let a = start; a < end; a++) {
       if (arr0[a].length < (rule.len * rule.ws)) continue;
